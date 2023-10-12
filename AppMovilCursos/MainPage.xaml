@@ -50,7 +50,9 @@
                             TextColor="#fff"
                             FontSize="18"
                             FontAttributes="Bold"
-                            Margin="0,20,0,0" />
+                            Margin="0,20,0,0"
+                            x:Name="Login"
+                            Clicked="Login_Clicked"/>
                 </StackLayout>
             </Frame>
         </AbsoluteLayout>
