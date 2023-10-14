@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppMovilCursos.Views.Inicio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace AppMovilCursos
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private async void btnIngresar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Contenedor());
         }
     }
 }
