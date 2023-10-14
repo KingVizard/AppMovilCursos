@@ -3,12 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.Inicio"
              Title="Inicio"
+             BackgroundColor="snow"
              >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Soy el inicio"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image Source="avatar" HeightRequest="200" Background="red" Margin="0,0,0,10" />
+            <StackLayout Margin="10">
+                <Button Text="Curso 1" />
+                <Button Text="Curso 2" />
+                <Button Text="Curso 3" />
+                <Button Text="Curso 4" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

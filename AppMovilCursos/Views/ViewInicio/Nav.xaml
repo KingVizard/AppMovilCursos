@@ -14,7 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <AbsoluteLayout Grid.Column="0" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Background="#efefef">
+        <AbsoluteLayout Grid.Column="0" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Background="snow">
             <Image Source="avatar_menu_v1.png"
                        HeightRequest="120"
                        VerticalOptions="CenterAndExpand"
@@ -28,6 +28,11 @@
                    VerticalOptions="EndAndExpand"
                    Margin="10"
                    FontAttributes="Bold" FontSize="22"/>
+            <Button Text="" BackgroundColor="#1111" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                    x:Name="btnPerfil" Clicked="btnPerfil_Clicked"
+                    
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All"/>
         </AbsoluteLayout>
         <StackLayout  Grid.Column="0" Grid.Row="1" Margin="5">
             <Grid>
