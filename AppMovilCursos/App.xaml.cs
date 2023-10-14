@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using AppMovilCursos.Views;
+using AppMovilCursos.Views.TabbedView;
 
 namespace AppMovilCursos
 {
@@ -13,7 +14,8 @@ namespace AppMovilCursos
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new Plantilla());
+            //MainPage = new NavigationPage(new Plantilla());
+            MainPage = new NavigationPage(new TabbedPage1());
         }
 
         protected override void OnStart()

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:locals="clr-namespace:AppMovilCursos.Views.TabbedView"
+             x:Class="AppMovilCursos.Views.TabbedView.TabbedPage1"
+            NavigationPage.HasNavigationBar="False"
+            Title="Tabbed"
+            BarTextColor="#fff"
+            BarBackgroundColor="#40ff8d"
+            SelectedTabColor="Black"
+            UnselectedTabColor="White"
+            >
+  <!--Pages can be added as references or inline-->
+    <locals:Page1 Title="Cursos" IconImageSource="IconHome" />
+    <locals:Page2 Title="Configuración" IconImageSource="IconSettings"/>
+    <locals:Page3 Title="Cuenta" IconImageSource="IconUser" />
+</TabbedPage>
