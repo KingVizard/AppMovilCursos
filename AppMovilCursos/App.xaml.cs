@@ -1,4 +1,4 @@
-﻿using AppMovilCursos.Views.Inicio;
+﻿using AppMovilCursos.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,7 +13,7 @@ namespace AppMovilCursos
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new Contenedor());
         }
 
         protected override void OnStart()
