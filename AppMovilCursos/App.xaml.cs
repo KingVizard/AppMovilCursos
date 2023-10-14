@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppMovilCursos.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,10 @@ namespace AppMovilCursos
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            //MainPage = new NavigationPage(new MainPage());
+            //MainPage = new NavigationPage(new Ayuda());
+            //INICIO, PERFIL, CERRAR SESION, PERFIL, CONFIGURACIÓN
         }
 
         protected override void OnStart()

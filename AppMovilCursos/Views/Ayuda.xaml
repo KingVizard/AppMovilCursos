@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovilCursos.Views.Ayuda"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout >
+            <Label Text="Problemas al Iniciar Sesión"
+                   FontAttributes="Bold"
+                   FontSize="25"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   HeightRequest="80"
+                   WidthRequest="400"
+                   Background="Red"/>
+            <StackLayout Margin="10, 20">
+                <Label Text="* Favor de ingresar el inconveniente que presenta con la aplicación: "/>
+                <Frame CornerRadius="10">
+                    <Entry FlowDirection="RightToLeft" />
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

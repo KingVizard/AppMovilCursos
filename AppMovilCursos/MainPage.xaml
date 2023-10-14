@@ -20,7 +20,11 @@
                         HeightRequest="40"
                         HorizontalOptions="End"
                         AbsoluteLayout.LayoutBounds="0,0,1,1"
-                        AbsoluteLayout.LayoutFlags="All" />
+                        AbsoluteLayout.LayoutFlags="All"
+                        x:Name="btnAyuda"
+                        Clicked="btnAyuda_Clicked"
+                        IsVisible="False"
+                        />
             </StackLayout>
             <Frame CornerRadius="20"
                    BackgroundColor="Snow"
@@ -50,7 +54,9 @@
                             TextColor="#fff"
                             FontSize="18"
                             FontAttributes="Bold"
-                            Margin="0,20,0,0" />
+                            Margin="0,20,0,0"
+                            x:Name="btnIngresar"
+                            Clicked="btnIngresar_Clicked"/>
                 </StackLayout>
             </Frame>
         </AbsoluteLayout>
