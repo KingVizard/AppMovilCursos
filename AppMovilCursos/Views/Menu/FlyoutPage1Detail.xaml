@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovilCursos.Views.FlyoutPage1Detail"
+             Title=""
+             >
+    <StackLayout Padding="10" HeightRequest="500"  VerticalOptions="CenterAndExpand" Spacing="20">
+
+
+        <Frame CornerRadius="20" Padding="0" Background="blue" HeightRequest="130" WidthRequest="130" HorizontalOptions="Center">
+            <AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                <ImageButton Source="ImgEmpleado" BackgroundColor="Aqua" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="10,10,10,25"/>
+                <Label Text="Empleados" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"  Padding="10,10,10,5" />
+            </AbsoluteLayout>
+        </Frame>
+
+        <Frame CornerRadius="20" Padding="0" Background="blue" HeightRequest="130" WidthRequest="130" HorizontalOptions="Center">
+            <AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                <ImageButton Source="ImgTask" BackgroundColor="Aqua" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="10,10,10,25"/>
+                <Label Text="CURSOS" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"  Padding="10,10,10,5" />
+            </AbsoluteLayout>
+        </Frame>
+        <!--
+        <StackLayout>
+            <Frame HorizontalOptions="Center" CornerRadius="20" Padding="0" Background="blue">
+                <ImageButton BackgroundColor="GreenYellow" Source="ImgEmpleado" HeightRequest="120" WidthRequest="120" Padding="15,15,15,25" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            </Frame>
+            <Label Text="Empleados" HorizontalTextAlignment="Center" />
+        </StackLayout>
+
+        <StackLayout>
+            <Frame HorizontalOptions="Center" CornerRadius="20" Padding="0" Background="blue">
+                <ImageButton BackgroundColor="GreenYellow" Source="ImgTask" HeightRequest="120" WidthRequest="120" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            </Frame>
+            <Label Text="Cursos" HorizontalTextAlignment="Center" />
+        </StackLayout>
+     -->
+    </StackLayout>
+</ContentPage>

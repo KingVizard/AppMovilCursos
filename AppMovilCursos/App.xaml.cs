@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AppMovilCursos.Views;
 
 namespace AppMovilCursos
 {
@@ -10,7 +11,7 @@ namespace AppMovilCursos
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new FlyoutPage1();
         }
 
         protected override void OnStart()
