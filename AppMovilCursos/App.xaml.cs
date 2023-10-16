@@ -11,7 +11,7 @@ namespace AppMovilCursos
         {
             InitializeComponent();
 
-            MainPage = new FlyoutPage1();
+            MainPage = new NavigationPage(new FlyoutPage1());
         }
 
         protected override void OnStart()

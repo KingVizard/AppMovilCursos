@@ -2,13 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.PagePerfil"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True"
+             NavigationPage.BackButtonTitle="aaa"
              >
     <ContentPage.Content>
         <StackLayout>
-           <!-- <Button Text="atras" x:Name="back" Clicked="back_Clicked"/> -->
-            <Label Text="Welcome to Perfil"
+       <!--     <ImageButton Source="IconBack.png" x:Name="back" Clicked="back_Clicked" HorizontalOptions="Start" Padding="15" BackgroundColor="Green"/> -->
+            <Label Text="Welcome to Perfil KKKKK"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="30"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

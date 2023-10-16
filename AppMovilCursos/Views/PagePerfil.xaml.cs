@@ -17,9 +17,11 @@ namespace AppMovilCursos.Views
 			InitializeComponent ();
 		}
 
-   //     private async void back_Clicked(object sender, EventArgs e)
-   //     {
+		private async void back_Clicked(object sender, EventArgs e)
+		{
+			//await Navigation.PushModalAsync(new FlyoutPage1());
 			//await Navigation.PopModalAsync();
-   //     }
-    }
+			//await Navigation.PopModalAsync();
+        }
+	}
 }

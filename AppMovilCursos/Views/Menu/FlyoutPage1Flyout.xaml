@@ -22,21 +22,29 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
           </Grid.RowDefinitions>
+            <Image Source="avatar.png" HeightRequest="20" Grid.Column="1"
+                   
+              Grid.Row="1" />
           <Label
               Grid.Column="1"
               Grid.Row="2"
-              Text="AppName"
+              Text="Pablo Peña Gonzalez"
               Style="{DynamicResource SubtitleStyle}"/>
+            <!-- -->
+
         </Grid>
       </ListView.Header>
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
-              <Label VerticalOptions="FillAndExpand" 
-                    VerticalTextAlignment="Center" 
-                    Text="{Binding Title}" 
-                    FontSize="24"/>
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center" Padding="10,12" Spacing="10">
+                    <Image Source="{Binding Icon}" HeightRequest="30" VerticalOptions="FillAndExpand" />
+                    <Label VerticalOptions="FillAndExpand" 
+                        VerticalTextAlignment="Center" 
+                        Text="{Binding Title}" 
+                        FontSize="24"/>
+                </StackLayout>
             </StackLayout>
           </ViewCell>
         </DataTemplate>

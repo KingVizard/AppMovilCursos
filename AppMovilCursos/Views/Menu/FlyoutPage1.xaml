@@ -2,7 +2,8 @@
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.FlyoutPage1"
-             xmlns:pages="clr-namespace:AppMovilCursos.Views">
+             xmlns:pages="clr-namespace:AppMovilCursos.Views"
+            NavigationPage.HasNavigationBar="False">
   <FlyoutPage.Flyout>
     <pages:FlyoutPage1Flyout x:Name="FlyoutPage" />
   </FlyoutPage.Flyout>
@@ -10,6 +11,7 @@
     <NavigationPage>
       <x:Arguments>
         <pages:FlyoutPage1Detail />
+        
       </x:Arguments>
     </NavigationPage>
   </FlyoutPage.Detail>

@@ -16,5 +16,15 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
         }
+
+        private async void btnNavTask_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new PageCursos());
+        }
+
+        private async void btnNavEmployee_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new PageEmpleados());
+        }
     }
 }
