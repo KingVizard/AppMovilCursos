@@ -1,12 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovilCursos.Views.RegistroCursos">
+             x:Class="AppMovilCursos.Views.RegistroCursos"
+             Title="Registro de cursos">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Nombre del curso:" />
+            <Entry Keyboard="Chat" x:Name="txtNombreCurso"/>
+            <Label Text="Tipo del curso:" />
+            <Entry Keyboard="Chat" x:Name="txtTipoCurso"/>
+            <Label Text="Descripción:" />
+            <Entry Keyboard="Chat" x:Name="txtDescCurso"/>
+            <Label Text="Duración:" />
+            <Entry Keyboard="Numeric" x:Name="txtCantidadHoras"/>
+           
+
+            <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" />
+            <Button Text="Lista de cursos" x:Name="btnListaCursos" Clicked="btnListaCursos_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

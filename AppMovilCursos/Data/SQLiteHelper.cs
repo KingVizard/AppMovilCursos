@@ -15,6 +15,7 @@ namespace AppMovilCursos.Data
         {
             db = new SQLiteAsyncConnection(dbPath);
             db.CreateTableAsync<Empleados>().Wait();
+            db.CreateTableAsync<Cursos>().Wait();
         }
 
         //GUARDAR EMPLEADOS
@@ -33,6 +34,22 @@ namespace AppMovilCursos.Data
         public Task<List<Empleados>> GetEmpleadosAsync() 
         {
             return db.Table<Empleados>().ToListAsync();
+        }
+
+        public Task<int> SaveCursoAsync(Cursos cur)
+        {
+            if(cur.IdCur == 0)
+            {
+                return db.InsertAsync(cur);
+            }else
+            {
+                return null;
+            }
+        }
+
+        public Task<List<Cursos>> GetCursosAsync()
+        {
+            return db.Table<Cursos>().ToListAsync();
         }
     }
 }
