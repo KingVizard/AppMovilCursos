@@ -15,8 +15,8 @@ namespace AppMovilCursos
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new RegistroEmpleados());
-            //MainPage = new NavigationPage(new RegistroCursos());
+            //MainPage = new NavigationPage(new RegistroEmpleados());
+            MainPage = new NavigationPage(new RegistroCursos());
         }
 
         public static SQLiteHelper SQLiteDB
