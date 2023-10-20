@@ -4,7 +4,7 @@
              x:Class="AppMovilCursos.Views.RegistroCursos"
              Title="Registro de cursos">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10,20">
             <Label Text="Nombre del curso:" />
             <Entry Keyboard="Chat" x:Name="txtNombreCurso"/>
             <Label Text="Tipo del curso:" />
@@ -13,10 +13,18 @@
             <Entry Keyboard="Chat" x:Name="txtDescCurso"/>
             <Label Text="Duración:" />
             <Entry Keyboard="Numeric" x:Name="txtCantidadHoras"/>
-           
 
-            <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" />
-            <Button Text="Lista de cursos" x:Name="btnListaCursos" Clicked="btnListaCursos_Clicked" />
+
+            <Button Text="+ Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="LightSeaGreen"
+                            CornerRadius="10"
+                            TextColor="#fff"
+                            FontSize="18"
+                            FontAttributes="Bold" />
+            <Button Text="Lista de cursos" x:Name="btnListaCursos" Clicked="btnListaCursos_Clicked" BackgroundColor="DeepSkyBlue"
+                            CornerRadius="10"
+                            TextColor="#fff"
+                            FontSize="18"
+                            FontAttributes="Bold" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
