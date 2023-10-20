@@ -12,7 +12,7 @@ using Xamarin.Forms.Xaml;
 namespace AppMovilCursos.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Inicio : TabbedPage
+    public partial class Inicio : Xamarin.Forms.TabbedPage
     {
         public Inicio()
         {

@@ -10,7 +10,7 @@
             SelectedTabColor="Black"
             UnselectedTabColor="White">
   <!--Pages can be added as references or inline-->
-  <locals:RegistroEmpleados Title="Registro Empleados" IconImageSource="IconHome" />
-  <locals:RegistroEmpleados Title="Registro Cursos" IconImageSource="IconHome" />
+  <locals:RegistroEmpleados Title="Registro Empleados" />
+  <locals:RegistroCursos Title="Registro Cursos" IconImageSource="IconHome" />
   <locals:Perfil Title="Perfil" IconImageSource="IconHome" />
 </TabbedPage>
