@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovilCursos.Views.ListaEmpleados">
+    <ContentPage.Content>
+        <StackLayout Margin="10,20" >
+            <Label Text="Lista de Empleados" FontSize="25" FontAttributes="Bold" />
+            <Frame CornerRadius="10" Margin="0,0,0,15">
+                <ListView x:Name="lsEmpleados"
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="StartAndExpand"
+                      Background="Transparent"
+                  
+                      >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="6">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding IdEmp}"
+                                       Grid.Row="0"
+                                       Grid.Column="0" />
+                                    <Label Text="{Binding Nombre}"
+                                       Grid.Row="0"
+                                       Grid.Column="1" />
+                                    <Label Text="{Binding Direccion}"
+                                       Grid.Row="0"
+                                       Grid.Column="2" />
+                                    <Label Text="{Binding Telefono}"
+                                       Grid.Row="0"
+                                       Grid.Column="3" />
+                                    <Label Text="{Binding Edad}"
+                                       Grid.Row="0"
+                                       Grid.Column="4" />
+                                    <Label Text="{Binding Curp}"
+                                       Grid.Row="0"
+                                       Grid.Column="5" />
+                                    <Label Text="{Binding TipoEmpleado}"
+                                       Grid.Row="0"
+                                       Grid.Column="5" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+
+            <Button Text="Volver"
+                    x:Name="btnVolver"
+                    Clicked="btnVolver_Clicked"
+                    BackgroundColor="SlateBlue"
+                HorizontalOptions="CenterAndExpand"
+                WidthRequest="350"
+                CornerRadius="10"
+                FontSize="18"
+                FontAttributes="Bold"
+                TextColor="#FFF"
+                Margin="0"
+                Padding="0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

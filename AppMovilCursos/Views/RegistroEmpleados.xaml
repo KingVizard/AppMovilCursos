@@ -16,11 +16,12 @@
             <Label Text="Curp:" />
             <Entry Keyboard="Chat" x:Name="txtCurp"/>
             
-            <Label Text="TipoEmpleado:" />
-            <Entry Keyboard="Numeric" x:Name="txtTipoEmpleado"/>
-            <Picker Title="Tipo de empleado" />
+            <Label Text="Tipo de Empleado:" />
+            <Entry Keyboard="Chat" x:Name="txtTipoEmpleado"/>
+        <!--    <Picker Title="Tipo de empleado" /> -->
 
             <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" />
+            <Button Text="Lista de empleados" x:Name="btnListaEmpleados" Clicked="btnListaEmpleados_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
