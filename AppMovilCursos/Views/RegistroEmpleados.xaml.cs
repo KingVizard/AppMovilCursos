@@ -16,5 +16,10 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
         }
+
+        private async void btnRegistrar_Clicked(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
