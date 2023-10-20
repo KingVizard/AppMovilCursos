@@ -6,11 +6,11 @@
             NavigationPage.HasNavigationBar="False"
             Title="Tabbed"
             BarTextColor="#fff"
-            BarBackgroundColor="#40ff8d"
-            SelectedTabColor="Black"
-            UnselectedTabColor="White">
+            BarBackgroundColor="CadetBlue"
+            SelectedTabColor="#fff"
+            UnselectedTabColor="#ccc">
   <!--Pages can be added as references or inline-->
-  <locals:RegistroEmpleados Title="Registro Empleados" />
-  <locals:RegistroCursos Title="Registro Cursos" IconImageSource="IconHome" />
-  <locals:Perfil Title="Perfil" IconImageSource="IconHome" />
+  <locals:RegistroEmpleados Title="Registro Empleados" IconImageSource="IconUser" />
+  <locals:RegistroCursos Title="Registro Cursos" IconImageSource="IconTask" />
+  <locals:Perfil Title="Perfil" IconImageSource="IconPerfil" />
 </TabbedPage>
