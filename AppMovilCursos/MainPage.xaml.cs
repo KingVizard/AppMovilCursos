@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using AppMovilCursos.Views;
 
 namespace AppMovilCursos
 {
@@ -13,6 +14,11 @@ namespace AppMovilCursos
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private async void btnIngresar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Inicio());
         }
     }
 }

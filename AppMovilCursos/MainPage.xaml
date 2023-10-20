@@ -50,7 +50,9 @@
                             TextColor="#fff"
                             FontSize="18"
                             FontAttributes="Bold"
-                            Margin="0,20,0,0" />
+                            Margin="0,20,0,0"
+                            x:Name="btnIngresar"
+                            Clicked="btnIngresar_Clicked"/>
                 </StackLayout>
             </Frame>
         </AbsoluteLayout>
