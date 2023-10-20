@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovilCursos.Views.Inicio">
+            xmlns:locals="clr-namespace:AppMovilCursos.Views"
+             x:Class="AppMovilCursos.Views.Inicio"
+            NavigationPage.HasNavigationBar="False"
+            Title="Tabbed"
+            BarTextColor="#fff"
+            BarBackgroundColor="#40ff8d"
+            SelectedTabColor="Black"
+            UnselectedTabColor="White">
   <!--Pages can be added as references or inline-->
-  <ContentPage Title="Tab 1" />
-  <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
+  <locals:RegistroEmpleados Title="Registro Empleados" IconImageSource="IconHome" />
+  <locals:RegistroEmpleados Title="Registro Cursos" IconImageSource="IconHome" />
+  <locals:Perfil Title="Perfil" IconImageSource="IconHome" />
 </TabbedPage>

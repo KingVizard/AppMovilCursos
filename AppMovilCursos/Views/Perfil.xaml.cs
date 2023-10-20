@@ -5,20 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace AppMovilCursos.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Inicio : TabbedPage
+    public partial class Perfil : ContentPage
     {
-        public Inicio()
+        public Perfil()
         {
             InitializeComponent();
-            On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
-            On<Android>().SetIsSmoothScrollEnabled(true);
         }
     }
 }
