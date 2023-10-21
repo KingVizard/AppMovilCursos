@@ -15,7 +15,6 @@ namespace AppMovilCursos.Views
         public ListaEmpleados()
         {
             InitializeComponent();
-            mostrar();
         }
 
         public async void mostrar()
@@ -26,9 +25,20 @@ namespace AppMovilCursos.Views
                 lsEmpleados.ItemsSource = EmpleadosList;
             }
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            mostrar();
+        }
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        private async void btnRegistrarEmpleado_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new RegistroEmpleados());
         }
     }
 }

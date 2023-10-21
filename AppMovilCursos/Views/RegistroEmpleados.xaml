@@ -4,7 +4,7 @@
              x:Class="AppMovilCursos.Views.RegistroEmpleados"
              Title="Registro de Empleados">
     <ContentPage.Content>
-        <StackLayout>
+     <!--   <StackLayout>
             <Label Text="Nombre:" />
             <Entry Keyboard="Chat" x:Name="txtNombre"/>
             <Label Text="Dirección:" />
@@ -18,10 +18,36 @@
             
             <Label Text="Tipo de Empleado:" />
             <Entry Keyboard="Chat" x:Name="txtTipoEmpleado"/>
-        <!--    <Picker Title="Tipo de empleado" /> -->
 
             <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" />
             <Button Text="Lista de empleados" x:Name="btnListaEmpleados" Clicked="btnListaEmpleados_Clicked" />
+        </StackLayout> -->
+
+        <StackLayout Margin="10">
+            <ImageButton HorizontalOptions="Start" Source="IconBack.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="DeepSkyBlue" WidthRequest="40" HeightRequest="40" Padding="4"/>
+            <Label Text="Registrar Empleado" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <StackLayout Margin="10" >
+
+                <Label Text="Nombre:" />
+                <Entry Keyboard="Chat" x:Name="txtNombre"/>
+                <Label Text="Dirección:" />
+                <Entry Keyboard="Chat" x:Name="txtDireccion"/>
+                <Label Text="Teléfono:" />
+                <Entry Keyboard="Telephone" x:Name="txtTelefono"/>
+                <Label Text="Edad:" />
+                <Entry Keyboard="Numeric" x:Name="txtEdad"/>
+                <Label Text="Curp:" />
+                <Entry Keyboard="Chat" x:Name="txtCurp"/>
+
+                <Label Text="Tipo de Empleado:" />
+                <Entry Keyboard="Chat" x:Name="txtTipoEmpleado"/>
+
+                <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="LightSeaGreen"
+                                CornerRadius="10"
+                                TextColor="#fff"
+                                FontSize="18"
+                                FontAttributes="Bold"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

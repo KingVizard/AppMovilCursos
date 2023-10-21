@@ -6,7 +6,7 @@
             NavigationPage.HasNavigationBar="False"
             Title="Tabbed"
             BarTextColor="#fff"
-            BarBackgroundColor="CadetBlue"
+            BarBackgroundColor="DeepSkyBlue"
             SelectedTabColor="#fff"
             UnselectedTabColor="#ccc">
   <!--Pages can be added as references or inline-->

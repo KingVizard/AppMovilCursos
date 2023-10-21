@@ -40,31 +40,7 @@ namespace AppMovilCursos.Views
             mostrarCursos();
         }
 
-        //---------------------
-        bool _canClose;
-
-        protected override bool OnBackButtonPressed()
-        {
-            if (_canClose)
-            {
-
-                ShowExitDialog();
-            }
-            return _canClose;
-        }
-
-        private async void ShowExitDialog()
-        {
-            var answer = await DisplayAlert("Salir", "¿Deseas salir de la app?", "Si", "No");
-
-            if (answer)
-            {
-                _canClose = false;
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
-                //OnBackButtonPressed();
-            }
-        }
-        //---------------------
+        
 
 
     }

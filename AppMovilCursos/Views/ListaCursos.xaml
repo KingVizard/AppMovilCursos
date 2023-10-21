@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.ListaCursos"
              NavigationPage.HasNavigationBar="False"
-             Background="snow">
+             Background="DeepSkyBlue">
     <ContentPage.Content>
        <!-- <StackLayout Margin="10,20" >
             <Label Text="Lista de Cursos" FontSize="25" FontAttributes="Bold" />
@@ -71,11 +71,11 @@
                 Margin="0"
                 Padding="0"/>
         </StackLayout> -->
-        <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Padding="10,20"  >
+       <!-- <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Padding="10,20"  >
             <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent">
                 <StackLayout BackgroundColor="Transparent" > 
                     <Label Text="Lista de Cursos" FontSize="25" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0,0,1,1" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="Transparent" />
-                    <Frame CornerRadius="10" Padding="0" HasShadow="True" BackgroundColor="BurlyWood">
+                    <Frame CornerRadius="10" Padding="5" HasShadow="True" BackgroundColor="PaleGoldenrod">
                         
                         <ListView x:Name="lsCursos"
                       HorizontalOptions="CenterAndExpand"
@@ -98,9 +98,8 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="20" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20" />
+                                            </Grid.ColumnDefinitions>
                                         <Label Text="{Binding IdCur}"
                                        Grid.Row="0"
                                        Grid.Column="0" />
@@ -125,6 +124,63 @@
                 </StackLayout>
             </StackLayout>
             <ImageButton Source="IconPlus.ico" CornerRadius="50" HeightRequest="50" WidthRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" Margin="25" x:Name="btnRegistrarCurso" Clicked="btnRegistrarCurso_Clicked"/>
+        </AbsoluteLayout> -->
+
+        <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >
+            <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent">
+                <StackLayout BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="0" >
+                    <Label Text="Lista de Cursos" TextColor="#fff" BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="All" FontSize="25" Padding="8" HorizontalTextAlignment="Center"  FontAttributes="Bold" />
+                    <Frame CornerRadius="10" Padding="5" HasShadow="False" BackgroundColor="Snow" Margin="0">
+                        <ListView x:Name="lsCursos"
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="StartAndExpand"
+                                  Margin="0"
+                      BackgroundColor="Transparent"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                          AbsoluteLayout.LayoutFlags="All"
+                      >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="6">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="20" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding IdCur}"
+                                       Grid.Row="0"
+                                       Grid.Column="0" />
+                                            <Label Text="{Binding NombreCurso}"
+                                       Grid.Row="0"
+                                       Grid.Column="1" />
+                                            <Label Text="{Binding TipoCurso}"
+                                       Grid.Row="0"
+                                       Grid.Column="2" />
+                                            <Label Text="{Binding DescCurso}"
+                                       Grid.Row="0"
+                                       Grid.Column="3" />
+                                            <Label Text="{Binding CantidadHoras}"
+                                       Grid.Row="0"
+                                       Grid.Column="4" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <ImageButton Source="IconPlus.ico" CornerRadius="50" HeightRequest="50" WidthRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" Margin="25" x:Name="btnRegistrarCurso" Clicked="btnRegistrarCurso_Clicked"/>
+
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

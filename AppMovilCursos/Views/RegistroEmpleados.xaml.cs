@@ -87,5 +87,10 @@ namespace AppMovilCursos.Views
         {
             await Navigation.PushModalAsync(new ListaEmpleados());
         }
+
+        private async void btnVolver_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }
