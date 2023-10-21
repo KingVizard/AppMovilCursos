@@ -27,9 +27,11 @@ namespace AppMovilCursos.Views
             }
         }
 
-        private async void btnVolver_Clicked(object sender, EventArgs e)
+
+
+        private async void btnRegistrarCurso_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PushModalAsync(new RegistroCursos());
         }
     }
 }

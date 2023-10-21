@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.RegistroCursos"
-             Title="Registro de cursos">
+             Title="Registro de cursos"
+             NavigationPage.HasNavigationBar="True">
     <ContentPage.Content>
         <StackLayout Margin="10,20">
             <Label Text="Nombre del curso:" />
@@ -20,7 +21,7 @@
                             TextColor="#fff"
                             FontSize="18"
                             FontAttributes="Bold" />
-            <Button Text="Lista de cursos" x:Name="btnListaCursos" Clicked="btnListaCursos_Clicked" BackgroundColor="DeepSkyBlue"
+            <Button Text="Volver" x:Name="btnVolver" Clicked="btnVolver_Clicked" BackgroundColor="DeepSkyBlue"
                             CornerRadius="10"
                             TextColor="#fff"
                             FontSize="18"

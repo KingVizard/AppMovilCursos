@@ -71,9 +71,9 @@ namespace AppMovilCursos.Views
             return respuesta;
         }
 
-        private async void btnListaCursos_Clicked(object sender, EventArgs e)
+        private async void btnVolver_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new ListaCursos());
+            await Navigation.PopModalAsync();
         }
     }
 }
