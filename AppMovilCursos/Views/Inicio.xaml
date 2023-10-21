@@ -11,6 +11,6 @@
             UnselectedTabColor="#ccc">
   <!--Pages can be added as references or inline-->
   <locals:ListaEmpleados Title="Registro Empleados" IconImageSource="IconUser" />
-  <locals:RegistroCursos Title="Registro Cursos" IconImageSource="IconTask" />
+  <locals:ListaCursos Title="Registro Cursos" IconImageSource="IconTask" />
   <locals:Perfil Title="Perfil" IconImageSource="IconPerfil" />
 </TabbedPage>

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using AppMovilCursos.Views;
+
 namespace AppMovilCursos.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -18,7 +20,7 @@ namespace AppMovilCursos.Views
             InitializeComponent();
         }
 
-        private async void btnRegistrar_Clicked(object sender, EventArgs e)
+        private async void btnRegistrarCursos_Clicked(object sender, EventArgs e)
         {
             if (validarDatos())
             {
@@ -39,28 +41,60 @@ namespace AppMovilCursos.Views
                 txtCantidadHoras.Text = "";
 
                 await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
-            } else
+
+                
+            }
+            else
             {
                 await DisplayAlert("AVISO", "Ingresar los datos requeridos", "Ok");
             }
         }
 
+        //private async void btnRegistrar_Clicked(object sender, EventArgs e)
+        //{
+        //    //if (validarDatos())
+        //    //{
+        //    //    Cursos cur = new Cursos
+        //    //    {
+        //    //        NombreCurso = txtNombreCurso.Text,
+        //    //        TipoCurso = txtTipoCurso.Text,
+        //    //        DescCurso = txtDescCurso.Text,
+        //    //        CantidadHoras = int.Parse(txtCantidadHoras.Text),
+
+        //    //    };
+
+        //    //    await App.SQLiteDB.SaveCursoAsync(cur);
+
+        //    //    txtNombreCurso.Text = "";
+        //    //    txtTipoCurso.Text = "";
+        //    //    txtDescCurso.Text = "";
+        //    //    txtCantidadHoras.Text = "";
+
+        //    //    await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
+        //    //} else
+        //    //{
+        //    //    await DisplayAlert("AVISO", "Ingresar los datos requeridos", "Ok");
+        //    //}
+
+        //    validarDatos();
+        //}
+
         public bool validarDatos()
         {
             bool respuesta;
-            if(string.IsNullOrEmpty(txtNombreCurso.Text.Trim()))
+            if (string.IsNullOrEmpty(txtNombreCurso.Text))
             {
                 respuesta = false;
             }
-            else if(string.IsNullOrEmpty(txtTipoCurso.Text.Trim()))
+            else if (string.IsNullOrEmpty(txtTipoCurso.Text))
             {
                 respuesta = false;
             }
-            else if (string.IsNullOrEmpty(txtDescCurso.Text.Trim()))
+            else if (string.IsNullOrEmpty(txtDescCurso.Text))
             {
                 respuesta = false;
             }
-            else if (string.IsNullOrEmpty(txtCantidadHoras.Text.Trim()))
+            else if (string.IsNullOrEmpty(txtCantidadHoras.Text))
             {
                 respuesta = false;
             }
@@ -75,5 +109,7 @@ namespace AppMovilCursos.Views
         {
             await Navigation.PopModalAsync();
         }
+
+
     }
 }

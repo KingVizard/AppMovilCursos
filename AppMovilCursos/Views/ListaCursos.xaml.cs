@@ -15,7 +15,7 @@ namespace AppMovilCursos.Views
         public ListaCursos()
         {
             InitializeComponent();
-            mostrarCursos();
+            //mostrarCursos();
         }
 
         public async void mostrarCursos()
@@ -33,5 +33,39 @@ namespace AppMovilCursos.Views
         {
             await Navigation.PushModalAsync(new RegistroCursos());
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            mostrarCursos();
+        }
+
+        //---------------------
+        bool _canClose;
+
+        protected override bool OnBackButtonPressed()
+        {
+            if (_canClose)
+            {
+
+                ShowExitDialog();
+            }
+            return _canClose;
+        }
+
+        private async void ShowExitDialog()
+        {
+            var answer = await DisplayAlert("Salir", "¿Deseas salir de la app?", "Si", "No");
+
+            if (answer)
+            {
+                _canClose = false;
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                //OnBackButtonPressed();
+            }
+        }
+        //---------------------
+
+
     }
 }

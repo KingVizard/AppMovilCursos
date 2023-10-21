@@ -3,29 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.RegistroCursos"
              Title="Registro de cursos"
-             NavigationPage.HasNavigationBar="True">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Margin="10,20">
-            <Label Text="Nombre del curso:" />
-            <Entry Keyboard="Chat" x:Name="txtNombreCurso"/>
-            <Label Text="Tipo del curso:" />
-            <Entry Keyboard="Chat" x:Name="txtTipoCurso"/>
-            <Label Text="Descripción:" />
-            <Entry Keyboard="Chat" x:Name="txtDescCurso"/>
-            <Label Text="Duración:" />
-            <Entry Keyboard="Numeric" x:Name="txtCantidadHoras"/>
+        <StackLayout Margin="10">
+            <ImageButton HorizontalOptions="Start" Source="IconBack.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="DeepSkyBlue" WidthRequest="40" HeightRequest="40" Padding="4"/>
+            <Label Text="Registrar Curso" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <StackLayout Margin="10" >
+                
+                <Label Text="Nombre del curso:" />
+                <Entry Keyboard="Chat" x:Name="txtNombreCurso"/>
+                <Label Text="Tipo del curso:" />
+                <Entry Keyboard="Chat" x:Name="txtTipoCurso"/>
+                <Label Text="Descripción:" />
+                <Entry Keyboard="Chat" x:Name="txtDescCurso"/>
+                <Label Text="Duración:" />
+                <Entry Keyboard="Numeric" x:Name="txtCantidadHoras"/>
 
 
-            <Button Text="+ Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="LightSeaGreen"
-                            CornerRadius="10"
-                            TextColor="#fff"
-                            FontSize="18"
-                            FontAttributes="Bold" />
-            <Button Text="Volver" x:Name="btnVolver" Clicked="btnVolver_Clicked" BackgroundColor="DeepSkyBlue"
-                            CornerRadius="10"
-                            TextColor="#fff"
-                            FontSize="18"
-                            FontAttributes="Bold" />
+                <Button Text="Registrar" x:Name="btnRegistrarCursos" Clicked="btnRegistrarCursos_Clicked" BackgroundColor="LightSeaGreen"
+                                CornerRadius="10"
+                                TextColor="#fff"
+                                FontSize="18"
+                                FontAttributes="Bold" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -20,5 +20,33 @@ namespace AppMovilCursos.Views
             On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             On<Android>().SetIsSmoothScrollEnabled(true);
         }
+
+        //---------------------
+        /*ADD*/
+        private bool _canClose = true;
+
+        protected override bool OnBackButtonPressed()
+        {
+            if (_canClose)
+            {
+
+                ShowExitDialog();
+            }
+            return _canClose;
+        }
+
+        private async void ShowExitDialog()
+        {
+            var answer = await DisplayAlert("Salir", "¿Deseas salir de la app?", "Si", "No");
+
+            if (answer)
+            {
+                _canClose = false;
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                //OnBackButtonPressed();
+            }
+        }
+
+        //---------------------
     }
 }
