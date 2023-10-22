@@ -3,15 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.MainPage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#5198E4">
+             BackgroundColor="DeepSkyBlue">
 
     <StackLayout Margin="20">
+        <!-- BackgroundColor="#5198E4" -->
         <AbsoluteLayout VerticalOptions="FillAndExpand"
                         HorizontalOptions="FillAndExpand">
             <StackLayout HorizontalOptions="EndAndExpand"
                          AbsoluteLayout.LayoutBounds="0,0,1,1"
                          AbsoluteLayout.LayoutFlags="All">
-                <Button Text="Ayuda"
+              <!--  <Button Text="Ayuda"
                         BackgroundColor="#222"
                         CornerRadius="10"
                         TextColor="#fff"
@@ -20,7 +21,7 @@
                         HeightRequest="40"
                         HorizontalOptions="End"
                         AbsoluteLayout.LayoutBounds="0,0,1,1"
-                        AbsoluteLayout.LayoutFlags="All" />
+                        AbsoluteLayout.LayoutFlags="All" /> -->
             </StackLayout>
             <Frame CornerRadius="20"
                    BackgroundColor="Snow"
