@@ -5,8 +5,9 @@
     <ContentPage.Content>
         <StackLayout Margin="10">
             <ImageButton HorizontalOptions="Start" Source="IconBack.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="DeepSkyBlue" WidthRequest="40" HeightRequest="40" Padding="4"/>
-            <Label Text="Registrar Empleado" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Text="Editar Empleado" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             <StackLayout Margin="10" >
+                <Entry Keyboard="Chat" x:Name="txtIdEmp" IsVisible="False"/>
 
                 <Label Text="Nombre:" />
                 <Entry Keyboard="Chat" x:Name="txtNombre"/>
@@ -22,12 +23,11 @@
                 <Label Text="Tipo de Empleado:" />
                 <Entry Keyboard="Chat" x:Name="txtTipoEmpleado"/>
 
-               <!-- <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="LightSeaGreen"
-                                CornerRadius="10"
-                                TextColor="#fff"
-                                FontSize="18"
-                                FontAttributes="Bold"/>
-                -->
+                <StackLayout Orientation="Horizontal" HeightRequest="120" WidthRequest="120" HorizontalOptions="CenterAndExpand" Spacing="30">
+                    <ImageButton Source="delete.png" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" HeightRequest="50" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
+                    <ImageButton Source="edit.png" x:Name="btnEditar" Clicked="btnEditar_Clicked" HeightRequest="50" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
+                </StackLayout>
+                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

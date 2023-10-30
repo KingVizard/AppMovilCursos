@@ -18,16 +18,26 @@ namespace AppMovilCursos.Data
             db.CreateTableAsync<Cursos>().Wait();
         }
 
-        //GUARDAR EMPLEADOS
+        //GUARDAR EMPLEADOS ++ ACTUALIZAR
         public Task<int> SaveEmpleadoAsync(Empleados emple) 
         {
-            if(emple.IdEmp == 0)
+            //if(emple.IdEmp == 0)
+            if(emple.IdEmp != 0)
             {
-                return db.InsertAsync(emple);
+                //return db.InsertAsync(emple);
+                return db.UpdateAsync(emple);
             } else
             {
-                return null;
+                //return null;
+                return db.InsertAsync(emple);
+
             }
+        }
+
+        //ELIMINAR EMPLEADOS
+        public Task<int> DeleteEmpleadoAsync(Empleados emple)
+        {
+            return db.DeleteAsync(emple);
         }
 
         //MOSTRAR EMPLEADOS
@@ -41,6 +51,9 @@ namespace AppMovilCursos.Data
         {
             return db.Table<Empleados>().Where(i => i.IdEmp == personId).FirstOrDefaultAsync();
         }
+
+        //ACTUALIZAR EMPLEADO
+
 
         //GUARDAR CURSOS
         public Task<int> SaveCursoAsync(Cursos cur)
