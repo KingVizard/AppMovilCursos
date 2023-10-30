@@ -42,14 +42,14 @@ namespace AppMovilCursos.Views
                     //Delete Person  
                     await App.SQLiteDB.DeleteEmpleadoAsync(emple);
 
-                    await DisplayAlert("Exito", "Empleado Eliminado", "OK");
+                    await DisplayAlert("Aviso", "Empleado eliminado correctamente", "OK");
                     await Navigation.PopModalAsync();
 
                 }
             }
             else
             {
-                await DisplayAlert("Error", "Please Enter PersonID", "OK");
+                await DisplayAlert("Error", "No fue posible eliminar al empleado", "OK");
             }
         }
 
