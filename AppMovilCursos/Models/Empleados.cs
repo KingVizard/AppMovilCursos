@@ -14,8 +14,5 @@ namespace AppMovilCursos.Models
         public int Edad { get; set; }
         [MaxLength(25)] public string Curp { get; set; }
         [MaxLength(10)] public string TipoEmpleado { get; set; }
-
-        //public int
-
     }
 }

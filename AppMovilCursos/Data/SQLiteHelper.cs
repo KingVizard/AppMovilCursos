@@ -36,6 +36,13 @@ namespace AppMovilCursos.Data
             return db.Table<Empleados>().ToListAsync();
         }
 
+        //CONSULTA EMPLEADO
+        public Task<Empleados> GetEmpleadoIdAsync(int personId)
+        {
+            return db.Table<Empleados>().Where(i => i.IdEmp == personId).FirstOrDefaultAsync();
+        }
+
+        //GUARDAR CURSOS
         public Task<int> SaveCursoAsync(Cursos cur)
         {
             if(cur.IdCur == 0)
@@ -47,9 +54,12 @@ namespace AppMovilCursos.Data
             }
         }
 
+        //MOSTRAR CURSOS
         public Task<List<Cursos>> GetCursosAsync()
         {
             return db.Table<Cursos>().ToListAsync();
         }
+
+
     }
 }

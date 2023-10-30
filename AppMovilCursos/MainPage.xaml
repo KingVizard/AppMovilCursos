@@ -12,16 +12,7 @@
             <StackLayout HorizontalOptions="EndAndExpand"
                          AbsoluteLayout.LayoutBounds="0,0,1,1"
                          AbsoluteLayout.LayoutFlags="All">
-              <!--  <Button Text="Ayuda"
-                        BackgroundColor="#222"
-                        CornerRadius="10"
-                        TextColor="#fff"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        HeightRequest="40"
-                        HorizontalOptions="End"
-                        AbsoluteLayout.LayoutBounds="0,0,1,1"
-                        AbsoluteLayout.LayoutFlags="All" /> -->
+             
             </StackLayout>
             <Frame CornerRadius="20"
                    BackgroundColor="Snow"

@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovilCursos.Views.RegistroEmpleados"
-             Title="Registro de Empleados">
+             x:Class="AppMovilCursos.Views.EditarEmpleado">
     <ContentPage.Content>
-
         <StackLayout Margin="10">
             <ImageButton HorizontalOptions="Start" Source="IconBack.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="DeepSkyBlue" WidthRequest="40" HeightRequest="40" Padding="4"/>
             <Label Text="Registrar Empleado" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
@@ -24,11 +22,12 @@
                 <Label Text="Tipo de Empleado:" />
                 <Entry Keyboard="Chat" x:Name="txtTipoEmpleado"/>
 
-                <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="LightSeaGreen"
+               <!-- <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="LightSeaGreen"
                                 CornerRadius="10"
                                 TextColor="#fff"
                                 FontSize="18"
                                 FontAttributes="Bold"/>
+                -->
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

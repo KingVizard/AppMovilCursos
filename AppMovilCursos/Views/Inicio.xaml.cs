@@ -21,8 +21,6 @@ namespace AppMovilCursos.Views
             On<Android>().SetIsSmoothScrollEnabled(true);
         }
 
-        //---------------------
-        /*ADD*/
         private bool _canClose = true;
 
         protected override bool OnBackButtonPressed()
@@ -43,10 +41,7 @@ namespace AppMovilCursos.Views
             {
                 _canClose = false;
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
-                //OnBackButtonPressed();
             }
         }
-
-        //---------------------
     }
 }

@@ -15,7 +15,6 @@ namespace AppMovilCursos.Views
         public ListaCursos()
         {
             InitializeComponent();
-            //mostrarCursos();
         }
 
         public async void mostrarCursos()
