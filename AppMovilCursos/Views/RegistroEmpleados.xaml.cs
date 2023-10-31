@@ -13,9 +13,12 @@ namespace AppMovilCursos.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistroEmpleados : ContentPage
     {
+        PickerTipoEmp pickerTipos = new PickerTipoEmp();
+
         public RegistroEmpleados()
         {
             InitializeComponent();
+            UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
         }
 
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
@@ -29,8 +32,9 @@ namespace AppMovilCursos.Views
                     Telefono = (txtTelefono.Text),
                     Edad = int.Parse(txtEdad.Text),
                     Curp = txtCurp.Text.Trim(),
-                    TipoEmpleado = txtTipoEmpleado.Text.Trim(),
-                };
+                    TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString()
+                //TipoEmpleado = txtTipoEmpleado.Text.Trim(),
+            };
 
                 await App.SQLiteDB.SaveEmpleadoAsync(emple);
 
@@ -39,7 +43,7 @@ namespace AppMovilCursos.Views
                 txtTelefono.Text = "";
                 txtEdad.Text = "";
                 txtCurp.Text = "";
-                txtTipoEmpleado.Text = "";
+                //txtTipoEmpleado.Text = "";
 
                 await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
 
@@ -72,10 +76,10 @@ namespace AppMovilCursos.Views
             {
                 respuesta = false;
             }
-            else if (string.IsNullOrEmpty(txtTipoEmpleado.Text))
-            {
-                respuesta = false;
-            }
+            //else if (string.IsNullOrEmpty(txtTipoEmpleado.Text))
+            //{
+            //    respuesta = false;
+            //}
             else
             {
                 respuesta = true;
@@ -91,6 +95,11 @@ namespace AppMovilCursos.Views
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        private void UserPickerEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

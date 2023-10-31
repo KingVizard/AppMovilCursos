@@ -25,10 +25,18 @@ namespace AppMovilCursos.Views
             txtTelefono.Text = user.Telefono;
             txtEdad.Text = user.Edad.ToString();
             txtCurp.Text = user.Curp;
-            txtTipoEmpleado.Text = user.TipoEmpleado;
+            //txtTipoEmpleado.Text = user.TipoEmpleado; //prueba de registro
             txtIdEmp.Text = user.IdEmp.ToString();
 
             UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
+            //UserPickerEmpleado.SelectedItem = user.TipoEmpleado.ToString();
+            //UserPickerEmpleado.SelectedItem = user.TipoEmpleado.ToString();
+
+            int match_Tipo = pickerTipos.GetTipos().First(x => x.Tipo == user.TipoEmpleado).Id;
+
+            UserPickerEmpleado.SelectedIndex = match_Tipo - 1;
+
+
         }
 
         private async void btnVolver_Clicked(object sender, EventArgs e)
@@ -71,22 +79,28 @@ namespace AppMovilCursos.Views
                     Telefono = txtTelefono.Text,
                     Edad = int.Parse(txtEdad.Text),
                     Curp = txtCurp.Text,
-                    TipoEmpleado = txtTipoEmpleado.Text,
+                    TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
 
                 };
 
                 //Update Person  
                 await App.SQLiteDB.SaveEmpleadoAsync(emple);
 
-    
+
                 await DisplayAlert("Success", "Person Updated Successfully", "OK");
- 
+
 
             }
             else
             {
                 await DisplayAlert("Required", "Please Enter PersonID", "OK");
             }
+
+            //var yest = UserPickerEmpleado.SelectedIndex; //entrega el indice 0 a n posicion
+            //var yesdddt = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(); //entrega texto
+
+            ////await DisplayAlert("Aviso", Tipos_Selected.Tipo_Selected.ToString() + " ->> " + yest.ToString(), "OK");
+            //await DisplayAlert("Aviso",yesdddt + " -> + > " + yest.ToString(), "OK");
         }
 
         public bool validarDatos()
@@ -112,10 +126,10 @@ namespace AppMovilCursos.Views
             {
                 respuesta = false;
             }
-            else if (string.IsNullOrEmpty(txtTipoEmpleado.Text))
-            {
-                respuesta = false;
-            }
+            //else if (string.IsNullOrEmpty(txtTipoEmpleado.Text))
+            //{
+            //    respuesta = false;
+            //}
             else
             {
                 respuesta = true;
@@ -123,7 +137,18 @@ namespace AppMovilCursos.Views
             return respuesta;
         }
 
-        
+        public static class Tipos_Selected
+        {
+            public static string Tipo_Selected = "";
+        }
 
+        private void UserPickerEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (UserPickerEmpleado.SelectedIndex != -1)
+            {
+                string Tipo = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString();
+                Tipos_Selected.Tipo_Selected = Tipo;
+            }
+        }
     }
 }
