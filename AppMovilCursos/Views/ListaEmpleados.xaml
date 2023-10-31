@@ -19,80 +19,27 @@
                                         <Grid Padding="6">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="auto" />
-                                                <RowDefinition Height="auto" />
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="20" />
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="20" />
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
+                                                
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="{Binding IdEmp}"
-                                       Grid.Row="0"
-                                       Grid.Column="0"
-                                                   x:Name="txtIdEmp"/>
+                                            
                                             <Label Text="{Binding Nombre}"
                                        Grid.Row="0"
+                                       Grid.Column="0" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding Direccion}" HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                                       Grid.Row="0"
                                        Grid.Column="1" />
-                                            <Label Text="{Binding Direccion}"
+                                            <Label Text="{Binding Telefono}" HorizontalOptions="Center" HorizontalTextAlignment="Center"
                                        Grid.Row="0"
                                        Grid.Column="2" />
-                                            <Label Text="{Binding Telefono}"
+                                            <Label Text="{Binding Edad}" HorizontalOptions="Center" HorizontalTextAlignment="Center"
                                        Grid.Row="0"
                                        Grid.Column="3" />
-                                            <Label Text="{Binding Edad}"
-                                       Grid.Row="0"
-                                       Grid.Column="4" />
-                                            
-                                         <!--   <Label Text="{Binding Curp}"
-                                       Grid.Row="0"
-                                       Grid.Column="5" /> -->
-                                            <Image Source="edit.png"
-                                                   
-                                       Grid.Row="0"
-                                       Grid.Column="5" Aspect="AspectFit" WidthRequest="200" HeightRequest="30" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-                                                <Image.GestureRecognizers>
-                                                    <TapGestureRecognizer x:Name="EditTap"
-                                                      Tapped="EditTap_Tapped"   
-                                                      CommandParameter="{Binding IdEmp}" />
-                                                </Image.GestureRecognizers>
-                                            </Image>
-                                            <!--
-                                            <Frame CornerRadius="10"
-                           Background="blue"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                                <Image BackgroundColor="red" Grid.Row="0"
-                                       Grid.Column="5"
-                               Source="avatar" >
-                                                    <Image.GestureRecognizers>
-                                                        <TapGestureRecognizer x:Name="EditTap"
-                                                      Tapped="EditTap_Tapped"
-                                                      CommandParameter="{Binding Id}" />
-                                                    </Image.GestureRecognizers>
-                                                </Image>
-                                            </Frame>
-                                            -->
-
-                                            <!--    <Label Text="{Binding TipoEmpleado}"
-                                       Grid.Row="0"
-                                       Grid.Column="6" />
-                                             -->
-                                            <Frame CornerRadius="10"
-                           Background="Transparent"
-                                                  Grid.Row="0"
-                                       Grid.Column="6" >
-                                                <Image BackgroundColor="Transparent"
-                                     Source="delete.png"
-                                     HeightRequest="80">
-                                                    <Image.GestureRecognizers>
-                                                        <TapGestureRecognizer x:Name="DeleteTap"
-                                                      Tapped="DeleteTap_Tapped"
-                                                      CommandParameter="{Binding Id}" />
-                                                    </Image.GestureRecognizers>
-                                                </Image>
-                                            </Frame>
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>

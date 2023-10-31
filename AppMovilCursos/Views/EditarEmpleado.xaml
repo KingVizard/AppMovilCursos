@@ -21,6 +21,14 @@
                 <Entry Keyboard="Chat" x:Name="txtCurp"/>
 
                 <Label Text="Tipo de Empleado:" />
+                <Picker Title="Seleccione un Tipo de empleado"
+                                       TitleColor="#aaa"
+                                       x:Name="UserPickerEmpleado"
+                                       ItemsSource="{Binding TipoEmps}"
+                                       ItemDisplayBinding="{Binding Tipo}"
+                                       SelectedItem="{Binding SelectedTipo}"
+                                       TextColor="#FFF"
+                                       WidthRequest="200" />
                 <Entry Keyboard="Chat" x:Name="txtTipoEmpleado"/>
 
                 <StackLayout Orientation="Horizontal" HeightRequest="120" WidthRequest="120" HorizontalOptions="CenterAndExpand" Spacing="30">

@@ -13,6 +13,9 @@ namespace AppMovilCursos.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditarEmpleado : ContentPage
     {
+        
+        PickerTipoEmp pickerTipos = new PickerTipoEmp();
+
         public EditarEmpleado(Empleados user)
         {
             InitializeComponent();
@@ -24,6 +27,8 @@ namespace AppMovilCursos.Views
             txtCurp.Text = user.Curp;
             txtTipoEmpleado.Text = user.TipoEmpleado;
             txtIdEmp.Text = user.IdEmp.ToString();
+
+            UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
         }
 
         private async void btnVolver_Clicked(object sender, EventArgs e)
@@ -117,5 +122,8 @@ namespace AppMovilCursos.Views
             }
             return respuesta;
         }
+
+        
+
     }
 }

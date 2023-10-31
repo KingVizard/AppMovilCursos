@@ -81,6 +81,7 @@ namespace AppMovilCursos.Views
             await Navigation.PopModalAsync();
         }
 
+        
 
     }
 }

@@ -14,11 +14,13 @@ namespace AppMovilCursos.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaEmpleados : ContentPage
     {
-          //Empleados test = new Empleados();
+        Empleados test = new Empleados();
 
         public ListaEmpleados()
         {
             InitializeComponent();
+
+           
         }
 
         public async void mostrar()
@@ -27,6 +29,7 @@ namespace AppMovilCursos.Views
             if (EmpleadosList != null)
             {
                 lsEmpleados.ItemsSource = EmpleadosList;
+                
             }
             
         }
@@ -46,18 +49,6 @@ namespace AppMovilCursos.Views
             await Navigation.PushModalAsync(new RegistroEmpleados());
         }
 
-        /**/
-        private async void EditTap_Tapped(object sender, EventArgs e)
-        {
-            
-        }
-
-
-        private async void DeleteTap_Tapped(object sender, EventArgs e)
-        {
-
-            
-        }
 
         private async void lsEmpleados_ItemTapped(object sender, ItemTappedEventArgs e)
         {
@@ -72,6 +63,9 @@ namespace AppMovilCursos.Views
             //*
             Navigation.PushModalAsync(new EditarEmpleado(user)); //Manda los datos
             ((ListView)sender).SelectedItem = null;
+
+
         }
+
     }
 }
