@@ -34,11 +34,11 @@ namespace AppMovilCursos.Models
         }
     }
 
-    public class ModelPicker
-    {
-        public int Id { get; set; }
-        public string Tipo { get; set; }
-    }
+        public class ModelPicker
+        {
+            public int Id { get; set; }
+            public string Tipo { get; set; }
+        }
 
 
 }

@@ -16,11 +16,15 @@ namespace AppMovilCursos.Views
         
         PickerTipoEmp pickerTipos = new PickerTipoEmp();
 
+        ValidarCambios Datos = new ValidarCambios();
+
         public EditarEmpleado(Empleados user)
+        //public EditarEmpleado(userTEST)
         {
             InitializeComponent();
 
             txtNombre.Text = user.Nombre;
+            //txtNombre.Text = userTEST.Nombre;
             txtDireccion.Text = user.Direccion;
             txtTelefono.Text = user.Telefono;
             txtEdad.Text = user.Edad.ToString();
@@ -36,13 +40,105 @@ namespace AppMovilCursos.Views
 
             UserPickerEmpleado.SelectedIndex = match_Tipo - 1;
 
+            Tipos_Selected.Tipo_Selected = user.Nombre.ToString();
+
+            //class tesst()
+            //{
+
+            //}
+            Datos.Nombre = user.Nombre.ToString();
+            Datos.Direccion = user.Direccion.ToString();
+            Datos.Edad = user.Edad.ToString();
+            Datos.Curp = user.Curp.ToString();
+            Datos.Telefono = user.Telefono.ToString();
+
+            //PICKER PTE
+
+        }
+
+
+        public bool ValidarDatosMod()
+        {
+
+            bool respuesta;
+            if (txtNombre.Text != Datos.Nombre)
+            {
+                respuesta = false;
+            }
+            else if (txtTelefono.Text != Datos.Telefono)
+            {
+                respuesta = false;
+            }
+            else if (txtDireccion.Text != Datos.Direccion)
+            {
+                respuesta = false;
+            }
+            else if (txtEdad.Text != Datos.Edad)
+            {
+                respuesta = false;
+            }
+            else if (txtCurp.Text != Datos.Curp)
+            {
+                respuesta = false;
+            }
+            //else if (string.IsNullOrEmpty(txtTipoEmpleado.Text))
+            //{
+            //    respuesta = false;
+            //}
+            else
+            {
+                respuesta = true;
+            }
+            return respuesta;
 
         }
 
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            //if (txtNombre.Text != Datos.Nombre)
+            //{
+            //    await DisplayAlert("AVISO", "NOOO es igual", "Ok");
+            //}
+            //else
+            //{
+            //    await DisplayAlert("AVISO", "SIII es igual", "Ok");
+            //}
+
+            if (ValidarDatosMod() == false)
+            {
+                var answer = await DisplayAlert("AVISO", "¿Desea salir sin guardar?, se perderán los cambios realizados.", "Si", "No");
+                if(answer)
+                {
+                    await Navigation.PopModalAsync();
+                }
+            } else
+            {
+                await Navigation.PopModalAsync();
+            }
+
+            //await Navigation.PopModalAsync();
+
+
+
+
+            //await DisplayAlert("AVISO", ValidarDatosMod().ToString() + " ---> " + Datos.Nombre + " / " + txtNombre.Text, "Ok");
+
+
         }
+        /// <summary>
+        /// 
+        public class ValidarCambios
+        {
+            public string Nombre { get; set; }
+            public string Telefono { get; set; }
+            public string Direccion { get; set; }
+            public string Edad { get; set; }
+            public string Curp { get; set; }
+
+        }
+        /// 
+        /// </summary>
+
 
         private async void btnEliminar_Clicked(object sender, EventArgs e)
         {
@@ -52,11 +148,21 @@ namespace AppMovilCursos.Views
                 var emple = await App.SQLiteDB.GetEmpleadoIdAsync(Convert.ToInt32(txtIdEmp.Text));
                 if (emple != null)
                 {
-                    //Delete Person  
-                    await App.SQLiteDB.DeleteEmpleadoAsync(emple);
 
-                    await DisplayAlert("Aviso", "Empleado eliminado correctamente", "OK");
-                    await Navigation.PopModalAsync();
+                    /*---------------*/
+                    var answer = await DisplayAlert("Aviso", "¿Esta seguro de eliminar el registro?", "Si", "No");
+                    if (answer)
+                    {
+                        //await DisplayAlert("Salir", answer.ToString(), "Si", "No");
+                        //Delete Person  
+                        await App.SQLiteDB.DeleteEmpleadoAsync(emple);
+
+                        await DisplayAlert("Aviso", "Empleado eliminado correctamente", "OK");
+                        await Navigation.PopModalAsync();
+                    }
+                    /*------------------*/
+
+
 
                 }
             }
@@ -70,24 +176,48 @@ namespace AppMovilCursos.Views
         {
             if (validarDatos())
             {
-                Empleados emple = new Empleados()
+                var answer = await DisplayAlert("Aviso", "¿Esta seguro de modificar el registro?", "Si", "No");
+                if (answer)
                 {
-                    IdEmp = Convert.ToInt32(txtIdEmp.Text),
-                    Nombre = txtNombre.Text,
+                    Empleados emple = new Empleados()
+                    {
+                        IdEmp = Convert.ToInt32(txtIdEmp.Text),
+                        Nombre = txtNombre.Text,
 
-                    Direccion = txtDireccion.Text,
-                    Telefono = txtTelefono.Text,
-                    Edad = int.Parse(txtEdad.Text),
-                    Curp = txtCurp.Text,
-                    TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
+                        Direccion = txtDireccion.Text,
+                        Telefono = txtTelefono.Text,
+                        Edad = int.Parse(txtEdad.Text),
+                        Curp = txtCurp.Text,
+                        TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
 
-                };
+                    };
 
-                //Update Person  
-                await App.SQLiteDB.SaveEmpleadoAsync(emple);
+                    //Update Person  
+                    await App.SQLiteDB.SaveEmpleadoAsync(emple);
 
 
-                await DisplayAlert("Success", "Person Updated Successfully", "OK");
+                    await DisplayAlert("Success", "Person Updated Successfully", "OK");
+                    await Navigation.PopModalAsync();
+                }
+
+                //Empleados emple = new Empleados()
+                //{
+                //    IdEmp = Convert.ToInt32(txtIdEmp.Text),
+                //    Nombre = txtNombre.Text,
+
+                //    Direccion = txtDireccion.Text,
+                //    Telefono = txtTelefono.Text,
+                //    Edad = int.Parse(txtEdad.Text),
+                //    Curp = txtCurp.Text,
+                //    TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
+
+                //};
+
+                ////Update Person  
+                //await App.SQLiteDB.SaveEmpleadoAsync(emple);
+
+
+                //await DisplayAlert("Success", "Person Updated Successfully", "OK");
 
 
             }
@@ -149,6 +279,16 @@ namespace AppMovilCursos.Views
                 string Tipo = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString();
                 Tipos_Selected.Tipo_Selected = Tipo;
             }
+        }
+
+        private void btnActiveEdit_Clicked(object sender, EventArgs e)
+        {
+            txtNombre.IsEnabled= true;
+            txtDireccion.IsEnabled= true;
+            txtEdad.IsEnabled= true;
+            txtCurp.IsEnabled= true;
+            txtTelefono.IsEnabled= true;
+            UserPickerEmpleado.IsEnabled= true;
         }
     }
 }
