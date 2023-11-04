@@ -61,7 +61,7 @@ namespace AppMovilCursos.Views
             //*
 
             //*
-            Navigation.PushModalAsync(new EditarEmpleado(user)); //Manda los datos
+            await Navigation.PushModalAsync(new EditarEmpleado(user)); //Manda los datos
             ((ListView)sender).SelectedItem = null;
 
 

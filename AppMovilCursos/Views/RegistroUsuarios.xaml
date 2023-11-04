@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class"
+             x:Class="AppMovilCursos.Views.RegistroUsuarios"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#B193CB">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <!-- BackgroundColor="#5198E4" -->
+            <AbsoluteLayout VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="EndAndExpand"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+
+                </StackLayout>
+                <Frame CornerRadius="20"
+                   BackgroundColor="Snow"
+                   Padding="30"
+                   HeightRequest="600"
+                   VerticalOptions="Center"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All"
+                   Background="background.jpg">
+                    <StackLayout VerticalOptions="Center">
+                        <Image Source="avatarRegistrov2.png"
+                           WidthRequest="150"
+                           Margin="0,0,0, 20"/>
+                        <Label Text="Email:"
+                           FontAttributes="Bold" />
+                        <controls:CustomEntry x:Name="txtEmail"
+                           Keyboard="Email"
+                           Placeholder="ej. usuario123@gmail.com"/>
+                        <Label Text="Contraseña:"
+                           FontAttributes="Bold" />
+                        <controls:CustomEntry x:Name="txtPassword" Keyboard="Chat"
+                           IsPassword="True"
+                           Placeholder="***************" />
+                        <Label Text="Nombre Completo:"
+                           FontAttributes="Bold" />
+                        <controls:CustomEntry x:Name="txtNombre" Placeholder="Ej.Pablo Peña Gonzalez" Keyboard="Chat" />
+                        <Label Text="Edad:"
+                           FontAttributes="Bold" />
+                        <controls:CustomEntry x:Name="txtEdad" Placeholder="23" Keyboard="Numeric" />
+                        <Button Text="Registrar"
+                            BackgroundColor="LightSeaGreen"
+                            CornerRadius="10"
+                            TextColor="#fff"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            Margin="0,20,0,0"
+                            x:Name="btnRegistrarUsuario"
+                            Clicked="btnRegistrarUsuario_Clicked"/>
+                        <Button Text="Iniciar Sesíon" FontAttributes="Bold" Margin="0" x:Name="btnIniciarSesion" Clicked="btnIniciarSesion_Clicked" HorizontalOptions="End" BackgroundColor="Transparent" TextColor="#555" TextTransform="None"/>
+                    </StackLayout>
+                </Frame>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

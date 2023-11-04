@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovilCursos.MainPage"
+             x:Class="AppMovilCursos.Views.Login"
              xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="DeepSkyBlue">
-
+             BackgroundColor="DeepSkyBlue" >
     <StackLayout Margin="20">
         <!-- BackgroundColor="#5198E4" -->
         <AbsoluteLayout VerticalOptions="FillAndExpand"
@@ -13,7 +12,7 @@
             <StackLayout HorizontalOptions="EndAndExpand"
                          AbsoluteLayout.LayoutBounds="0,0,1,1"
                          AbsoluteLayout.LayoutFlags="All">
-             
+
             </StackLayout>
             <Frame CornerRadius="20"
                    BackgroundColor="Snow"
@@ -29,12 +28,12 @@
                            Margin="0,0,0, 20" />
                     <Label Text="Usuario:"
                            FontAttributes="Bold" />
-                    <controls:CustomEntry x:Name="user"
+                    <controls:CustomEntry x:Name="txtEmail"
                            Keyboard="Email"
                            Placeholder="ej. usuario123@gmail.com"/>
                     <Label Text="Contraseña:"
                            FontAttributes="Bold" />
-                    <controls:CustomEntry x:Name="password"
+                    <controls:CustomEntry x:Name="txtPassword"
                            IsPassword="True"
                            Placeholder="***************" />
                     <Button Text="Ingresar"

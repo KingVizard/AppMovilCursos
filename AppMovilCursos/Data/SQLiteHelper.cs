@@ -11,18 +11,19 @@ namespace AppMovilCursos.Data
     {
         SQLiteAsyncConnection db;
 
-        public SQLiteHelper(string dbPath) 
+        public SQLiteHelper(string dbPath)
         {
             db = new SQLiteAsyncConnection(dbPath);
             db.CreateTableAsync<Empleados>().Wait();
             db.CreateTableAsync<Cursos>().Wait();
+            db.CreateTableAsync<Usuarios>().Wait();
         }
 
         //GUARDAR EMPLEADOS ++ ACTUALIZAR
-        public Task<int> SaveEmpleadoAsync(Empleados emple) 
+        public Task<int> SaveEmpleadoAsync(Empleados emple)
         {
             //if(emple.IdEmp == 0)
-            if(emple.IdEmp != 0)
+            if (emple.IdEmp != 0)
             {
                 //return db.InsertAsync(emple);
                 return db.UpdateAsync(emple);
@@ -41,7 +42,7 @@ namespace AppMovilCursos.Data
         }
 
         //MOSTRAR EMPLEADOS
-        public Task<List<Empleados>> GetEmpleadosAsync() 
+        public Task<List<Empleados>> GetEmpleadosAsync()
         {
             return db.Table<Empleados>().ToListAsync();
         }
@@ -58,10 +59,10 @@ namespace AppMovilCursos.Data
         //GUARDAR CURSOS
         public Task<int> SaveCursoAsync(Cursos cur)
         {
-            if(cur.IdCur == 0)
+            if (cur.IdCur == 0)
             {
                 return db.InsertAsync(cur);
-            }else
+            } else
             {
                 return null;
             }
@@ -73,6 +74,34 @@ namespace AppMovilCursos.Data
             return db.Table<Cursos>().ToListAsync();
         }
 
+        /////////////////////////////////////////////////
+        public Task<int> SaveUsuario(Usuarios usr)
+        {
+            if (usr.IdUsuario != 0)
+            {
+                return db.UpdateAsync(usr);
+            }
+            else
+            {
+                return db.InsertAsync(usr);
+            }
+        }
+        /////////////////////////////////////////////////
 
+        //public Task<List<Usuarios>> GetUsuariosAsyncValidate(string email, string password)
+        //{
+        //    return db.QueryAsync<Usuarios>("SELECT Email, Clave FROM Usuarios WHERE Email=" + email + " AND Clave=" + password);
+        //    return db.QueryAsync<Usuarios>("SELECT Email, Clave FROM Usuarios WHERE Email='" + email + "'" + " AND Clave='" + password + "'");
+        //}
+
+
+        public IEnumerable<Usuarios> GetUsuariosAsyncValidate(string email, string password)
+        {
+            //return db.QueryAsync<Usuarios>("SELECT Email, Clave FROM Usuarios WHERE Email=" + email + " AND Clave=" + password); 
+            //return db.QueryAsync<Usuarios>("SELECT Email, Clave FROM Usuarios WHERE Email='" + email + "'" + " AND Clave='" + password + "'");
+            //return db.QueryAsync<Usuarios>("SELECT Email, Clave FROM Usuarios WHERE Email='" + email + "'" + " AND Clave='" + password + "'").Result;
+            return db.QueryAsync<Usuarios>("SELECT Email, Clave FROM Usuarios WHERE Email=? AND Clave=?", email, password).Result;
+
+        }
     }
 }

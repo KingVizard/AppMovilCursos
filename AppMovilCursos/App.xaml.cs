@@ -17,7 +17,9 @@ namespace AppMovilCursos
             //MainPage = new MainPage();
             //MainPage = new NavigationPage(new EditarEmpleado());
             //MainPage = new NavigationPage(new RegistroEmpleados());
-            MainPage = new NavigationPage(new Inicio());
+            //MainPage = new NavigationPage(new Inicio());
+            //MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new RegistroUsuarios());
             //MainPage = new NavigationPage(new EditarEmpleado());
             //MainPage = new NavigationPage(new ListaCursos());
         }
