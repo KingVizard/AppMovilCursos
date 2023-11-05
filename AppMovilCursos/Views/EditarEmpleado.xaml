@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovilCursos.Views.EditarEmpleado">
+             x:Class="AppMovilCursos.Views.EditarEmpleado"
+             xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class">
     <ContentPage.Content>
         <StackLayout Margin="10">
             <ImageButton HorizontalOptions="Start" Source="IconBack.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="DeepSkyBlue" WidthRequest="40" HeightRequest="40" Padding="4"/>
@@ -12,15 +13,15 @@
                 <Entry Keyboard="Chat" x:Name="txtIdEmp" IsVisible="False"/>
 
                 <Label Text="Nombre:" FontAttributes="Bold"/>
-                <Entry Keyboard="Chat" x:Name="txtNombre" IsEnabled="False"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtNombre" IsEnabled="False"/>
                 <Label Text="Dirección:" FontAttributes="Bold" />
-                <Entry Keyboard="Chat" x:Name="txtDireccion" IsEnabled="False"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtDireccion" IsEnabled="False"/>
                 <Label Text="Teléfono:" FontAttributes="Bold"/>
-                <Entry Keyboard="Telephone" x:Name="txtTelefono" IsEnabled="False"/>
+                <controls:CustomEntry Keyboard="Telephone" x:Name="txtTelefono" IsEnabled="False"/>
                 <Label Text="Edad:" FontAttributes="Bold"/>
-                <Entry Keyboard="Numeric" x:Name="txtEdad" IsEnabled="False"/>
+                <controls:CustomEntry Keyboard="Numeric" x:Name="txtEdad" IsEnabled="False"/>
                 <Label Text="Curp:" FontAttributes="Bold"/>
-                <Entry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" IsEnabled="False"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" IsEnabled="False"/>
 
                 <Label Text="Tipo de Empleado:" />
               <!--  <Entry Keyboard="Chat" x:Name="txtTipoEmpleado"/> -->

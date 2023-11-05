@@ -19,6 +19,7 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
             UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
+            ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
         }
 
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
@@ -100,6 +101,19 @@ namespace AppMovilCursos.Views
         private void UserPickerEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void AddImg_Clicked(object sender, EventArgs e)
+        {
+            var foto = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions());
+
+            if(foto != null)
+            {
+                ImgEmpleado.Source = ImageSource.FromStream(() =>
+                {
+                    return foto.GetStream();
+                });
+            }
         }
     }
 }
