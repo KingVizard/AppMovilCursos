@@ -4,12 +4,43 @@
              x:Class="AppMovilCursos.Views.EditarEmpleado"
              xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class">
     <ContentPage.Content>
-        <StackLayout Margin="10">
+        <StackLayout Background="snow">
+            <StackLayout Background="pink" Margin="0" Padding="10">
+                <Grid x:Name="GridContainer">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"  />
+                        <RowDefinition Height="160" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="Pink" WidthRequest="40" HeightRequest="40" Padding="4" />
+                    <Label Grid.Column="1" Grid.Row="0" Text="Editar Empleado" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
+
+                    <AbsoluteLayout HeightRequest="150" WidthRequest="200" HorizontalOptions="Center" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        <ImageButton x:Name="ImgEmpleado" Clicked="AddImg_Clicked" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" BackgroundColor="#dedede" CornerRadius="100" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"/>
+                        <Label Text="Sin Imagen" x:Name="txtSinImagen" FontSize="18" IsVisible="False" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <ImageButton x:Name="AddImg" Clicked="AddImg_Clicked" Source="AddImage.png" WidthRequest="50" Padding="5" BackgroundColor="#eee" CornerRadius="50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>
+                    </AbsoluteLayout>
+                </Grid>
+
+            </StackLayout>
+
+
+<!--
             <ImageButton HorizontalOptions="Start" Source="IconBack.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="DeepSkyBlue" WidthRequest="40" HeightRequest="40" Padding="4"/>
             <Label Text="Editar Empleado" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            -->
             
-            <StackLayout Margin="10" >
-                <ImageButton Source="edit.png" BackgroundColor="Transparent" HeightRequest="20" HorizontalOptions="End" Margin="10, 0" x:Name="btnActiveEdit" Clicked="btnActiveEdit_Clicked"/>
+            <StackLayout Padding="20, 10" >
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <!--    <ImageButton Source="edit.png" BackgroundColor="blue" HeightRequest="20" HorizontalOptions="End" x:Name="btnActiveEdit" Clicked="btnActiveEdit_Clicked" IsVisible="true"/> -->
+                    <Label Text="Editar Empleado" />
+                    <Switch x:Name="swToggle" Toggled="swToggle_Toggled" />
+                </StackLayout>
+                
                 <Entry Keyboard="Chat" x:Name="txtIdEmp" IsVisible="False"/>
 
                 <Label Text="Nombre:" FontAttributes="Bold"/>
@@ -29,14 +60,52 @@
                     
                 </Picker>
 
-                
+                <StackLayout>
+                    <Button Text="Guardar Cambios" FontAttributes="Bold" TextColor="#fff" x:Name="btnEditar" IsVisible="false" Clicked="btnEditar_Clicked" BackgroundColor="DeepSkyBlue" CornerRadius="15"/>
+                    <Button Text="Eliminar Empleado" FontAttributes="Bold" TextColor="#fff" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" BackgroundColor="DeepPink" CornerRadius="15"/>
+                </StackLayout>
+<!--
+                <StackLayout Orientation="Horizontal" HeightRequest="100" WidthRequest="120" HorizontalOptions="CenterAndExpand" Spacing="30" BackgroundColor="Red" IsVisible="false">
+                    <ImageButton Source="delete.png" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" HeightRequest="50" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
+                    <ImageButton Source="edit.png" x:Name="btnEditar" Clicked="btnEditar_Clicked" HeightRequest="50" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
+                </StackLayout>
+                -->
+            </StackLayout>
+        </StackLayout>
+
+    <!--    <StackLayout Margin="10">
+            <ImageButton HorizontalOptions="Start" Source="IconBack.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="DeepSkyBlue" WidthRequest="40" HeightRequest="40" Padding="4"/>
+            <Label Text="Editar Empleado" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+            <StackLayout Margin="10" >
+                <ImageButton Source="edit.png" BackgroundColor="Transparent" HeightRequest="20" HorizontalOptions="End" Margin="10, 0" x:Name="btnActiveEdit" Clicked="btnActiveEdit_Clicked"/>
+                <Entry Keyboard="Chat" x:Name="txtIdEmp" IsVisible="False"/>
+
+                <Label Text="Nombre:" FontAttributes="Bold"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtNombre" IsEnabled="False"/>
+                <Label Text="Dirección:" FontAttributes="Bold" />
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtDireccion" IsEnabled="False"/>
+                <Label Text="Teléfono:" FontAttributes="Bold"/>
+                <controls:CustomEntry Keyboard="Telephone" x:Name="txtTelefono" IsEnabled="False"/>
+                <Label Text="Edad:" FontAttributes="Bold"/>
+                <controls:CustomEntry Keyboard="Numeric" x:Name="txtEdad" IsEnabled="False"/>
+                <Label Text="Curp:" FontAttributes="Bold"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" IsEnabled="False"/>
+
+                <Label Text="Tipo de Empleado:" />
+                <Picker Title="Seleccione un Tipo de empleado" ItemsSource="{Binding TipoEmps}" ItemDisplayBinding="{Binding Tipo}" SelectedItem="{Binding SelectedTipo}" x:Name="UserPickerEmpleado" SelectedIndexChanged="UserPickerEmpleado_SelectedIndexChanged" IsEnabled="False">
+
+                </Picker>
+
+
 
                 <StackLayout Orientation="Horizontal" HeightRequest="120" WidthRequest="120" HorizontalOptions="CenterAndExpand" Spacing="30">
                     <ImageButton Source="delete.png" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" HeightRequest="50" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
                     <ImageButton Source="edit.png" x:Name="btnEditar" Clicked="btnEditar_Clicked" HeightRequest="50" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
                 </StackLayout>
-                
+
             </StackLayout>
         </StackLayout>
+        -->
     </ContentPage.Content>
 </ContentPage>

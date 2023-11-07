@@ -9,14 +9,15 @@
                 <StackLayout BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="0" >
                     <Label Text="Lista de Empleados" TextColor="#fff" BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="All" FontSize="25" Padding="8" HorizontalTextAlignment="Center"  FontAttributes="Bold" />
                     <Frame CornerRadius="10" Padding="5" HasShadow="False" BackgroundColor="Snow" Margin="0">
-                        <ListView x:Name="lsEmpleados" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0" BackgroundColor="Transparent"
+                        <ListView x:Name="lsEmpleados" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0" BackgroundColor="Transparent" 
                         AbsoluteLayout.LayoutBounds="0,0,1,1"
                           AbsoluteLayout.LayoutFlags="All"
                                   ItemTapped="lsEmpleados_ItemTapped">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
-                                        <Grid Padding="6">
+                                        
+                                        <Grid Padding="6" >
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="auto" />
                                             </Grid.RowDefinitions>
@@ -24,20 +25,25 @@
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
                                                 
                                             </Grid.ColumnDefinitions>
-                                            
+<!--
+                                            <Label Text="Nombre" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" />
+                                            <Label Text="Direccion" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" />
+                                            <Label Text="Telefono" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"/>
+                                            <Label Text="Edad" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="3" HorizontalTextAlignment="Center" />
+                                            -->
+
                                             <Label Text="{Binding Nombre}"
                                        Grid.Row="0"
-                                       Grid.Column="0" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-                                            <Label Text="{Binding Direccion}" HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                                       Grid.Column="0" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HeightRequest="100" />
+                                            <Label Text="{Binding Direccion}" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HeightRequest="100"
                                        Grid.Row="0"
                                        Grid.Column="1" />
-                                            <Label Text="{Binding Telefono}" HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                                            <Label Text="{Binding Telefono}" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HeightRequest="100"
                                        Grid.Row="0"
                                        Grid.Column="2" />
-                                            <Label Text="{Binding Edad}" HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                                            <Label Text="{Binding Edad}" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HeightRequest="100"
                                        Grid.Row="0"
                                        Grid.Column="3" />
                                         </Grid>

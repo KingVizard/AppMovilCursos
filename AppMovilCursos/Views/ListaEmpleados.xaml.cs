@@ -20,7 +20,7 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
 
-           
+            
         }
 
         public async void mostrar()

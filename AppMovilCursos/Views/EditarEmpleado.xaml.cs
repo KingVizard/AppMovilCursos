@@ -53,7 +53,7 @@ namespace AppMovilCursos.Views
             Datos.Telefono = user.Telefono.ToString();
 
             //PICKER PTE
-
+            
         }
 
 
@@ -283,12 +283,47 @@ namespace AppMovilCursos.Views
 
         private void btnActiveEdit_Clicked(object sender, EventArgs e)
         {
-            txtNombre.IsEnabled= true;
+
+
+            txtNombre.IsEnabled = true;
             txtDireccion.IsEnabled= true;
             txtEdad.IsEnabled= true;
             txtCurp.IsEnabled= true;
             txtTelefono.IsEnabled= true;
             UserPickerEmpleado.IsEnabled= true;
+        }
+
+        private void AddImg_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void swToggle_Toggled(object sender, ToggledEventArgs e)
+        {
+            if(swToggle.IsToggled)
+            {
+                btnEliminar.IsVisible = false;
+                btnEditar.IsVisible = true;
+
+                txtNombre.IsEnabled = true;
+                txtDireccion.IsEnabled = true;
+                txtEdad.IsEnabled = true;
+                txtCurp.IsEnabled = true;
+                txtTelefono.IsEnabled = true;
+                UserPickerEmpleado.IsEnabled = true;
+            }
+            else
+            {
+                btnEliminar.IsVisible = true;
+                btnEditar.IsVisible = false;
+
+                txtNombre.IsEnabled = false;
+                txtDireccion.IsEnabled = false;
+                txtEdad.IsEnabled = false;
+                txtCurp.IsEnabled = false;
+                txtTelefono.IsEnabled = false;
+                UserPickerEmpleado.IsEnabled = false;
+            }
         }
     }
 }
