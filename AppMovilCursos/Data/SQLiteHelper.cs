@@ -17,6 +17,8 @@ namespace AppMovilCursos.Data
             db.CreateTableAsync<Empleados>().Wait();
             db.CreateTableAsync<Cursos>().Wait();
             db.CreateTableAsync<Usuarios>().Wait();
+            db.CreateTableAsync<Perfiles>().Wait();
+
         }
 
         //GUARDAR EMPLEADOS ++ ACTUALIZAR

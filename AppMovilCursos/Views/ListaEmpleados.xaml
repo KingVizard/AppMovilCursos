@@ -27,12 +27,6 @@
                                                 <ColumnDefinition Width="*" />
                                                 
                                             </Grid.ColumnDefinitions>
-<!--
-                                            <Label Text="Nombre" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" />
-                                            <Label Text="Direccion" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" />
-                                            <Label Text="Telefono" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"/>
-                                            <Label Text="Edad" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="3" HorizontalTextAlignment="Center" />
-                                            -->
 
                                             <Label Text="{Binding Nombre}"
                                        Grid.Row="0"

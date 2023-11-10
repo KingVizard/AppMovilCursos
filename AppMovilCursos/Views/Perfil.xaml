@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovilCursos.Views.Perfil">
+             x:Class="AppMovilCursos.Views.Perfil"
+             NavigationPage.HasNavigationBar="False"
+             Background="Snow">
     <ContentPage.Content>
-        <StackLayout>
-            
-            <Image Source="ComingSoon.png" VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Background="blue">
+            <StackLayout HeightRequest="350">
+                <ImageButton x:Name="AgregarImg" Clicked="AgregarImg_Clicked" WidthRequest="100" HeightRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="red"/>
+                <Button Text="CargarImagen" x:Name="CargarImagen" Clicked="CargarImagen_Clicked" />
+            </StackLayout>
+            <StackLayout  HeightRequest="350" Background="Gray">
+                <Image x:Name="MostrarImg" HeightRequest="300" WidthRequest="300" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

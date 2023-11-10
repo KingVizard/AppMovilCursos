@@ -19,8 +19,6 @@ namespace AppMovilCursos.Views
         public ListaEmpleados()
         {
             InitializeComponent();
-
-            
         }
 
         public async void mostrar()
@@ -31,7 +29,6 @@ namespace AppMovilCursos.Views
                 lsEmpleados.ItemsSource = EmpleadosList;
                 
             }
-            
         }
 
         protected override async void OnAppearing()
@@ -39,6 +36,7 @@ namespace AppMovilCursos.Views
             base.OnAppearing();
             mostrar();
         }
+
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
@@ -49,22 +47,16 @@ namespace AppMovilCursos.Views
             await Navigation.PushModalAsync(new RegistroEmpleados());
         }
 
-
         private async void lsEmpleados_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
             if (e.Item == null)
             {
                 return;
             }
             var user = e.Item as Models.Empleados;
-            //*
 
-            //*
             await Navigation.PushModalAsync(new EditarEmpleado(user)); //Manda los datos
             ((ListView)sender).SelectedItem = null;
-
-
         }
 
     }

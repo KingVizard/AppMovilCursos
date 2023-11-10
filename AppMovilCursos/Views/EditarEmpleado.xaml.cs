@@ -1,6 +1,7 @@
 ﻿using AppMovilCursos.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,41 +20,43 @@ namespace AppMovilCursos.Views
         ValidarCambios Datos = new ValidarCambios();
 
         public EditarEmpleado(Empleados user)
-        //public EditarEmpleado(userTEST)
         {
             InitializeComponent();
 
+            
+            Stream stream = new MemoryStream(user.imgContent);
+            
+
             txtNombre.Text = user.Nombre;
-            //txtNombre.Text = userTEST.Nombre;
             txtDireccion.Text = user.Direccion;
             txtTelefono.Text = user.Telefono;
             txtEdad.Text = user.Edad.ToString();
             txtCurp.Text = user.Curp;
-            //txtTipoEmpleado.Text = user.TipoEmpleado; //prueba de registro
             txtIdEmp.Text = user.IdEmp.ToString();
 
+            if(user.imgContent == null)
+            {
+                ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
+            } else
+            {
+                ImgEmpleado.Source = ImageSource.FromStream(() => stream);
+            }
+
+            //VALOR PICKER
             UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
-            //UserPickerEmpleado.SelectedItem = user.TipoEmpleado.ToString();
-            //UserPickerEmpleado.SelectedItem = user.TipoEmpleado.ToString();
-
             int match_Tipo = pickerTipos.GetTipos().First(x => x.Tipo == user.TipoEmpleado).Id;
-
             UserPickerEmpleado.SelectedIndex = match_Tipo - 1;
 
+            //VALORES PICKER
             Tipos_Selected.Tipo_Selected = user.Nombre.ToString();
 
-            //class tesst()
-            //{
-
-            //}
+            //VALORES PARA COMPRARACION DE CAMBIOS
             Datos.Nombre = user.Nombre.ToString();
             Datos.Direccion = user.Direccion.ToString();
             Datos.Edad = user.Edad.ToString();
             Datos.Curp = user.Curp.ToString();
             Datos.Telefono = user.Telefono.ToString();
 
-            //PICKER PTE
-            
         }
 
 
@@ -81,10 +84,10 @@ namespace AppMovilCursos.Views
             {
                 respuesta = false;
             }
-            //else if (string.IsNullOrEmpty(txtTipoEmpleado.Text))
-            //{
-            //    respuesta = false;
-            //}
+            else if (int.Parse(UserPickerEmpleado.SelectedIndex.ToString()) == -1)
+            {
+                respuesta = false;
+            }
             else
             {
                 respuesta = true;
@@ -95,15 +98,6 @@ namespace AppMovilCursos.Views
 
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
-            //if (txtNombre.Text != Datos.Nombre)
-            //{
-            //    await DisplayAlert("AVISO", "NOOO es igual", "Ok");
-            //}
-            //else
-            //{
-            //    await DisplayAlert("AVISO", "SIII es igual", "Ok");
-            //}
-
             if (ValidarDatosMod() == false)
             {
                 var answer = await DisplayAlert("AVISO", "¿Desea salir sin guardar?, se perderán los cambios realizados.", "Si", "No");
@@ -115,18 +109,8 @@ namespace AppMovilCursos.Views
             {
                 await Navigation.PopModalAsync();
             }
-
-            //await Navigation.PopModalAsync();
-
-
-
-
-            //await DisplayAlert("AVISO", ValidarDatosMod().ToString() + " ---> " + Datos.Nombre + " / " + txtNombre.Text, "Ok");
-
-
         }
-        /// <summary>
-        /// 
+
         public class ValidarCambios
         {
             public string Nombre { get; set; }
@@ -136,9 +120,6 @@ namespace AppMovilCursos.Views
             public string Curp { get; set; }
 
         }
-        /// 
-        /// </summary>
-
 
         private async void btnEliminar_Clicked(object sender, EventArgs e)
         {
@@ -148,22 +129,13 @@ namespace AppMovilCursos.Views
                 var emple = await App.SQLiteDB.GetEmpleadoIdAsync(Convert.ToInt32(txtIdEmp.Text));
                 if (emple != null)
                 {
-
-                    /*---------------*/
                     var answer = await DisplayAlert("Aviso", "¿Esta seguro de eliminar el registro?", "Si", "No");
                     if (answer)
                     {
-                        //await DisplayAlert("Salir", answer.ToString(), "Si", "No");
-                        //Delete Person  
                         await App.SQLiteDB.DeleteEmpleadoAsync(emple);
-
                         await DisplayAlert("Aviso", "Empleado eliminado correctamente", "OK");
                         await Navigation.PopModalAsync();
                     }
-                    /*------------------*/
-
-
-
                 }
             }
             else
@@ -196,41 +168,14 @@ namespace AppMovilCursos.Views
                     await App.SQLiteDB.SaveEmpleadoAsync(emple);
 
 
-                    await DisplayAlert("Success", "Person Updated Successfully", "OK");
+                    await DisplayAlert("Exito", "Los cambios se ralizaron correctamente", "OK");
                     await Navigation.PopModalAsync();
                 }
-
-                //Empleados emple = new Empleados()
-                //{
-                //    IdEmp = Convert.ToInt32(txtIdEmp.Text),
-                //    Nombre = txtNombre.Text,
-
-                //    Direccion = txtDireccion.Text,
-                //    Telefono = txtTelefono.Text,
-                //    Edad = int.Parse(txtEdad.Text),
-                //    Curp = txtCurp.Text,
-                //    TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
-
-                //};
-
-                ////Update Person  
-                //await App.SQLiteDB.SaveEmpleadoAsync(emple);
-
-
-                //await DisplayAlert("Success", "Person Updated Successfully", "OK");
-
-
             }
             else
             {
                 await DisplayAlert("Required", "Please Enter PersonID", "OK");
             }
-
-            //var yest = UserPickerEmpleado.SelectedIndex; //entrega el indice 0 a n posicion
-            //var yesdddt = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(); //entrega texto
-
-            ////await DisplayAlert("Aviso", Tipos_Selected.Tipo_Selected.ToString() + " ->> " + yest.ToString(), "OK");
-            //await DisplayAlert("Aviso",yesdddt + " -> + > " + yest.ToString(), "OK");
         }
 
         public bool validarDatos()
@@ -256,10 +201,10 @@ namespace AppMovilCursos.Views
             {
                 respuesta = false;
             }
-            //else if (string.IsNullOrEmpty(txtTipoEmpleado.Text))
-            //{
-            //    respuesta = false;
-            //}
+            else if (int.Parse(UserPickerEmpleado.SelectedIndex.ToString()) == -1)
+            {
+                respuesta = false;
+            }
             else
             {
                 respuesta = true;
