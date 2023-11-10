@@ -21,6 +21,8 @@ namespace AppMovilCursos.Views
         public Perfil()
         {
             InitializeComponent();
+
+            SINOImg.Source = ImageSource.FromFile("SinImg");
         }
 
         private async void AgregarImg_Clicked(object sender, EventArgs e)
@@ -57,11 +59,31 @@ namespace AppMovilCursos.Views
 
         private void CargarImagen_Clicked(object sender, EventArgs e)
         {
-            var imgByte = GetImageBytes(MyGlobals.MyVariable);
-            Stream stream = new MemoryStream(imgByte);
-            //var contee = BytesToStream(imgByte);
 
-            MostrarImg.Source = ImageSource.FromStream(() => stream);
+            if(MyGlobals.MyVariable == null)
+            {
+                string imagePath = "avatar.png"; // Reemplaza con la ruta de tu imagen
+
+                using (FileStream fileStream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    MemoryStream memoryStream = new MemoryStream();
+                    fileStream.CopyTo(memoryStream);
+                    memoryStream.Position = 0;
+
+                    // Ahora puedes utilizar memoryStream como un Stream en Xamarin
+                    // Por ejemplo, puedes asignarlo a la propiedad Source de un objeto Image
+
+                    // Ejemplo:
+                    //Image image = new Image();
+                    MostrarImg.Source = ImageSource.FromStream(() => memoryStream);
+                }
+            }
+            else
+            {
+                var imgByte = GetImageBytes(MyGlobals.MyVariable);
+                Stream stream = new MemoryStream(imgByte);
+                MostrarImg.Source = ImageSource.FromStream(() => stream);
+            }
 
         }
 

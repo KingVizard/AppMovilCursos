@@ -11,6 +11,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.IO;
 using SQLite;
 using Xamarin.Forms.PlatformConfiguration.TizenSpecific;
+using static AppMovilCursos.Views.Perfil;
 
 namespace AppMovilCursos.Views
 {
@@ -29,14 +30,12 @@ namespace AppMovilCursos.Views
 
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
         {
-            var ImgByte = GetImageBytes(ValorImg.ImgStream);
-            
-            //if(ImgByte == null)
-            //{
-                
-            //    ImgByte
-            //}
+            if(ValorImg.ImgStream != Stream.Null)
+            {
+                ImgByte.Img = GetImageBytes(ValorImg.ImgStream);
+            }
 
+            //await DisplayAlert("AVISO", "CONTENIDO "+ ValorImg.ImgStream.ToString(), "OK");
             if (ValidarDatos())
             {
                 Empleados emple = new Empleados
@@ -47,7 +46,7 @@ namespace AppMovilCursos.Views
                     Edad = int.Parse(txtEdad.Text),
                     Curp = txtCurp.Text.Trim(),
                     TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
-                    imgContent = ImgByte
+                    imgContent = ImgByte.Img
                 };
 
                 await App.SQLiteDB.SaveEmpleadoAsync(emple);
@@ -58,7 +57,6 @@ namespace AppMovilCursos.Views
                 txtEdad.Text = "";
                 txtCurp.Text = "";
                 UserPickerEmpleado.SelectedIndex = -1;
-
 
                 await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
 
@@ -128,6 +126,10 @@ namespace AppMovilCursos.Views
                         return foto.GetStream();
                     });
                 }
+                //else
+                //{
+                //    ValorImg.ImgStream = foto.GetStream(); //toma valor null
+                //}
             }
             catch (Exception ex) 
             {
@@ -137,8 +139,14 @@ namespace AppMovilCursos.Views
 
         public class ValorImg
         {
-            public static Stream ImgStream;
+            public static Stream ImgStream = Stream.Null;
         }
+
+        public class ImgByte
+        {
+            public static Byte[] Img = null;
+        }
+
 
         private byte[] GetImageBytes(Stream stream)
         {

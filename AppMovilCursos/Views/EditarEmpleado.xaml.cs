@@ -24,7 +24,6 @@ namespace AppMovilCursos.Views
             InitializeComponent();
 
             
-            Stream stream = new MemoryStream(user.imgContent);
             
 
             txtNombre.Text = user.Nombre;
@@ -39,6 +38,7 @@ namespace AppMovilCursos.Views
                 ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
             } else
             {
+                Stream stream = new MemoryStream(user.imgContent);
                 ImgEmpleado.Source = ImageSource.FromStream(() => stream);
             }
 
