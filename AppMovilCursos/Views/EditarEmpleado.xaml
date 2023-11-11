@@ -20,9 +20,9 @@
                     <Label Grid.Column="1" Grid.Row="0" Text="Editar Empleado" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
 
                     <AbsoluteLayout HeightRequest="150" WidthRequest="200" HorizontalOptions="Center" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                        <ImageButton x:Name="ImgEmpleado" Clicked="AddImg_Clicked" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" BackgroundColor="#dedede" CornerRadius="100" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"/>
+                        <ImageButton x:Name="ImgEmpleado" IsEnabled="False" Clicked="AddImg_Clicked" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" BackgroundColor="#dedede" CornerRadius="100" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"/>
                         <Label Text="Sin Imagen" x:Name="txtSinImagen" FontSize="18" IsVisible="False" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                        <ImageButton x:Name="AddImg" Clicked="AddImg_Clicked" Source="AddImage.png" WidthRequest="50" Padding="5" BackgroundColor="#eee" CornerRadius="50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>
+                        <ImageButton x:Name="AddImg" IsEnabled="False" Clicked="AddImg_Clicked" Source="AddImage.png" WidthRequest="50" Padding="5" BackgroundColor="#eee" CornerRadius="50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>
                     </AbsoluteLayout>
                 </Grid>
 

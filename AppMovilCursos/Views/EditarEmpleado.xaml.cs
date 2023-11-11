@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static AppMovilCursos.Views.RegistroEmpleados;
 
 namespace AppMovilCursos.Views
 {
@@ -23,9 +24,6 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
 
-            
-            
-
             txtNombre.Text = user.Nombre;
             txtDireccion.Text = user.Direccion;
             txtTelefono.Text = user.Telefono;
@@ -35,10 +33,12 @@ namespace AppMovilCursos.Views
 
             if(user.imgContent == null)
             {
+                ImgEmpleado.Padding = 20;
                 ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
             } else
             {
                 Stream stream = new MemoryStream(user.imgContent);
+                ImgEmpleado.Padding = 0;
                 ImgEmpleado.Source = ImageSource.FromStream(() => stream);
             }
 
@@ -56,7 +56,7 @@ namespace AppMovilCursos.Views
             Datos.Edad = user.Edad.ToString();
             Datos.Curp = user.Curp.ToString();
             Datos.Telefono = user.Telefono.ToString();
-
+            Datos.ImgContentByte = user.imgContent;
         }
 
 
@@ -118,7 +118,7 @@ namespace AppMovilCursos.Views
             public string Direccion { get; set; }
             public string Edad { get; set; }
             public string Curp { get; set; }
-
+            public byte[] ImgContentByte { get; set; }
         }
 
         private async void btnEliminar_Clicked(object sender, EventArgs e)
@@ -146,6 +146,11 @@ namespace AppMovilCursos.Views
 
         private async void btnEditar_Clicked(object sender, EventArgs e)
         {
+            if (ValorImg.ImgStream != Stream.Null)
+            {
+                ImgByte.Img = GetImageBytes(ValorImg.ImgStream);
+            }
+
             if (validarDatos())
             {
                 var answer = await DisplayAlert("Aviso", "¿Esta seguro de modificar el registro?", "Si", "No");
@@ -161,7 +166,7 @@ namespace AppMovilCursos.Views
                         Edad = int.Parse(txtEdad.Text),
                         Curp = txtCurp.Text,
                         TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
-
+                        imgContent = ImgByte.Img
                     };
 
                     //Update Person  
@@ -226,21 +231,58 @@ namespace AppMovilCursos.Views
             }
         }
 
-        private void btnActiveEdit_Clicked(object sender, EventArgs e)
+        //private void btnActiveEdit_Clicked(object sender, EventArgs e)
+        //{
+        //    txtNombre.IsEnabled = true;
+        //    txtDireccion.IsEnabled = true;
+        //    txtEdad.IsEnabled = true;
+        //    txtCurp.IsEnabled = true;
+        //    txtTelefono.IsEnabled = true;
+        //    UserPickerEmpleado.IsEnabled = true;
+        //}
+
+        private async void AddImg_Clicked(object sender, EventArgs e)
         {
+            try
+            {
+                var foto = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions()
+                {
+                    Name = "Usuario " + DateTime.Now.ToString(),
+                    Directory = "FotosXamarin",
+                    SaveToAlbum = true
+                });
 
-
-            txtNombre.IsEnabled = true;
-            txtDireccion.IsEnabled= true;
-            txtEdad.IsEnabled= true;
-            txtCurp.IsEnabled= true;
-            txtTelefono.IsEnabled= true;
-            UserPickerEmpleado.IsEnabled= true;
+                if (foto != null)
+                {
+                    ImgEmpleado.Source = ImageSource.FromStream(() =>
+                    {
+                        ImgEmpleado.Padding = 0;
+                        ValorImg.ImgStream = foto.GetStream();
+                        return foto.GetStream();
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message.ToString(), "Ok");
+            }
         }
 
-        private void AddImg_Clicked(object sender, EventArgs e)
+        private byte[] GetImageBytes(Stream stream)
         {
+            byte[] ImageBytes;
+            using (var memoryStream = new System.IO.MemoryStream())
+            {
+                stream.CopyTo(memoryStream);
+                ImageBytes = memoryStream.ToArray();
+            }
+            return ImageBytes;
+        }
 
+        public Stream BytesToStream(byte[] bytes)
+        {
+            Stream stream = new MemoryStream(bytes);
+            return stream;
         }
 
         private void swToggle_Toggled(object sender, ToggledEventArgs e)
@@ -250,6 +292,8 @@ namespace AppMovilCursos.Views
                 btnEliminar.IsVisible = false;
                 btnEditar.IsVisible = true;
 
+                ImgEmpleado.IsEnabled= true;
+                AddImg.IsEnabled = true;
                 txtNombre.IsEnabled = true;
                 txtDireccion.IsEnabled = true;
                 txtEdad.IsEnabled = true;
@@ -262,6 +306,8 @@ namespace AppMovilCursos.Views
                 btnEliminar.IsVisible = true;
                 btnEditar.IsVisible = false;
 
+                ImgEmpleado.IsEnabled = false;
+                AddImg.IsEnabled = false;
                 txtNombre.IsEnabled = false;
                 txtDireccion.IsEnabled = false;
                 txtEdad.IsEnabled = false;

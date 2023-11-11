@@ -25,6 +25,7 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
             UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
+            ImgEmpleado.Padding = 20;
             ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
         }
 
@@ -122,14 +123,11 @@ namespace AppMovilCursos.Views
                 {
                     ImgEmpleado.Source = ImageSource.FromStream(() =>
                     {
+                        ImgEmpleado.Padding = 0;
                         ValorImg.ImgStream = foto.GetStream();
                         return foto.GetStream();
                     });
                 }
-                //else
-                //{
-                //    ValorImg.ImgStream = foto.GetStream(); //toma valor null
-                //}
             }
             catch (Exception ex) 
             {
