@@ -1,12 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovilCursos.Views.RegistroCursos"
              xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class"
-             Title="Registro de cursos"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="AppMovilCursos.Views.EditarCurso">
     <ContentPage.Content>
-
         <StackLayout Background="snow">
 
             <StackLayout BackgroundColor="IndianRed" Margin="0" Padding="10">
@@ -22,7 +19,7 @@
 
                     <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="IndianRed" WidthRequest="40" HeightRequest="40" Padding="4" />
                     <Label Grid.Column="1" Grid.Row="0" Text="Registrar Curso" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
-                    
+
                     <!-- 
                     
                     -->
@@ -36,25 +33,37 @@
             </StackLayout>
 
             <StackLayout Margin="20">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <!--    <ImageButton Source="edit.png" BackgroundColor="blue" HeightRequest="20" HorizontalOptions="End" x:Name="btnActiveEdit" Clicked="btnActiveEdit_Clicked" IsVisible="true"/> -->
+                    <Label Text="Editar Empleado" />
+                    <Switch x:Name="swToggle" Toggled="swToggle_Toggled" />
+                </StackLayout>
+                <Entry IsVisible="False" x:Name="txtIdCurso" />
                 <Label Text="Nombre del curso:" />
-                <controls:CustomEntry Keyboard="Chat" x:Name="txtNombreCurso"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtNombreCurso" IsEnabled="False"/>
                 <Label Text="Tipo de curso:" />
-                <controls:CustomEntry Keyboard="Chat" x:Name="txtTipoCurso"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtTipoCurso" IsEnabled="False"/>
                 <Label Text="Descripción:" />
-                <controls:CustomEntry Keyboard="Chat" x:Name="txtDescCurso"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtDescCurso" IsEnabled="False"/>
                 <Label Text="Duración:" />
-                <controls:CustomEntry Keyboard="Numeric" x:Name="txtCantidadHoras"/>
+                <controls:CustomEntry Keyboard="Numeric" x:Name="txtCantidadHoras" IsEnabled="False"/>
 
 
 
-                <Button Text="Registrar" x:Name="btnRegistrarCursos" Clicked="btnRegistrarCursos_Clicked" BackgroundColor="LightCoral" Margin="0, 10"
+                <Button Text="Eliminar" x:Name="btnEliminarCursos" Clicked="btnEliminarCursos_Clicked" BackgroundColor="LightGreen" Margin="0, 10"
                                 CornerRadius="10"
                                 TextColor="#fff"
                                 FontSize="18"
-                                FontAttributes="Bold"/>
+                                FontAttributes="Bold" />
+
+                <Button Text="Actualizar" x:Name="btnEditarCursos" Clicked="btnEditarCursos_Clicked" BackgroundColor="LightCoral" Margin="0, 10"
+                                CornerRadius="10"
+                                TextColor="#fff"
+                                FontSize="18"
+                                FontAttributes="Bold"
+                                IsVisible="False"/>
             </StackLayout>
 
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

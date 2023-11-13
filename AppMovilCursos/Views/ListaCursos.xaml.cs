@@ -17,13 +17,18 @@ namespace AppMovilCursos.Views
             InitializeComponent();
         }
 
-        public async void mostrarCursos()
+        public async void MostrarCursos()
         {
             var CursosList = await App.SQLiteDB.GetCursosAsync();
             if (CursosList != null)
             {
                 lsCursos.ItemsSource = CursosList;
             }
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            MostrarCursos();
         }
 
 
@@ -33,14 +38,16 @@ namespace AppMovilCursos.Views
             await Navigation.PushModalAsync(new RegistroCursos());
         }
 
-        protected override async void OnAppearing()
+        private async void lsCursos_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            base.OnAppearing();
-            mostrarCursos();
+            if (e.Item == null)
+            {
+                return;
+            }
+            var curso = e.Item as Models.Cursos;
+
+            await Navigation.PushModalAsync(new EditarCurso(curso));
+            ((ListView)sender).SelectedItem = null;
         }
-
-        
-
-
     }
 }

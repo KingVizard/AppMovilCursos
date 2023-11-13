@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.ListaEmpleados"
+             NavigationPage.HasNavigationBar="False"
              Background="DeepSkyBlue">
     <ContentPage.Content>
         <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >
@@ -23,14 +24,21 @@
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
+                                                <!-- 
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="20" />
+                                                
+                                                -->
                                                 
                                             </Grid.ColumnDefinitions>
 
+
+
                                             <Label Text="{Binding Nombre}"
                                        Grid.Row="0"
-                                       Grid.Column="0" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HeightRequest="100" />
+                                       Grid.Column="0" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HeightRequest="100" Margin="10,0,0,0" />
+                                            <!-- 
+                                            
                                             <Label Text="{Binding Direccion}" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HeightRequest="100"
                                        Grid.Row="0"
                                        Grid.Column="1" />
@@ -40,6 +48,7 @@
                                             <Label Text="{Binding Edad}" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HeightRequest="100"
                                        Grid.Row="0"
                                        Grid.Column="3" />
+                                            -->
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>

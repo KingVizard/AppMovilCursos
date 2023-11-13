@@ -57,16 +57,19 @@ namespace AppMovilCursos.Data
 
         //ACTUALIZAR EMPLEADO
 
+        //--------------------------------------------------
+        //--------------------------------------------------
+        //--------------------------------------------------
 
         //GUARDAR CURSOS
         public Task<int> SaveCursoAsync(Cursos cur)
         {
-            if (cur.IdCur == 0)
+            if (cur.IdCur != 0)
             {
-                return db.InsertAsync(cur);
+                return db.UpdateAsync(cur);
             } else
             {
-                return null;
+                return db.InsertAsync(cur);
             }
         }
 
@@ -76,7 +79,37 @@ namespace AppMovilCursos.Data
             return db.Table<Cursos>().ToListAsync();
         }
 
-        /////////////////////////////////////////////////
+        //CONSULTA CURSOS
+        public Task<Cursos> GetCursosIdAsync(int cursoId)
+        {
+            return db.Table<Cursos>().Where(i => i.IdCur == cursoId).FirstOrDefaultAsync();
+        }
+
+        //GUARDAR CURSOS ++ ACTUALIZAR
+        public Task<int> SaveCursosAsync(Cursos curso)
+        {
+            //if(emple.IdEmp == 0)
+            if (curso.IdCur != 0)
+            {
+                //return db.InsertAsync(emple);
+                return db.UpdateAsync(curso);
+            }
+            else
+            {
+                //return null;
+                return db.InsertAsync(curso);
+            }
+        }
+
+        //ELIMINAR CURSOS
+        public Task<int> DeleteCursoAsync(Cursos cursos)
+        {
+            return db.DeleteAsync(cursos);
+        }
+
+        //--------------------------------------------------
+        //--------------------------------------------------
+        //--------------------------------------------------
         public Task<int> SaveUsuario(Usuarios usr)
         {
             if (usr.IdUsuario != 0)
