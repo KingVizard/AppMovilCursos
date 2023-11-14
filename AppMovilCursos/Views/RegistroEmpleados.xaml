@@ -45,7 +45,7 @@
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" />
 
                 <Label Text="Tipo de Empleado:" />
-                <Picker ItemsSource="{Binding TipoEmps}" ItemDisplayBinding="{Binding Tipo}" SelectedItem="{Binding SelectedTipo}" x:Name="UserPickerEmpleado"></Picker>
+                <controls:CustomPk ItemsSource="{Binding TipoEmps}" Title="Selecciona una opción" ItemDisplayBinding="{Binding Tipo}" SelectedItem="{Binding SelectedTipo}" x:Name="UserPickerEmpleado"></controls:CustomPk>
 
                 <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="LightSeaGreen"
                                 CornerRadius="10"

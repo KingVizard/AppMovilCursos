@@ -39,7 +39,11 @@
                 <Label Text="Nombre del curso:" />
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtNombreCurso"/>
                 <Label Text="Tipo de curso:" />
+                <!-- 
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtTipoCurso"/>
+                -->
+                <controls:CustomPk x:Name="PkTipoCurso" Title="Selecciona una opción" />
+                
                 <Label Text="Descripción:" />
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtDescCurso"/>
                 <Label Text="Duración:" />

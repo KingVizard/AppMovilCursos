@@ -42,7 +42,10 @@
                 <Label Text="Nombre del curso:" />
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtNombreCurso" IsEnabled="False"/>
                 <Label Text="Tipo de curso:" />
+                <controls:CustomPk Title="Selecciona una opción" x:Name="PkTipoCurso" IsEnabled="False" />
+<!-- 
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtTipoCurso" IsEnabled="False"/>
+                -->
                 <Label Text="Descripción:" />
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtDescCurso" IsEnabled="False"/>
                 <Label Text="Duración:" />

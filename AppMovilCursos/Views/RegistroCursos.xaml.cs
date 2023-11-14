@@ -18,6 +18,9 @@ namespace AppMovilCursos.Views
         public RegistroCursos()
         {
             InitializeComponent();
+
+            PkTipoCurso.Items.Add("Interno");
+            PkTipoCurso.Items.Add("Externo");
         }
 
         private async void btnRegistrarCursos_Clicked(object sender, EventArgs e)
@@ -27,7 +30,8 @@ namespace AppMovilCursos.Views
                 Cursos cur = new Cursos
                 {
                     NombreCurso = txtNombreCurso.Text,
-                    TipoCurso = txtTipoCurso.Text,
+                    TipoCurso = PkTipoCurso.Items[PkTipoCurso.SelectedIndex].ToString(),
+                    //TipoCurso = PkTipoCurso.SelectedItem.ToString(),
                     DescCurso = txtDescCurso.Text,
                     CantidadHoras = int.Parse(txtCantidadHoras.Text),
 
@@ -36,7 +40,7 @@ namespace AppMovilCursos.Views
                 await App.SQLiteDB.SaveCursoAsync(cur);
 
                 txtNombreCurso.Text = "";
-                txtTipoCurso.Text = "";
+                //txtTipoCurso.Text = "";
                 txtDescCurso.Text = "";
                 txtCantidadHoras.Text = "";
 
@@ -57,10 +61,10 @@ namespace AppMovilCursos.Views
             {
                 respuesta = false;
             }
-            else if (string.IsNullOrEmpty(txtTipoCurso.Text))
-            {
-                respuesta = false;
-            }
+            //else if (string.IsNullOrEmpty(txtTipoCurso.Text))
+            //{
+            //    respuesta = false;
+            //}
             else if (string.IsNullOrEmpty(txtDescCurso.Text))
             {
                 respuesta = false;
@@ -79,9 +83,8 @@ namespace AppMovilCursos.Views
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
-        }
 
-        
+        }
 
     }
 }

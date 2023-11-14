@@ -44,6 +44,7 @@ namespace AppMovilCursos.Views
 
             //VALOR PICKER
             UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
+
             int match_Tipo = pickerTipos.GetTipos().First(x => x.Tipo == user.TipoEmpleado).Id;
             UserPickerEmpleado.SelectedIndex = match_Tipo - 1;
 
