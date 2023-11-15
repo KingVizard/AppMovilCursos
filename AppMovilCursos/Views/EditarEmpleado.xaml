@@ -36,6 +36,7 @@
             
             <StackLayout Padding="20, 10" >
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    
                 <!--    <ImageButton Source="edit.png" BackgroundColor="blue" HeightRequest="20" HorizontalOptions="End" x:Name="btnActiveEdit" Clicked="btnActiveEdit_Clicked" IsVisible="true"/> -->
                     <Label Text="Editar Empleado" />
                     <Switch x:Name="swToggle" Toggled="swToggle_Toggled" />
