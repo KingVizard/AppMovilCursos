@@ -10,9 +10,6 @@
                 <Grid x:Name="GridContainer">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"  />
-                        <!-- 
-                        <RowDefinition Height="160" />
-                        -->
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -21,26 +18,11 @@
 
                     <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="Magenta" WidthRequest="40" HeightRequest="40" Padding="4" />
                     <Label Grid.Column="1" Grid.Row="0" Text="Relaciones Curso-Empleado" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
-<!-- 
-                    <AbsoluteLayout HeightRequest="150" WidthRequest="200" HorizontalOptions="Center" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                        <ImageButton x:Name="ImgEmpleado" IsEnabled="False" Clicked="AddImg_Clicked" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" BackgroundColor="#dedede" CornerRadius="100" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"/>
-                        <Label Text="Sin Imagen" x:Name="txtSinImagen" FontSize="18" IsVisible="False" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                        <ImageButton x:Name="AddImg" IsEnabled="False" Clicked="AddImg_Clicked" Source="AddImage.png" WidthRequest="50" Padding="5" BackgroundColor="#eee" CornerRadius="50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>
-                    </AbsoluteLayout>
-                    -->
-                    
                 </Grid>
 
             </StackLayout>
 
             <StackLayout Padding="20, 10" >
-                    <!--
-                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                    <Label Text="Editar Empleado" />
-                    <Switch x:Name="swToggle" Toggled="swToggle_Toggled" />
-                    
-                </StackLayout>
--->
                 <Entry Keyboard="Chat" x:Name="txtIdEmp" IsVisible="False"/>
 
 
@@ -60,13 +42,6 @@
                 <controls:CustomPk Title="Selecciona una opción" x:Name="PkEstatus"/>
                 <Label Text="Calificacion:" />
                 <controls:CustomEntry Keyboard="Numeric" x:Name="txtCalificacionCur"/>
-                <!-- 
-                <StackLayout>
-                    <Button Text="Guardar Cambios" FontAttributes="Bold" TextColor="#fff" x:Name="btnEditar" IsVisible="false" Clicked="btnEditar_Clicked" BackgroundColor="DeepSkyBlue" CornerRadius="15"/>
-                    <Button Text="Eliminar Empleado" FontAttributes="Bold" TextColor="#fff" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" BackgroundColor="DeepPink" CornerRadius="15"/>
-                </StackLayout>
-                -->
-
             </StackLayout>
         </StackLayout>
 

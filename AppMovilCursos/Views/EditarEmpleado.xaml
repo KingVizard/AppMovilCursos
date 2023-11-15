@@ -28,16 +28,8 @@
 
             </StackLayout>
 
-
-<!--
-            <ImageButton HorizontalOptions="Start" Source="IconBack.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="DeepSkyBlue" WidthRequest="40" HeightRequest="40" Padding="4"/>
-            <Label Text="Editar Empleado" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            -->
-            
             <StackLayout Padding="20, 10" >
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                    
-                <!--    <ImageButton Source="edit.png" BackgroundColor="blue" HeightRequest="20" HorizontalOptions="End" x:Name="btnActiveEdit" Clicked="btnActiveEdit_Clicked" IsVisible="true"/> -->
                     <Label Text="Editar Empleado" />
                     <Switch x:Name="swToggle" Toggled="swToggle_Toggled" />
                 </StackLayout>
@@ -65,12 +57,6 @@
                     <Button Text="Guardar Cambios" FontAttributes="Bold" TextColor="#fff" x:Name="btnEditar" IsVisible="false" Clicked="btnEditar_Clicked" BackgroundColor="DeepSkyBlue" CornerRadius="15"/>
                     <Button Text="Eliminar Empleado" FontAttributes="Bold" TextColor="#fff" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" BackgroundColor="DeepPink" CornerRadius="15"/>
                 </StackLayout>
-<!--
-                <StackLayout Orientation="Horizontal" HeightRequest="100" WidthRequest="120" HorizontalOptions="CenterAndExpand" Spacing="30" BackgroundColor="Red" IsVisible="false">
-                    <ImageButton Source="delete.png" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" HeightRequest="50" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
-                    <ImageButton Source="edit.png" x:Name="btnEditar" Clicked="btnEditar_Clicked" HeightRequest="50" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
-                </StackLayout>
-                -->
             </StackLayout>
         </StackLayout>
 
