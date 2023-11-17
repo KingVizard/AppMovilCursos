@@ -18,6 +18,7 @@ namespace AppMovilCursos.Data
             db.CreateTableAsync<Cursos>().Wait();
             db.CreateTableAsync<Usuarios>().Wait();
             db.CreateTableAsync<Perfiles>().Wait();
+            db.CreateTableAsync<SeguimientoCursos>().Wait();
 
         }
 
@@ -138,5 +139,34 @@ namespace AppMovilCursos.Data
             return db.QueryAsync<Usuarios>("SELECT Email, Clave FROM Usuarios WHERE Email=? AND Clave=?", email, password).Result;
 
         }
+
+        //--------------------------------------------------
+        //--------------------------------------------------
+        //--------------------------------------------------
+
+        //GUARDAR Seguimiento ++ ACTUALIZAR
+        public Task<int> SaveSeguimientoAsync(SeguimientoCursos seg)
+        {
+            //if(emple.IdEmp == 0)
+            if (seg.Id != 0)
+            {
+                //return db.InsertAsync(emple);
+                return db.UpdateAsync(seg);
+            }
+            else
+            {
+                //return null;
+                return db.InsertAsync(seg);
+
+            }
+        }
+
+        //CONSULTAR SEGUIMIENTO
+        public Task<List<SeguimientoCursos>> GetSeguimientoAsync()
+        {
+            return db.Table<SeguimientoCursos>().ToListAsync();
+        }
+
+
     }
 }

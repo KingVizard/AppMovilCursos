@@ -18,7 +18,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="IndianRed" WidthRequest="40" HeightRequest="40" Padding="4" />
-                    <Label Grid.Column="1" Grid.Row="0" Text="Registrar Curso" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Editar Curso" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
 
                     <!-- 
                     

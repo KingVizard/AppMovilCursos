@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovilCursos.Views.Seguimiento"
+             xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Background="snow">
+            <StackLayout BackgroundColor="Magenta" Margin="0" Padding="10">
+                <Grid x:Name="GridContainer">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"  />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="Magenta" WidthRequest="40" HeightRequest="40" Padding="4" />
+                    <Label Grid.Column="1" Grid.Row="0" Text="Seguimiento" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
+                </Grid>
+
+            </StackLayout>
+
+            <StackLayout Padding="20, 10" >
+                <Entry Keyboard="Chat" x:Name="txtIdEmp" IsVisible="False"/>
+
+
+                <Label Text="No.Empleado:" IsVisible="False"/>
+                <controls:CustomEntry Keyboard="Chat" IsVisible="False" x:Name="txtNoEmp"/>
+                <Label Text="Nombre:" />
+                <controls:CustomPk x:Name="PkNombreEmp" ItemDisplayBinding="{Binding Nombre}"/>
+                <Label Text="Curso:" />
+                <controls:CustomPk x:Name="PkNombreCur" ItemDisplayBinding="{Binding NombreCurso}"/>
+                
+                <Label Text="Lugar:" />
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtLugarCur"/>
+                <!-- 
+                <controls:CustomPk x:Name="PkFecha"/>
+                -->
+                
+                <Label Text="Hora:" />
+                <TimePicker x:Name="PkHora" Format="T"/>
+                
+                <Label Text="Fecha:" />
+                <DatePicker x:Name="PkFecha" Format="dd/MM/yyyy"/>
+                
+                <Label Text="Estatus:" />
+                <controls:CustomPk Title="Selecciona una opción" x:Name="PkEstatus"/>
+                <Label Text="Calificacion:" />
+                <controls:CustomEntry Keyboard="Numeric" x:Name="txtCalificacionCur"/>
+                <!-- 
+                -->
+
+                <Button Text="Agregar" x:Name="btnAgregar" Clicked="btnAgregar_Clicked"/>
+            </StackLayout>
+            <ListView x:Name="lsSeguimiento" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0" BackgroundColor="red" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid Padding="6" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <!-- 
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="20" />
+                                                
+                                                -->
+
+                                </Grid.ColumnDefinitions>
+
+
+                                <!-- COLUMNAS 
+                                <Label Text="Nombre" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+                                <Label Text="Curso" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
+                                <Label Text="Lugar" FontAttributes="Bold" Grid.Row="0" Grid.Column="2" />
+                                <Label Text="Fecha" FontAttributes="Bold" Grid.Row="0" Grid.Column="3" />
+                                <Label Text="Hora" FontAttributes="Bold" Grid.Row="0" Grid.Column="4"/>
+                                <Label Text="Estatus" FontAttributes="Bold" Grid.Row="0" Grid.Column="5"/>
+                                <Label Text="Calificacion" FontAttributes="Bold" Grid.Row="0" Grid.Column="6" />
+                                -->
+                                <!-- /COLUMNAS -->
+
+                                <Label Text="{Binding NombreEmpleado}"
+                                       Grid.Row="0"
+                                       Grid.Column="0" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding NombreCurso}"
+                                       Grid.Row="0"
+                                       Grid.Column="1" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Lugar}"
+                                       Grid.Row="0"
+                                       Grid.Column="2" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Fecha}"
+                                       Grid.Row="0"
+                                       Grid.Column="3" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Horas}"
+                                       Grid.Row="0"
+                                       Grid.Column="4" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Estatus}"
+                                       Grid.Row="0"
+                                       Grid.Column="5" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Calificacion}"
+                                       Grid.Row="0"
+                                       Grid.Column="6" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <!-- 
+                                -->
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

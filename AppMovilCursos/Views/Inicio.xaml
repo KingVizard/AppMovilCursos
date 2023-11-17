@@ -12,7 +12,7 @@
   <!--Pages can be added as references or inline-->
   <locals:ListaEmpleados Title="Registro Empleados" IconImageSource="IconUser" />
   <locals:ListaCursos Title="Registro Cursos" IconImageSource="IconTask" />
-  <locals:CursoEmpleado Title="Relacion" IconImageSource="IconPerfil" />
+  <locals:Seguimiento Title="Relacion" IconImageSource="IconPerfil" />
     <!-- 
   <locals:Perfil Title="Perfil" IconImageSource="IconPerfil" />
     -->

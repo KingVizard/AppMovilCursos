@@ -56,6 +56,8 @@ namespace AppMovilCursos.Views
             {
                 await Navigation.PopModalAsync();
             }
+
+
         }
         private void swToggle_Toggled(object sender, ToggledEventArgs e)
         {

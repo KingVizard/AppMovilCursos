@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppMovilCursos.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace AppMovilCursos.Views
         public ListaCursos()
         {
             InitializeComponent();
+
+            var curso = App.SQLiteDB.GetCursosIdAsync(1);
+
+            if (curso.Result == null) //No es null
+            {
+                CursosDefault();
+            }
         }
 
         public async void MostrarCursos()
@@ -48,6 +56,29 @@ namespace AppMovilCursos.Views
 
             await Navigation.PushModalAsync(new EditarCurso(curso));
             ((ListView)sender).SelectedItem = null;
+        }
+
+        public void CursosDefault()
+        {
+            Cursos curso1 = new Cursos
+            {
+                NombreCurso = "CURSO 1",
+                TipoCurso = "Interno",
+                DescCurso = "Lorem ipsum odor amet, consectetuer adipiscing elit. Sociosqu lorem interdum.",
+                CantidadHoras = 2
+
+            };
+            App.SQLiteDB.SaveCursoAsync(curso1);
+
+            Cursos curso2 = new Cursos
+            {
+                NombreCurso = "CURSO 2",
+                TipoCurso = "Externo",
+                DescCurso = "Lorem ipsum odor amet, consectetuer adipiscing elit. Sociosqu lorem interdum.",
+                CantidadHoras = 1
+            };
+            App.SQLiteDB.SaveCursoAsync(curso2);
+
         }
     }
 }
