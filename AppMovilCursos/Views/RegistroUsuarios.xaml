@@ -30,19 +30,17 @@
                         <Label Text="Email:"
                            FontAttributes="Bold" />
                         <controls:CustomEntry x:Name="txtEmail"
-                           Keyboard="Email"
-                           Placeholder="ej. usuario123@gmail.com"/>
+                           Keyboard="Email"/>
                         <Label Text="Contraseña:"
                            FontAttributes="Bold" />
                         <controls:CustomEntry x:Name="txtPassword" Keyboard="Chat"
-                           IsPassword="True"
-                           Placeholder="***************" />
+                           IsPassword="True" />
                         <Label Text="Nombre Completo:"
                            FontAttributes="Bold" />
-                        <controls:CustomEntry x:Name="txtNombre" Placeholder="Ej.Pablo Peña Gonzalez" Keyboard="Chat" />
+                        <controls:CustomEntry x:Name="txtNombre" Keyboard="Chat" />
                         <Label Text="Edad:"
                            FontAttributes="Bold" />
-                        <controls:CustomEntry x:Name="txtEdad" Placeholder="23" Keyboard="Numeric" />
+                        <controls:CustomEntry x:Name="txtEdad" Keyboard="Numeric" />
                         <Button Text="Registrar"
                             BackgroundColor="LightSeaGreen"
                             CornerRadius="10"

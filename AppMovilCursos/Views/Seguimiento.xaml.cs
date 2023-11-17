@@ -57,22 +57,22 @@ namespace AppMovilCursos.Views
             //DatePicker datePicker = PkFecha.Format();
             //datePicker.Format = "dd/MM/yyyy";
 
-            mostrar();
+            //mostrar();
         }
 
-        public async void mostrar()
-        {
-            var SeguimientoList = await App.SQLiteDB.GetSeguimientoAsync();
-            if (SeguimientoList != null)
-            {
-                lsSeguimiento.ItemsSource = SeguimientoList;
-            }
-        }
+        //public async void mostrar()
+        //{
+        //    var SeguimientoList = await App.SQLiteDB.GetSeguimientoAsync();
+        //    if (SeguimientoList != null)
+        //    {
+        //        lsSeguimiento.ItemsSource = SeguimientoList;
+        //    }
+        //}
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            mostrar();
+            ObtenerValoresPk();
         }
 
         public async void ObtenerValoresPk()
@@ -122,6 +122,11 @@ namespace AppMovilCursos.Views
 
 
 
+        }
+
+        private async void btnLista_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ListaSeguimiento());
         }
     }
 }

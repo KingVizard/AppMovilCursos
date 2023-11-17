@@ -29,13 +29,11 @@
                     <Label Text="Usuario:"
                            FontAttributes="Bold" />
                     <controls:CustomEntry x:Name="txtEmail"
-                           Keyboard="Email"
-                           Placeholder="ej. usuario123@gmail.com"/>
+                           Keyboard="Email"/>
                     <Label Text="Contraseña:"
                            FontAttributes="Bold" />
                     <controls:CustomEntry x:Name="txtPassword"
-                           IsPassword="True"
-                           Placeholder="***************" />
+                           IsPassword="True" />
                     <Button Text="Ingresar"
                             BackgroundColor="LightSeaGreen"
                             CornerRadius="10"
