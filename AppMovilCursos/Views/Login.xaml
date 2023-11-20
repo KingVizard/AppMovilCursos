@@ -35,7 +35,7 @@
                     <controls:CustomEntry x:Name="txtPassword"
                            IsPassword="True" />
                     <Button Text="Ingresar"
-                            BackgroundColor="LightSeaGreen"
+                            BackgroundColor="#5199E4"
                             CornerRadius="10"
                             TextColor="#fff"
                             FontSize="18"

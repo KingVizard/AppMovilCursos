@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Background="snow">
-            <StackLayout BackgroundColor="Magenta" Margin="0" Padding="10">
+            <StackLayout Margin="0" Padding="10" IsVisible="False">
                 <Grid x:Name="GridContainer">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"  />
@@ -50,8 +50,16 @@
                 <Label Text="Calificacion:" />
                 <controls:CustomEntry Keyboard="Numeric" x:Name="txtCalificacionCur"/>
 
-                <Button Text="Agregar" x:Name="btnAgregar" Clicked="btnAgregar_Clicked"/>
-                <Button Text="VER LISTA" x:Name="btnLista" Clicked="btnLista_Clicked" />
+                <Button Text="Agregar" x:Name="btnAgregar" Clicked="btnAgregar_Clicked" BackgroundColor="LawnGreen"
+                                CornerRadius="10"
+                                TextColor="#fff"
+                                FontSize="18"
+                                FontAttributes="Bold"/>
+                <Button Text="VER LISTA" x:Name="btnLista" Clicked="btnLista_Clicked" BackgroundColor="LimeGreen"
+                                CornerRadius="10"
+                                TextColor="#fff"
+                                FontSize="18"
+                                FontAttributes="Bold" />
             </StackLayout>
                 <!-- 
             

@@ -12,7 +12,8 @@
   <!--Pages can be added as references or inline-->
   <locals:ListaEmpleados Title="Registro Empleados" IconImageSource="IconUser" />
   <locals:ListaCursos Title="Registro Cursos" IconImageSource="IconTask" />
-  <locals:Seguimiento Title="Relacion" IconImageSource="IconPerfil" />
+    <locals:Seguimiento Title="Seguimiento" IconImageSource="IconPerfil" />
+    <locals:Perfil Title="Pefil" IconImageSource="IconPerfil" />
     <!-- 
   <locals:Perfil Title="Perfil" IconImageSource="IconPerfil" />
     -->

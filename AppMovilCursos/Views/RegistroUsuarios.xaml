@@ -42,7 +42,7 @@
                            FontAttributes="Bold" />
                         <controls:CustomEntry x:Name="txtEdad" Keyboard="Numeric" />
                         <Button Text="Registrar"
-                            BackgroundColor="LightSeaGreen"
+                            BackgroundColor="#7D6DDA"
                             CornerRadius="10"
                             TextColor="#fff"
                             FontSize="18"

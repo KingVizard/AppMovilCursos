@@ -47,7 +47,7 @@
                 <Label Text="Tipo de Empleado:" />
                 <controls:CustomPk ItemsSource="{Binding TipoEmps}" Title="Selecciona una opción" ItemDisplayBinding="{Binding Tipo}" SelectedItem="{Binding SelectedTipo}" x:Name="UserPickerEmpleado"></controls:CustomPk>
 
-                <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="LightSeaGreen"
+                <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="DarkViolet"
                                 CornerRadius="10"
                                 TextColor="#fff"
                                 FontSize="18"
