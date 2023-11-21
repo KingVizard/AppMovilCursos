@@ -41,9 +41,9 @@
                 <Label Text="Dirección:" FontAttributes="Bold" />
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtDireccion" IsEnabled="False"/>
                 <Label Text="Teléfono:" FontAttributes="Bold"/>
-                <controls:CustomEntry Keyboard="Telephone" x:Name="txtTelefono" IsEnabled="False"/>
+                <controls:CustomEntry Keyboard="Telephone" x:Name="txtTelefono" IsEnabled="False" MaxLength="10"/>
                 <Label Text="Edad:" FontAttributes="Bold"/>
-                <controls:CustomEntry Keyboard="Numeric" x:Name="txtEdad" IsEnabled="False"/>
+                <controls:CustomEntry Keyboard="Numeric" x:Name="txtEdad" IsEnabled="False" MaxLength="2"/>
                 <Label Text="Curp:" FontAttributes="Bold"/>
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" IsEnabled="False"/>
 

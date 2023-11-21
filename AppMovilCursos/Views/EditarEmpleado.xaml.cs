@@ -97,6 +97,66 @@ namespace AppMovilCursos.Views
 
         }
 
+        public bool ValidarCampos()
+        {
+            bool ans;
+
+            if (!txtNombre.Text.Replace(" ", String.Empty).ToCharArray().All(Char.IsLetter))
+            {
+                DisplayAlert("Aviso", "El nombre solo debe contener letras", "Ok");
+                txtNombre.Focus();
+                ans = false;
+            }
+            else if (txtDireccion.Text.Length < 10)
+            {
+                DisplayAlert("Aviso", "Ingrese un domicilio correcto", "Ok");
+                txtDireccion.Focus();
+                ans = false;
+            }
+            else if (txtCurp.Text.Length < 18)
+            {
+                DisplayAlert("Aviso", "Ingrese un curp valido", "Ok");
+                txtCurp.Focus();
+                ans = false;
+            }
+            else if (txtTelefono.Text.Length != 10)
+            {
+                DisplayAlert("Aviso", "Favor de ingresar un numero de telefono de 10 digitos", "Ok");
+                txtTelefono.Focus();
+                ans = false;
+            }
+            else if (!string.IsNullOrEmpty(txtEdad.Text)) //si contiene algo
+            {
+                if (txtEdad.Text.ToCharArray().All(Char.IsDigit))
+                {
+                    if (int.Parse(txtEdad.Text) >= 18)
+                    {
+                        ans = true;
+                        //DisplayAlert("Exito", "Edad Correcta ", "Ok");
+                    }
+                    else
+                    {
+                        ans = false;
+                        DisplayAlert("AVISO", "Solo se admiten mayores de edad", "Ok");
+                        txtEdad.Focus();
+                    }
+                }
+                else
+                {
+                    ans = false;
+                    DisplayAlert("ERROR", "Este campo solo acepta digitos", "Ok");
+                    txtEdad.Focus();
+                }
+            }
+            else
+            {
+                ans = true;
+            }
+
+            return ans;
+        }
+
+
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
             if (ValidarDatosMod() == false)

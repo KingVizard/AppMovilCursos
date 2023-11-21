@@ -33,14 +33,14 @@
                            Keyboard="Email"/>
                         <Label Text="Contraseña:"
                            FontAttributes="Bold" />
-                        <controls:CustomEntry x:Name="txtPassword" Keyboard="Chat"
+                        <controls:CustomEntry x:Name="txtPassword" Keyboard="Chat" MaxLength="10"
                            IsPassword="True" />
                         <Label Text="Nombre Completo:"
                            FontAttributes="Bold" />
                         <controls:CustomEntry x:Name="txtNombre" Keyboard="Chat" />
                         <Label Text="Edad:"
                            FontAttributes="Bold" />
-                        <controls:CustomEntry x:Name="txtEdad" Keyboard="Numeric" />
+                        <controls:CustomEntry x:Name="txtEdad" Keyboard="Numeric" MaxLength="2" />
                         <Button Text="Registrar"
                             BackgroundColor="#7D6DDA"
                             CornerRadius="10"

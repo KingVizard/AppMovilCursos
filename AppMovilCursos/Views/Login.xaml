@@ -26,7 +26,7 @@
                     <Image Source="avatar.png"
                            WidthRequest="150"
                            Margin="0,0,0, 20" />
-                    <Label Text="Usuario:"
+                    <Label Text="Correo:"
                            FontAttributes="Bold" />
                     <controls:CustomEntry x:Name="txtEmail"
                            Keyboard="Email"/>

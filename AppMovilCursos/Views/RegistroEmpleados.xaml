@@ -38,11 +38,11 @@
                 <Label Text="Dirección:" />
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtDireccion"/>
                 <Label Text="Teléfono:" />
-                <controls:CustomEntry Keyboard="Telephone" x:Name="txtTelefono"/>
+                <controls:CustomEntry Keyboard="Telephone" x:Name="txtTelefono" MaxLength="10"/>
                 <Label Text="Edad:" />
-                <controls:CustomEntry Keyboard="Numeric" x:Name="txtEdad"/>
+                <controls:CustomEntry Keyboard="Numeric" x:Name="txtEdad" MaxLength="2"/>
                 <Label Text="Curp:" />
-                <controls:CustomEntry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" />
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" MaxLength="18" />
 
                 <Label Text="Tipo de Empleado:" />
                 <controls:CustomPk ItemsSource="{Binding TipoEmps}" Title="Selecciona una opción" ItemDisplayBinding="{Binding Tipo}" SelectedItem="{Binding SelectedTipo}" x:Name="UserPickerEmpleado"></controls:CustomPk>

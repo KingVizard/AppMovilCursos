@@ -27,6 +27,14 @@ namespace AppMovilCursos.Views
             UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
             ImgEmpleado.Padding = 20;
             ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
+
+            //Valores Para pruebas
+            //txtNombre.Text = "Jose Perez";
+            //txtDireccion.Text = "Cañon Ballesteros #113";
+            //txtTelefono.Text = "8131723963";
+            //txtEdad.Text = "18";
+
+
         }
 
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
@@ -36,30 +44,32 @@ namespace AppMovilCursos.Views
                 ImgByte.Img = GetImageBytes(ValorImg.ImgStream);
             }
 
-            //await DisplayAlert("AVISO", "CONTENIDO "+ ValorImg.ImgStream.ToString(), "OK");
-            if (ValidarDatos())
+            if (ValidarCamposVacios())
             {
-                Empleados emple = new Empleados
+                if (ValidarCampos())
                 {
-                    Nombre = txtNombre.Text.Trim(),
-                    Direccion = txtDireccion.Text.Trim(),
-                    Telefono = (txtTelefono.Text),
-                    Edad = int.Parse(txtEdad.Text),
-                    Curp = txtCurp.Text.Trim(),
-                    TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
-                    imgContent = ImgByte.Img
-                };
+                    Empleados emple = new Empleados
+                    {
+                        Nombre = txtNombre.Text.Trim(),
+                        Direccion = txtDireccion.Text.Trim(),
+                        Telefono = (txtTelefono.Text),
+                        Edad = int.Parse(txtEdad.Text),
+                        Curp = txtCurp.Text.Trim(),
+                        TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
+                        imgContent = ImgByte.Img
+                    };
 
-                await App.SQLiteDB.SaveEmpleadoAsync(emple);
+                    await App.SQLiteDB.SaveEmpleadoAsync(emple);
 
-                txtNombre.Text = "";
-                txtDireccion.Text = "";
-                txtTelefono.Text = "";
-                txtEdad.Text = "";
-                txtCurp.Text = "";
-                UserPickerEmpleado.SelectedIndex = -1;
+                    txtNombre.Text = "";
+                    txtDireccion.Text = "";
+                    txtTelefono.Text = "";
+                    txtEdad.Text = "";
+                    txtCurp.Text = "";
+                    UserPickerEmpleado.SelectedIndex = -1;
 
-                await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
+                    await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
+                }
 
             }
             else
@@ -68,7 +78,7 @@ namespace AppMovilCursos.Views
             }
         }
 
-        public bool ValidarDatos()
+        public bool ValidarCamposVacios()
         {
             bool respuesta;
             if (string.IsNullOrEmpty(txtNombre.Text))
@@ -102,6 +112,64 @@ namespace AppMovilCursos.Views
             return respuesta;
         }
 
+        public bool ValidarCampos()
+        {
+            bool ans;
+
+            if (!txtNombre.Text.Replace(" ", String.Empty).ToCharArray().All(Char.IsLetter))
+            {
+                DisplayAlert("Aviso", "El nombre solo debe contener letras", "Ok");
+                txtNombre.Focus();
+                ans = false;
+            }
+            else if (txtDireccion.Text.Length < 10)
+            {
+                DisplayAlert("Aviso", "Ingrese un domicilio correcto", "Ok");
+                txtDireccion.Focus();
+                ans = false;
+            }
+            else if (txtCurp.Text.Length < 18)
+            {
+                DisplayAlert("Aviso", "Ingrese un curp valido", "Ok");
+                txtCurp.Focus();
+                ans = false;
+            }
+            else if(txtTelefono.Text.Length != 10)
+            {
+                DisplayAlert("Aviso", "Favor de ingresar un numero de telefono de 10 digitos", "Ok");
+                txtTelefono.Focus();
+                ans = false;
+            }
+            else if (!string.IsNullOrEmpty(txtEdad.Text)) //si contiene algo
+            {
+                if (txtEdad.Text.ToCharArray().All(Char.IsDigit))
+                {
+                    if (int.Parse(txtEdad.Text) >= 18)
+                    {
+                        ans = true;
+                        //DisplayAlert("Exito", "Edad Correcta ", "Ok");
+                    }
+                    else
+                    {
+                        ans = false;
+                        DisplayAlert("AVISO", "Solo se admiten mayores de edad", "Ok");
+                        txtEdad.Focus();
+                    }
+                }
+                else
+                {
+                    ans = false;
+                    DisplayAlert("ERROR", "Este campo solo acepta digitos", "Ok");
+                    txtEdad.Focus();
+                }
+            }
+            else
+            {
+                ans = true;
+            }
+
+            return ans;
+        }
 
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
