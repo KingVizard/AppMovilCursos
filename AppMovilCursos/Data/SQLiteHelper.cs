@@ -161,12 +161,23 @@ namespace AppMovilCursos.Data
             }
         }
 
+        //CONSULTA EMPLEADO
+        public Task<SeguimientoCursos> GetSegIdAsync(int SegId)
+        {
+            return db.Table<SeguimientoCursos>().Where(i => i.Id == SegId).FirstOrDefaultAsync();
+        }
+
+
         //CONSULTAR SEGUIMIENTO
         public Task<List<SeguimientoCursos>> GetSeguimientoAsync()
         {
             return db.Table<SeguimientoCursos>().ToListAsync();
         }
 
-
+        //ELIMINAR SEGUIMIENTO
+        public Task<int> DeleteSeguimientoAsync(SeguimientoCursos segui)
+        {
+            return db.DeleteAsync(segui);
+        }
     }
 }

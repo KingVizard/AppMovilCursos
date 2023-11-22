@@ -37,5 +37,22 @@ namespace AppMovilCursos.Views
         {
             await Navigation.PopModalAsync();
         }
+
+        private async void btnRegistrarEmpleado_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Seguimiento());
+        }
+
+        private async void lsSeguimiento_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item == null)
+            {
+                return;
+            }
+            var segui = e.Item as Models.SeguimientoCursos;
+
+            await Navigation.PushModalAsync(new EditarSeguimiento(segui));
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }

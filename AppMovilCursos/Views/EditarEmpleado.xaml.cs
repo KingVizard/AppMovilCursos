@@ -37,6 +37,7 @@ namespace AppMovilCursos.Views
                 ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
             } else
             {
+                ImgByteDefault.ImgDefault = user.imgContent;
                 Stream stream = new MemoryStream(user.imgContent);
                 ImgEmpleado.Padding = 0;
                 ImgEmpleado.Source = ImageSource.FromStream(() => stream);
@@ -210,41 +211,49 @@ namespace AppMovilCursos.Views
             if (ValorImg.ImgStream != Stream.Null)
             {
                 ImgByte.Img = GetImageBytes(ValorImg.ImgStream);
+                ValorImg.ImgStream = Stream.Null;
+            }
+            else
+            {
+                ImgByte.Img = ImgByteDefault.ImgDefault;
             }
 
-            if (validarDatos())
+            if (ValidarCamposVacios())
             {
-                var answer = await DisplayAlert("Aviso", "¿Esta seguro de modificar el registro?", "Si", "No");
-                if (answer)
+                if (ValidarCampos())
                 {
-                    Empleados emple = new Empleados()
+                    var answer = await DisplayAlert("Aviso", "¿Esta seguro de modificar el registro?", "Si", "No");
+                    if (answer)
                     {
-                        IdEmp = Convert.ToInt32(txtIdEmp.Text),
-                        Nombre = txtNombre.Text,
+                        Empleados emple = new Empleados()
+                        {
+                            IdEmp = Convert.ToInt32(txtIdEmp.Text),
+                            Nombre = txtNombre.Text,
 
-                        Direccion = txtDireccion.Text,
-                        Telefono = txtTelefono.Text,
-                        Edad = int.Parse(txtEdad.Text),
-                        Curp = txtCurp.Text,
-                        TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
-                        imgContent = ImgByte.Img
-                    };
+                            Direccion = txtDireccion.Text,
+                            Telefono = txtTelefono.Text,
+                            Edad = int.Parse(txtEdad.Text),
+                            Curp = txtCurp.Text,
+                            TipoEmpleado = UserPickerEmpleado.Items[UserPickerEmpleado.SelectedIndex].ToString(),
+                            imgContent = ImgByte.Img
+                        };
 
-                    //Update Person  
-                    await App.SQLiteDB.SaveEmpleadoAsync(emple);
+                        //Update Person  
+                        await App.SQLiteDB.SaveEmpleadoAsync(emple);
 
 
-                    await DisplayAlert("Exito", "Los cambios se ralizaron correctamente", "OK");
-                    await Navigation.PopModalAsync();
+                        await DisplayAlert("Exito", "Los cambios se ralizaron correctamente", "OK");
+                        await Navigation.PopModalAsync();
+                    }
                 }
             }
             else
             {
-                await DisplayAlert("Required", "Please Enter PersonID", "OK");
+                await DisplayAlert("Advertencia", "Favor de ingresar los daros solicitados", "OK");
             }
         }
 
-        public bool validarDatos()
+        public bool ValidarCamposVacios()
         {
             bool respuesta;
             if (string.IsNullOrEmpty(txtNombre.Text))
@@ -344,6 +353,11 @@ namespace AppMovilCursos.Views
         {
             Stream stream = new MemoryStream(bytes);
             return stream;
+        }
+
+        public class ImgByteDefault
+        {
+            public static Byte[] ImgDefault = null;
         }
 
         private void swToggle_Toggled(object sender, ToggledEventArgs e)

@@ -58,6 +58,8 @@ namespace AppMovilCursos.Views
             //datePicker.Format = "dd/MM/yyyy";
 
             //mostrar();
+
+            await Navigation.PopModalAsync();
         }
 
         //public async void mostrar()
@@ -106,22 +108,113 @@ namespace AppMovilCursos.Views
             //DatePicker fecha = PkFecha;
             //fecha.Format = "dd/MM/yyyy";
 
-            SeguimientoCursos seguimiento = new SeguimientoCursos
+            if(ValidarCamposVacios())
             {
-                 NombreEmpleado = PkNombreEmp.Items[PkNombreEmp.SelectedIndex].ToString(),
-                 NombreCurso = PkNombreCur.Items[PkNombreCur.SelectedIndex].ToString(),
-                 Lugar = txtLugarCur.Text,
-                Fecha = PkFecha.Date,
-                //Fecha = fecha.Date,
-                Horas = PkHora.Time,
-                Estatus = PkEstatus.SelectedItem.ToString(),
-                Calificacion = int.Parse(txtCalificacionCur.Text)
-            };
+                SeguimientoCursos seguimiento = new SeguimientoCursos
+                {
+                    //NombreEmpleado = PkNombreEmp.SelectedItem.ToString(),
+                    NombreEmpleado = PkNombreEmp.Items[PkNombreEmp.SelectedIndex].ToString(),
+                    NombreCurso = PkNombreCur.Items[PkNombreCur.SelectedIndex].ToString(),
+                     Lugar = txtLugarCur.Text,
+                    Fecha = PkFecha.Date,
+                    //Fecha = fecha.Date,
+                    Horas = PkHora.Time,
+                    Estatus = PkEstatus.SelectedItem.ToString(),
+                    Calificacion = int.Parse(txtCalificacionCur.Text)
+                };
 
-            await App.SQLiteDB.SaveSeguimientoAsync(seguimiento);
+                await App.SQLiteDB.SaveSeguimientoAsync(seguimiento);
+
+                PkNombreEmp.SelectedIndex = -1;
+                PkNombreCur.SelectedIndex = -1;
+                txtLugarCur.Text = string.Empty;
+                PkFecha.Date = DateTime.Today;
+                PkHora.Time = new TimeSpan(12,0,0);
+                PkEstatus.SelectedIndex = -1;
+                txtCalificacionCur.Text = string.Empty;
+
+                await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
 
 
 
+            }
+            //else
+            //{
+            //    await DisplayAlert("AVISO", "Es necesario llenar todos lo campos", "Ok");
+
+            //}
+        }
+
+        public bool ValidarCamposVacios()
+        {
+            bool respuesta;
+            if (int.Parse(PkNombreEmp.SelectedIndex.ToString()) == -1)
+            {
+                respuesta = false;
+                PkNombreEmp.Focus();
+                DisplayAlert("AVISO", "Nombre vacio", "Ok");
+            }
+            else if (int.Parse(PkNombreCur.SelectedIndex.ToString()) == -1)
+            {
+                respuesta = false;
+                PkNombreCur.Focus();
+                DisplayAlert("AVISO", "Curso Vacio", "Ok");
+            }
+            else if (string.IsNullOrEmpty(txtLugarCur.Text))
+            {
+                respuesta = false;
+                txtLugarCur.Focus();
+                DisplayAlert("AVISO", "Lugar Vacio", "Ok");
+            }
+            else if (PkFecha.Date < DateTime.Today)
+            {
+                respuesta = false;
+                PkFecha.Focus();
+                DisplayAlert("AVISO", "Fecha Incorrecta", "Ok");
+            }
+            else if (int.Parse(PkEstatus.SelectedIndex.ToString()) == -1 )
+            {
+                respuesta = false;
+                PkEstatus.Focus();
+                DisplayAlert("AVISO", "Estatus Vacio", "Ok");
+            }
+            //else if (string.IsNullOrEmpty(txtCalificacionCur.Text))
+            //{
+            //    respuesta = false;
+            //    txtCalificacionCur.Focus();
+            //    DisplayAlert("AVISO", "Calificacion Vacio", "Ok");
+            //}
+            else if (!string.IsNullOrEmpty(txtCalificacionCur.Text))
+            {
+                //respuesta = false;
+                //txtCalificacionCur.Focus();
+                //DisplayAlert("AVISO", "Calificacion Vacio", "Ok");
+                if (txtCalificacionCur.Text.ToCharArray().All(Char.IsDigit))
+                {
+                    if (int.Parse(txtCalificacionCur.Text) <= 10)
+                    {
+                        respuesta = true;
+                        //DisplayAlert("Exito", "Edad Correcta ", "Ok");
+                    }
+                    else
+                    {
+                        respuesta = false;
+                        DisplayAlert("AVISO", "Solo se puede calificar del 1 a 10", "Ok");
+                        txtCalificacionCur.Focus();
+                    }
+                }
+                else
+                {
+                    respuesta = false;
+                    DisplayAlert("ERROR", "Este campo solo acepta digitos", "Ok");
+                    txtCalificacionCur.Focus();
+                }
+            }
+            else
+            {
+                respuesta = true;
+            }
+            return respuesta;
         }
 
         private async void btnLista_Clicked(object sender, EventArgs e)

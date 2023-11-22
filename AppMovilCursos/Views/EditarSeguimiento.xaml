@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovilCursos.Views.EditarSeguimiento"
+             xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class">
+    <ContentPage.Content>
+        <StackLayout Background="snow">
+
+            <StackLayout BackgroundColor="IndianRed" Margin="0" Padding="10">
+                <Grid x:Name="GridContainer">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"  />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="IndianRed" WidthRequest="40" HeightRequest="40" Padding="4" />
+                    <Label Grid.Column="1" Grid.Row="0" Text="Seguimiento" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
+                </Grid>
+
+            </StackLayout>
+
+            <StackLayout Margin="20">
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Label Text="Editar Empleado" />
+                    <Switch x:Name="swToggle" Toggled="swToggle_Toggled" />
+                </StackLayout>
+
+                <Entry Keyboard="Chat" x:Name="txtIdSeg" IsVisible="False"/>
+
+
+                <Label Text="No.Empleado:" IsVisible="False"/>
+                <controls:CustomEntry Keyboard="Chat" IsVisible="False" x:Name="txtNoEmp"/>
+                <Label Text="Nombre:" />
+                <controls:CustomPk x:Name="PkNombreEmp" ItemDisplayBinding="{Binding Nombre}" IsEnabled="False"/>
+                <Label Text="Curso:" />
+                <controls:CustomPk x:Name="PkNombreCur" ItemDisplayBinding="{Binding NombreCurso}" IsEnabled="False"/>
+
+                <Label Text="Lugar:" />
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtLugarCur" IsEnabled="False"/>
+
+                <Label Text="Hora:" />
+                <controls:PkTime x:Name="PkHora" Format="T" IsEnabled="False"/>
+
+                <Label Text="Fecha:" />
+                <controls:PkDate x:Name="PkFecha" Format="dd/MM/yyyy" MinimumDate="2023/11/1" MaximumDate="2023/12/31" IsEnabled="False"/>
+
+                <Label Text="Estatus:" />
+                <controls:CustomPk Title="Selecciona una opción" x:Name="PkEstatus" IsEnabled="False"/>
+                <Label Text="Calificacion:" />
+                <controls:CustomEntry Keyboard="Numeric" x:Name="txtCalificacionCur" MaxLength="2" IsEnabled="False"/>
+
+
+                <StackLayout>
+                    <Button Text="Modificar" x:Name="btnActualizar" Clicked="btnActualizar_Clicked" BackgroundColor="LawnGreen"
+                                CornerRadius="10"
+                                TextColor="#fff"
+                                FontSize="18"
+                                FontAttributes="Bold" IsVisible="false"/>
+                    <Button Text="Eliminar" FontAttributes="Bold" TextColor="#fff" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" BackgroundColor="DeepPink" CornerRadius="18"/>
+                </StackLayout>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

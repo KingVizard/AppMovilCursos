@@ -3,8 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.ListaSeguimiento"
              NavigationPage.HasNavigationBar="False"
-             Background="Snow">
+             Background="DeepSkyBlue">
     <ContentPage.Content>
+
+        <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >
+            <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent">
+                <StackLayout BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="0" >
+                    <Label Text="Seguimiento" TextColor="#fff" BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="All" FontSize="25" Padding="8" HorizontalTextAlignment="Center"  FontAttributes="Bold" />
+                    <Frame CornerRadius="10" Padding="5" HasShadow="False" BackgroundColor="Snow" Margin="0">
+                        <ListView x:Name="lsSeguimiento" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0" ItemTapped="lsSeguimiento_ItemTapped">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        <Grid Padding="6" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding NombreEmpleado}"
+                                       Grid.Row="0"
+                                       Grid.Column="0" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding NombreCurso}"
+                                       Grid.Row="0"
+                                       Grid.Column="1" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding Lugar}"
+                                       Grid.Row="0"
+                                       Grid.Column="2" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding Fecha}"
+                                       Grid.Row="0"
+                                       Grid.Column="3" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding Horas}"
+                                       Grid.Row="0"
+                                       Grid.Column="4" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding Estatus}"
+                                       Grid.Row="0"
+                                       Grid.Column="5" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding Calificacion}"
+                                       Grid.Row="0"
+                                       Grid.Column="6" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <ImageButton Source="IconPlus.ico" CornerRadius="50" HeightRequest="50" WidthRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" Margin="25" x:Name="btnRegistrarEmpleado" Clicked="btnRegistrarEmpleado_Clicked"/>
+        </AbsoluteLayout>
+
+    </ContentPage.Content>
+
+   <!-- <ContentPage.Content>
         <StackLayout>
             <StackLayout BackgroundColor="Magenta" Margin="0" Padding="10">
                 <Grid x:Name="GridContainer">
@@ -38,25 +99,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
-                                    <!-- 
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="20" />
-                                                
-                                                -->
-                                    
                                 </Grid.ColumnDefinitions>
-
-
-                                <!-- COLUMNAS 
-                                <Label Text="Nombre" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
-                                <Label Text="Curso" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
-                                <Label Text="Lugar" FontAttributes="Bold" Grid.Row="0" Grid.Column="2" />
-                                <Label Text="Fecha" FontAttributes="Bold" Grid.Row="0" Grid.Column="3" />
-                                <Label Text="Hora" FontAttributes="Bold" Grid.Row="0" Grid.Column="4"/>
-                                <Label Text="Estatus" FontAttributes="Bold" Grid.Row="0" Grid.Column="5"/>
-                                <Label Text="Calificacion" FontAttributes="Bold" Grid.Row="0" Grid.Column="6" />
-                                -->
-                                <!-- /COLUMNAS -->
 
                                 <Label Text="{Binding NombreEmpleado}"
                                        Grid.Row="0"
@@ -79,8 +122,6 @@
                                 <Label Text="{Binding Calificacion}"
                                        Grid.Row="0"
                                        Grid.Column="6" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                                <!-- 
-                                -->
 
                             </Grid>
                         </ViewCell>
@@ -88,5 +129,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
+    </ContentPage.Content> -->
 </ContentPage>

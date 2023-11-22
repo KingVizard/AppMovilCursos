@@ -23,9 +23,6 @@
                     <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="IndianRed" WidthRequest="40" HeightRequest="40" Padding="4" />
                     <Label Grid.Column="1" Grid.Row="0" Text="Registrar Curso" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
                     
-                    <!-- 
-                    
-                    -->
                     <AbsoluteLayout HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                         <ImageButton x:Name="ImgEmpleado" Source="Cursos.png"  Aspect="AspectFill"  HeightRequest="180" WidthRequest="180" BackgroundColor="Transparent" CornerRadius="100" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"/>
                         <Label Text="Sin Imagen" x:Name="txtSinImagen" FontSize="18" IsVisible="False" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
@@ -37,17 +34,15 @@
 
             <StackLayout Margin="20">
                 <Label Text="Nombre del curso:" />
-                <controls:CustomEntry Keyboard="Chat" x:Name="txtNombreCurso"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtNombreCurso" MaxLength="20"/>
                 <Label Text="Tipo de curso:" />
-                <!-- 
-                <controls:CustomEntry Keyboard="Chat" x:Name="txtTipoCurso"/>
-                -->
+
                 <controls:CustomPk x:Name="PkTipoCurso" Title="Selecciona una opción" />
                 
                 <Label Text="Descripción:" />
-                <controls:CustomEntry Keyboard="Chat" x:Name="txtDescCurso"/>
+                <controls:CustomEntry Keyboard="Chat" x:Name="txtDescCurso" MaxLength="150"/>
                 <Label Text="Duración:" />
-                <controls:CustomEntry Keyboard="Numeric" x:Name="txtCantidadHoras"/>
+                <controls:CustomEntry Keyboard="Numeric" x:Name="txtCantidadHoras" MaxLength="1"/>
 
 
 
