@@ -30,7 +30,7 @@ namespace AppMovilCursos.Views
             }
             else
             {
-                var validacion = App.SQLiteDB.GetUsuariosAsyncValidate(txtEmail.Text.ToString(), txtPassword.Text.ToString());
+                var validacion = App.SQLiteDB.GetUsuariosAsyncValidate(txtEmail.Text.Trim().ToString(), txtPassword.Text.ToString());
                 //await DisplayAlert("AVISO", "LA CONSULTA REGRESA: "+validacion.Count(), "OK");
 
                 if(validacion.Count() == 0)

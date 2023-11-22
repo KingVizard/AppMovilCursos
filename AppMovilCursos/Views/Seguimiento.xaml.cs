@@ -184,6 +184,13 @@ namespace AppMovilCursos.Views
             //    txtCalificacionCur.Focus();
             //    DisplayAlert("AVISO", "Calificacion Vacio", "Ok");
             //}
+            else if (string.IsNullOrEmpty(txtCalificacionCur.Text))
+            {
+                respuesta = false;
+                txtCalificacionCur.Focus();
+                DisplayAlert("AVISO", "Calificacion Vacio", "Ok");
+            }
+
             else if (!string.IsNullOrEmpty(txtCalificacionCur.Text))
             {
                 //respuesta = false;

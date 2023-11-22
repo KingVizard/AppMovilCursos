@@ -13,7 +13,7 @@
   <locals:ListaEmpleados Title="Registro Empleados" IconImageSource="IconUser" />
   <locals:ListaCursos Title="Registro Cursos" IconImageSource="IconCursos" />
     <locals:ListaSeguimiento Title="Seguimiento" IconImageSource="IconSeguimiento" />
-    <locals:Perfil Title="Pefil" IconImageSource="IconPerfil" />
+
     <!-- 
   <locals:Perfil Title="Perfil" IconImageSource="IconPerfil" />
     -->

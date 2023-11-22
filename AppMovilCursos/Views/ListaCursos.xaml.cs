@@ -62,7 +62,7 @@ namespace AppMovilCursos.Views
         {
             Cursos curso1 = new Cursos
             {
-                NombreCurso = "CURSO 1",
+                NombreCurso = "Office 365",
                 TipoCurso = "Interno",
                 DescCurso = "Lorem ipsum odor amet, consectetuer adipiscing elit. Sociosqu lorem interdum.",
                 CantidadHoras = 2
@@ -72,7 +72,7 @@ namespace AppMovilCursos.Views
 
             Cursos curso2 = new Cursos
             {
-                NombreCurso = "CURSO 2",
+                NombreCurso = "Manejo Herramientas Automatizacion",
                 TipoCurso = "Externo",
                 DescCurso = "Lorem ipsum odor amet, consectetuer adipiscing elit. Sociosqu lorem interdum.",
                 CantidadHoras = 1
