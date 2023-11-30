@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static AppMovilCursos.Views.Login;
 
 namespace AppMovilCursos.Views
 {
@@ -22,7 +23,25 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
 
+            var userData = App.SQLiteDB.GetUserEmailAsync(UsuarioData.Email);
+
+            if (userData != null)
+            {
+                txtEmail.Text = userData.Result.Email;
+                txtNombre.Text = userData.Result.Nombre;
+                txtEdad.Text = userData.Result.Edad.ToString();
+                txtPassword.Text = userData.Result.Clave;
+            }
+
+
+
+
             //SINOImg.Source = ImageSource.FromFile("SinImg");
+        }
+
+        private void btnCerrarSesion_Clicked(object sender, EventArgs e)
+        {
+
         }
 
         //private async void AgregarImg_Clicked(object sender, EventArgs e)

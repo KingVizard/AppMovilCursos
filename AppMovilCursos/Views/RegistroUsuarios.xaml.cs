@@ -161,7 +161,7 @@ namespace AppMovilCursos.Views
         
         private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Login());
+            await Navigation.PopModalAsync();
         }
 
         private bool _canClose = true;

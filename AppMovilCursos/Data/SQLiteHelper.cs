@@ -140,6 +140,11 @@ namespace AppMovilCursos.Data
 
         }
 
+        public Task<Usuarios> GetUserEmailAsync(string email)
+        {
+            return db.Table<Usuarios>().Where(i => i.Email == email).FirstOrDefaultAsync();
+        }
+
         //--------------------------------------------------
         //--------------------------------------------------
         //--------------------------------------------------

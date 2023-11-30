@@ -14,7 +14,7 @@
   <locals:ListaCursos Title="Registro Cursos" IconImageSource="IconCursos" />
     <locals:ListaSeguimiento Title="Seguimiento" IconImageSource="IconSeguimiento" />
 
-    <!-- 
   <locals:Perfil Title="Perfil" IconImageSource="IconPerfil" />
+    <!-- 
     -->
 </TabbedPage>

@@ -2,22 +2,57 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilCursos.Views.Perfil"
+             xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class"
              NavigationPage.HasNavigationBar="False"
-             Background="Snow">
+             BackgroundColor="DeepSkyBlue">
     <ContentPage.Content>
-        <StackLayout>
-            <!--
-            <StackLayout HeightRequest="350">
-                <ImageButton x:Name="AgregarImg" Clicked="AgregarImg_Clicked" WidthRequest="100" HeightRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="red"/>
-                <Button Text="CargarImagen" x:Name="CargarImagen" Clicked="CargarImagen_Clicked" />
-            </StackLayout>
-            <StackLayout  HeightRequest="350" Background="Gray">
-                <Image x:Name="MostrarImg" HeightRequest="300" WidthRequest="300" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                <Image x:Name="SINOImg" IsVisible="false" HeightRequest="300" WidthRequest="300" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-        </StackLayout>
-            -->
+        <StackLayout Margin="20">
+            <!-- BackgroundColor="#5198E4" -->
+            <AbsoluteLayout VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="EndAndExpand"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
 
-            <Image Source="ComingSoon.png" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Frame CornerRadius="20"
+                   BackgroundColor="Snow"
+                   Padding="30"
+                   HeightRequest="600"
+                   VerticalOptions="Center"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All"
+                   Background="background.jpg">
+                    <StackLayout VerticalOptions="Center">
+                        <Image Source="avatarRegistrov2.png"
+                           WidthRequest="150"
+                           Margin="0,0,0, 20"/>
+                        <Label Text="Email:"
+                           FontAttributes="Bold" />
+                        <controls:CustomEntry x:Name="txtEmail" IsEnabled="False"
+                           Keyboard="Email"/>
+                        <Label Text="Contraseña:"
+                           FontAttributes="Bold" />
+                        <controls:CustomEntry x:Name="txtPassword" Keyboard="Chat" MaxLength="10" IsEnabled="False"
+                           IsPassword="True" />
+                        <Label Text="Nombre Completo:"
+                           FontAttributes="Bold" />
+                        <controls:CustomEntry x:Name="txtNombre" Keyboard="Chat" IsEnabled="False" />
+                        <Label Text="Edad:"
+                           FontAttributes="Bold" />
+                        <controls:CustomEntry x:Name="txtEdad" Keyboard="Numeric" MaxLength="2" IsEnabled="False" />
+                        <Button Text="Cerrar Sesion"
+                            BackgroundColor="#7D6DDA"
+                            CornerRadius="10"
+                            TextColor="#fff"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            Margin="0,20,0,0"
+                            x:Name="btnCerrarSesion"
+                            Clicked="btnCerrarSesion_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </AbsoluteLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

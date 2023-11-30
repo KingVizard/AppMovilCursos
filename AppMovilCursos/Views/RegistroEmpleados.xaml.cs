@@ -67,6 +67,9 @@ namespace AppMovilCursos.Views
                     txtEdad.Text = "";
                     txtCurp.Text = "";
                     UserPickerEmpleado.SelectedIndex = -1;
+                    ImgEmpleado.Padding = 20;
+                    ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
+
 
                     await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
                 }

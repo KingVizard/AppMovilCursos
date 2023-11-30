@@ -39,7 +39,9 @@ namespace AppMovilCursos.Views
                 } 
                 else if(validacion.Count() == 1)
                 {
+                    UsuarioData.Email = txtEmail.Text;
                     await Navigation.PushModalAsync(new Inicio());
+
                 } 
                 //else if(validacion.Count()>=1)
                 //{
@@ -48,6 +50,17 @@ namespace AppMovilCursos.Views
                 //await Navigation.PushModalAsync(new Inicio());
             }
         }
+
+        public class UsuarioData
+        {
+            public static string Email = "";
+        }
+
+        //public void UserData()
+        //{
+        //    UserData();
+        //    var userData = "";
+        //}
 
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
         {
