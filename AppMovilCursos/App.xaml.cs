@@ -13,7 +13,7 @@ namespace AppMovilCursos
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new Inicio());
         }
 
         public static SQLiteHelper SQLiteDB

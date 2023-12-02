@@ -5,7 +5,7 @@
              xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class">
     <ContentPage.Content>
         <StackLayout Background="snow">
-            <StackLayout Background="pink" Margin="0" Padding="10">
+            <StackLayout Background="#00638d" Margin="0" Padding="10">
                 <Grid x:Name="GridContainer">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"  />
@@ -16,7 +16,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="Pink" WidthRequest="40" HeightRequest="40" Padding="4" />
+                    <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="#00638d" WidthRequest="40" HeightRequest="40" Padding="4" />
                     <Label Grid.Column="1" Grid.Row="0" Text="Editar Empleado" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
 
                     <AbsoluteLayout HeightRequest="150" WidthRequest="200" HorizontalOptions="Center" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
@@ -30,7 +30,8 @@
 
             <StackLayout Padding="20, 10" >
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                    <Label Text="Editar Empleado" />
+                    <Label Text="Editar Empleado" IsVisible="false" />
+                    <ImageButton Source="IconSettings.png" x:Name="btnEditConfig" Clicked="btnEditConfig_Clicked"/>
                     <Switch x:Name="swToggle" Toggled="swToggle_Toggled" />
                 </StackLayout>
                 

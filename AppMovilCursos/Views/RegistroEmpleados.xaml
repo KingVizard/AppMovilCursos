@@ -9,7 +9,7 @@
 
         <StackLayout Background="snow">
 
-            <StackLayout Background="violet" Margin="0" Padding="10">
+            <StackLayout BackgroundColor="#75deff" Margin="0" Padding="10">
                 <Grid x:Name="GridContainer">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"  />
@@ -20,7 +20,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="Violet" WidthRequest="40" HeightRequest="40" Padding="4" />
+                    <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="#75deff" WidthRequest="40" HeightRequest="40" Padding="4" />
                     <Label Grid.Column="1" Grid.Row="0" Text="Registrar Empleado" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
 
                     <AbsoluteLayout HeightRequest="150" WidthRequest="200" HorizontalOptions="Center" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
@@ -32,7 +32,7 @@
 
             </StackLayout>
 
-            <StackLayout Margin="20">
+            <StackLayout Margin="20,10">
                 <Label Text="Nombre:" />
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtNombre"/>
                 <Label Text="Dirección:" />
@@ -45,9 +45,9 @@
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" MaxLength="18" />
 
                 <Label Text="Tipo de Empleado:" />
-                <controls:CustomPk ItemsSource="{Binding TipoEmps}" Title="Selecciona una opción" ItemDisplayBinding="{Binding Tipo}" SelectedItem="{Binding SelectedTipo}" x:Name="UserPickerEmpleado"></controls:CustomPk>
+                <controls:CustomPk ItemsSource="{Binding TipoEmps}" ItemDisplayBinding="{Binding Tipo}" SelectedItem="{Binding SelectedTipo}" x:Name="UserPickerEmpleado"></controls:CustomPk>
 
-                <Button Text="Registrar" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="DarkViolet"
+                <Button Text="Registrar" Margin="0,10,0,0" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="DarkViolet"
                                 CornerRadius="10"
                                 TextColor="#fff"
                                 FontSize="18"

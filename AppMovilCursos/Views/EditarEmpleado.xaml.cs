@@ -21,17 +21,20 @@ namespace AppMovilCursos.Views
         ValidarCambios Datos = new ValidarCambios();
 
         public EditarEmpleado(Empleados user)
+        //public EditarEmpleado()
         {
             InitializeComponent();
 
-            txtNombre.Text = user.Nombre;
-            txtDireccion.Text = user.Direccion;
-            txtTelefono.Text = user.Telefono;
-            txtEdad.Text = user.Edad.ToString();
-            txtCurp.Text = user.Curp;
-            txtIdEmp.Text = user.IdEmp.ToString();
 
-            if(user.imgContent == null)
+                txtNombre.Text = user.Nombre;
+                txtDireccion.Text = user.Direccion;
+                txtTelefono.Text = user.Telefono;
+                txtEdad.Text = user.Edad.ToString();
+                txtCurp.Text = user.Curp;
+                txtIdEmp.Text = user.IdEmp.ToString();
+
+
+            if (user.imgContent == null)
             {
                 ImgEmpleado.Padding = 20;
                 ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
@@ -160,6 +163,7 @@ namespace AppMovilCursos.Views
 
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
+            btnVolver.IsEnabled = false;
             if (ValidarDatosMod() == false)
             {
                 var answer = await DisplayAlert("AVISO", "¿Desea salir sin guardar?, se perderán los cambios realizados.", "Si", "No");
@@ -171,6 +175,8 @@ namespace AppMovilCursos.Views
             {
                 await Navigation.PopModalAsync();
             }
+            btnVolver.IsEnabled = true;
+
         }
 
         public class ValidarCambios
@@ -390,6 +396,11 @@ namespace AppMovilCursos.Views
                 txtTelefono.IsEnabled = false;
                 UserPickerEmpleado.IsEnabled = false;
             }
+        }
+
+        private void btnEditConfig_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

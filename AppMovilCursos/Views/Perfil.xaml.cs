@@ -25,7 +25,7 @@ namespace AppMovilCursos.Views
 
             var userData = App.SQLiteDB.GetUserEmailAsync(UsuarioData.Email);
 
-            if (userData != null)
+            if (userData.Result != null)
             {
                 txtEmail.Text = userData.Result.Email;
                 txtNombre.Text = userData.Result.Nombre;

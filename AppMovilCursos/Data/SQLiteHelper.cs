@@ -184,5 +184,32 @@ namespace AppMovilCursos.Data
         {
             return db.DeleteAsync(segui);
         }
+
+
+        ///////
+        ///
+        ////
+        //test
+        //public Task<Empleados> GetEmpleadoNameAsync(string nombre)
+        public Task<List<Empleados>> GetEmpleadoNameAsync(string nombre)
+        {
+            //return db.Table<Empleados>().Where(i => i.Nombre.Contains(nombre)).FirstOrDefaultAsync();
+           return db.Table<Empleados>().Where(i => i.Nombre.Contains(nombre)).ToListAsync();
+        }
+
+        //test
+        //public async Task<List<UserModel>> GetAllByServer(string server)
+        //{
+        //    return (await firebaseClient.Child(nameof(UserModel)).OnceAsync<UserModel>()).Select(item => new UserModel
+        //    {
+        //        Name = item.Object.Name,
+        //        Autenticacion = item.Object.Autenticacion,
+        //        Rol = item.Object.Rol,
+        //        BasedeDatos = item.Object.BasedeDatos,
+        //        Image = item.Object.Image,
+        //        Server = item.Object.Server,
+        //        Id = item.Key
+        //    }).Where(c => c.Server.ToLower().Contains(server.ToLower())).ToList();
+        //}
     }
 }

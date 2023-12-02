@@ -32,12 +32,21 @@ namespace AppMovilCursos.Views
 
         public async void mostrar()
         {
-            var EmpleadosList = await App.SQLiteDB.GetEmpleadosAsync();
-            if (EmpleadosList != null)
+            if (string.IsNullOrEmpty(TxtSearch.Text))
             {
-                lsEmpleados.ItemsSource = EmpleadosList;
-            } 
+                var EmpleadosList = await App.SQLiteDB.GetEmpleadosAsync();
+                if (EmpleadosList != null)
+                {
+                    lsEmpleados.ItemsSource = EmpleadosList;
+                }
+            } else
+            {
+                
+            }
+            
         }
+
+
 
         protected override async void OnAppearing()
         {
@@ -52,11 +61,15 @@ namespace AppMovilCursos.Views
 
         private async void btnRegistrarEmpleado_Clicked(object sender, EventArgs e)
         {
+            btnRegistrarEmpleado.IsEnabled = false;
             await Navigation.PushModalAsync(new RegistroEmpleados());
+            btnRegistrarEmpleado.IsEnabled = true;
+
         }
 
         private async void lsEmpleados_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            lsEmpleados.IsEnabled= false;
             if (e.Item == null)
             {
                 return;
@@ -65,13 +78,9 @@ namespace AppMovilCursos.Views
 
             await Navigation.PushModalAsync(new EditarEmpleado(user)); 
             ((ListView)sender).SelectedItem = null;
-        }
+            lsEmpleados.IsEnabled = true;
 
-        public class ValorRe
-        {
-            public static bool valor = true;
         }
-
         public void EmpleadosDefault()
         {
             Empleados emple1 = new Empleados
@@ -277,6 +286,19 @@ namespace AppMovilCursos.Views
             //    imgContent = null
             //};
             //App.SQLiteDB.SaveEmpleadoAsync(emple17);
+        }
+
+        private async void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = e.NewTextValue;
+            var EmpleadosList = await App.SQLiteDB.GetEmpleadoNameAsync(searchText);
+            if (EmpleadosList != null)
+            {
+                lsEmpleados.ItemsSource = EmpleadosList;
+            } else
+            {
+                await DisplayAlert("AVISO", "NO EXISTE0", "OK");
+            }
         }
 
     }

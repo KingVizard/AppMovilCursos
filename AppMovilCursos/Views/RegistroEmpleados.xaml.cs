@@ -176,7 +176,9 @@ namespace AppMovilCursos.Views
 
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
+            btnVolver.IsEnabled = false;
             await Navigation.PopModalAsync();
+            btnVolver.IsEnabled = true;
         }
 
         private async void AddImg_Clicked(object sender, EventArgs e)

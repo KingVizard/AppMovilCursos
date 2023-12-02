@@ -156,5 +156,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\IconCursos.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconSettings.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@
              x:Class="AppMovilCursos.Views.Perfil"
              xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="DeepSkyBlue">
+             BackgroundColor="#0094d4">
     <ContentPage.Content>
         <StackLayout Margin="20">
             <!-- BackgroundColor="#5198E4" -->
