@@ -26,25 +26,28 @@ namespace AppMovilCursos.Views
             InitializeComponent();
 
 
-                txtNombre.Text = user.Nombre;
-                txtDireccion.Text = user.Direccion;
-                txtTelefono.Text = user.Telefono;
-                txtEdad.Text = user.Edad.ToString();
-                txtCurp.Text = user.Curp;
-                txtIdEmp.Text = user.IdEmp.ToString();
+            txtNombre.Text = user.Nombre;
+            txtDireccion.Text = user.Direccion;
+            txtTelefono.Text = user.Telefono;
+            txtEdad.Text = user.Edad.ToString();
+            txtCurp.Text = user.Curp;
+            txtIdEmp.Text = user.IdEmp.ToString();
 
 
             if (user.imgContent == null)
             {
+                ImgEmpleado.Aspect = Aspect.AspectFit;
                 ImgEmpleado.Padding = 20;
                 ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
-            } else
+            }
+            else
             {
                 ImgByteDefault.ImgDefault = user.imgContent;
                 Stream stream = new MemoryStream(user.imgContent);
                 ImgEmpleado.Padding = 0;
                 ImgEmpleado.Source = ImageSource.FromStream(() => stream);
             }
+
 
             //VALOR PICKER
             UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
@@ -374,7 +377,7 @@ namespace AppMovilCursos.Views
                 btnEditar.IsVisible = true;
 
                 ImgEmpleado.IsEnabled= true;
-                AddImg.IsEnabled = true;
+                //AddImg.IsEnabled = true;
                 txtNombre.IsEnabled = true;
                 txtDireccion.IsEnabled = true;
                 txtEdad.IsEnabled = true;
@@ -388,7 +391,7 @@ namespace AppMovilCursos.Views
                 btnEditar.IsVisible = false;
 
                 ImgEmpleado.IsEnabled = false;
-                AddImg.IsEnabled = false;
+                //AddImg.IsEnabled = false;
                 txtNombre.IsEnabled = false;
                 txtDireccion.IsEnabled = false;
                 txtEdad.IsEnabled = false;
@@ -398,9 +401,5 @@ namespace AppMovilCursos.Views
             }
         }
 
-        private void btnEditConfig_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

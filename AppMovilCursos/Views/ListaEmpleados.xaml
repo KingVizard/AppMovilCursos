@@ -8,8 +8,8 @@
         <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >
             <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent">
                 <StackLayout BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="0" >
-                    <Label Text="Lista de Empleados" TextColor="#fff" BackgroundColor="DeepSkyBlue" AbsoluteLayout.LayoutFlags="All" FontSize="25" Padding="8" HorizontalTextAlignment="Center"  FontAttributes="Bold" />
                     <!--
+                    <Label Text="Lista de Empleados" TextColor="#fff" BackgroundColor="DeepSkyBlue" AbsoluteLayout.LayoutFlags="All" FontSize="25" Padding="8" HorizontalTextAlignment="Center"  FontAttributes="Bold" />
                     <SearchBar Placeholder="Ingrese un nombre" x:Name="txtSearchEmpleado"></SearchBar>
                     -->
 

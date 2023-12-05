@@ -76,7 +76,7 @@ namespace AppMovilCursos.Views
             }
             var user = e.Item as Models.Empleados;
 
-            await Navigation.PushModalAsync(new EditarEmpleado(user)); 
+            await Navigation.PushModalAsync(new EditarEmpleado(user));
             ((ListView)sender).SelectedItem = null;
             lsEmpleados.IsEnabled = true;
 

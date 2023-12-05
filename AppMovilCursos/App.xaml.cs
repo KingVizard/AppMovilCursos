@@ -4,6 +4,8 @@ using System.IO;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AppMovilCursos.Models;
+using System.Threading.Tasks;
 
 namespace AppMovilCursos
 {
@@ -13,7 +15,20 @@ namespace AppMovilCursos
         public App()
         {
             InitializeComponent();
+
             MainPage = new NavigationPage(new Inicio());
+
+
+            //ConsultaDatos();
+        }
+
+
+        public async void ConsultaDatos()
+        {
+            var user = await App.SQLiteDB.GetEmpleadoIdAsync(5);
+
+
+            MainPage = new NavigationPage(new EditarEmpleado(user));
         }
 
         public static SQLiteHelper SQLiteDB
