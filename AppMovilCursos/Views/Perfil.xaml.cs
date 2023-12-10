@@ -34,6 +34,8 @@ namespace AppMovilCursos.Views
             }
 
 
+            //ho
+
 
 
             //SINOImg.Source = ImageSource.FromFile("SinImg");

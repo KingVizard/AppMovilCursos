@@ -1,11 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovilCursos.Views.ListaEmpleados"
+             xmlns:local="clr-namespace:AppMovilCursos.Resource.Class"
              NavigationPage.HasNavigationBar="False"
-             Background="#0095d4">
+             Background="#0095d4"
+             x:Class="AppMovilCursos.Views.ListaEmpleados"
+             >
+    
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:MyValueConverter x:Key="MyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <!-- 
+    -->
+    
     <ContentPage.Content>
-        <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >
+
+
+
+
+<AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >
+
             <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent">
                 <StackLayout BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="0" >
                     <!--
@@ -22,36 +39,101 @@
                                    TextChanged="TxtSearch_TextChanged"/>
                             </Frame>
 
+                            
 
-                            <Frame HasShadow="False" BackgroundColor="#fff" Padding="2">
-                                
-                                
+                            <Frame HasShadow="False" BackgroundColor="#fff" Padding="2" VerticalOptions="FillAndExpand" HeightRequest="5000">
 
-                                <ListView x:Name="lsEmpleados" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0" BackgroundColor="Transparent" 
+
+
+
+
+                                <ListView x:Name="lsEmpleados" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0" BackgroundColor="Transparent" RowHeight="60"
                                 AbsoluteLayout.LayoutBounds="0,0,1,1"
                                   AbsoluteLayout.LayoutFlags="All"
                                           ItemTapped="lsEmpleados_ItemTapped">
                                     
                                     <ListView.ItemTemplate>
+                                        
                                         <DataTemplate>
+                                                <!-- 
                                             <ViewCell>
-
                                                 <Grid Padding="6" >
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="auto" />
                                                     </Grid.RowDefinitions>
                                                     <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="20" />
+                                                        <ColumnDefinition Width="20" />
+                                                        <ColumnDefinition Width="20" />
+                                                        <ColumnDefinition Width="20" />
+                                                        <ColumnDefinition Width="200" />
                                                         <ColumnDefinition Width="*" />
                                                     </Grid.ColumnDefinitions>
 
+                                  
+                                                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding imgContent, Converter={StaticResource MyConverter}}" x:Name="ImgEmpleado" Background="red"/>
+
+                                                    <Image Grid.Row="0" Grid.Column="2" BackgroundColor="Green">
+                                                        <Image.Source>
+                                                            <FileImageSource File="{Binding imgContent, Converter={StaticResource MyConverter}}" />
+                                                        </Image.Source>
+                                                    </Image>
+
+                                                    <Image Grid.Row="0" Grid.Column="3" Source="{Binding imgContent, Converter={StaticResource MyConverter}}" HeightRequest="400" Background="Pink" />
+
+                                                    <Image>
+                                                        <Image.Source >
+                                                            <ImageSource Source="{Binding imgContent, Converter={StaticResource MyConverter}}" />
+                                                        </Image.Source>
+                                                    </Image>
+                                                    
 
 
-                                                    <Label Text="{Binding Nombre}"
+
+                                                    
+                                                    
+                                            </ViewCell>
+                                                -->
+                                            <ViewCell >
+                                                <ViewCell.View >
+
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto" />
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="60" />
+                                                            <ColumnDefinition Width="*" />
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <ImageButton CornerRadius="100" Margin="5" Grid.Row="0" Grid.Column="0" Background="blue" Aspect="AspectFill" Source="{Binding imgContent, Converter={StaticResource MyConverter}}" />
+
+                                                        <StackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
+                                                            <Label Text="{Binding Nombre}" VerticalTextAlignment="Center" FontAttributes="Bold" />
+                                                            <Label Text="{Binding Curp}" VerticalTextAlignment="End" />
+                                                        </StackLayout>
+                                                        
+                                                    </Grid>
+                                                </ViewCell.View>
+                                            </ViewCell>
+                                                    
+                                                    
+                                            <!--
+                                            <ImageCell ImageSource="{Binding imgContent, Converter={StaticResource MyConverter}}" Text="{Binding Nombre}" Detail="{Binding Telefono}"    />
+                                                    <Label Text="{Binding imgContent, Converter={StaticResource MyConverter}}"  Grid.Row="0" IsVisible="true"
+                                               Grid.Column="4"/>
+
+                                                    <Label Text="{Binding Nombre}" IsVisible="False"
                                                Grid.Row="0"
-                                               Grid.Column="0" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HeightRequest="100" Margin="10,0,0,0" />
+                                               Grid.Column="4" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HeightRequest="100" Margin="10,0,0,0" />
+
+    
+                                                    
+
 
                                                 </Grid>
-                                            </ViewCell>
+                                                <ImageCell ImageSource="{Binding imgContent, Converter={StaticResource MyConverter}}" Text="test" Detail="Lorem" />
+                                                -->
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
@@ -59,10 +141,12 @@
                         </StackLayout>
                     </Frame>
                 </StackLayout>
+
             </StackLayout>
 
+            
 
-            <ImageButton Source="IconPlus.ico" BackgroundColor="#fff" CornerRadius="100" HeightRequest="60" WidthRequest="60" Padding="2" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" Margin="25" x:Name="btnRegistrarEmpleado" Clicked="btnRegistrarEmpleado_Clicked"/>
+            <ImageButton Source="IconPlus.ico"  BackgroundColor="#fff" CornerRadius="100" HeightRequest="60" WidthRequest="60" Padding="2" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" Margin="25" x:Name="btnRegistrarEmpleado" Clicked="btnRegistrarEmpleado_Clicked"/>
         </AbsoluteLayout>
 <!--
         <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >

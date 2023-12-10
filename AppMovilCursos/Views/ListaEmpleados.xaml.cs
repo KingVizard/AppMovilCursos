@@ -1,15 +1,38 @@
-﻿using System;
+﻿//using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using System.ComponentModel.Design;
+//using System.Data;
+
+//using System.Globalization;
+//using System.IO;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+//using AppMovilCursos.Data;
+//using AppMovilCursos.Models;
+//using Xamarin.Forms;
+//using Xamarin.Forms.Xaml;
+//using static AppMovilCursos.Resource.Class.MyValueConverter;
+////using static AppMovilCursos.Resource.Class.testconverter; 
+//using static AppMovilCursos.Views.RegistroEmpleados;
+
+
+//----------
+
+using AppMovilCursos.Models;
+using SQLite;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AppMovilCursos.Data;
-using AppMovilCursos.Models;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static AppMovilCursos.Views.RegistroEmpleados;
+using static AppMovilCursos.Views.Login;
 
 namespace AppMovilCursos.Views
 {
@@ -21,16 +44,33 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
 
-            var user = App.SQLiteDB.GetEmpleadoIdAsync(1);
+            //var user = App.SQLiteDB.GetEmpleadoIdAsync(1);
 
-            if (user.Result == null) 
-            {
-                EmpleadosDefault();
-            }
+            //if (user.Result == null) 
+            //{
+            //    EmpleadosDefault();
+            //}
+
+            //DisplayAlert("AVISO", "CONTENIDO -> " + valoresDePrueba.valoraa, "OK");
+
+            //btnRegistrarEmpleado.Source
+
+            //Txt.Text = "jaja";
+
+            //Device.BeginInvokeOnMainThread(() =>
+            //{
+            //    mostrar();
+            //});
 
         }
 
-        public async void mostrar()
+        //public Stream BytesToStreamLL(byte[] bytes)
+        //{
+        //    Stream stream = new MemoryStream(bytes);
+        //    return stream;
+        //}
+
+        public async void mostrar() 
         {
             if (string.IsNullOrEmpty(TxtSearch.Text))
             {
@@ -38,7 +78,9 @@ namespace AppMovilCursos.Views
                 if (EmpleadosList != null)
                 {
                     lsEmpleados.ItemsSource = EmpleadosList;
+                    
                 }
+               
             } else
             {
                 
@@ -46,7 +88,39 @@ namespace AppMovilCursos.Views
             
         }
 
+        //public string SomeImageTest
+        //{
+        //    get { return string.Format("Persona.png"); }
+        //}
 
+
+
+        /// <summary>
+        /// 
+
+        //public class SourceToImageConverter : IValueConverter
+        //{
+        //    public object Convert(object value, Type targetType, object parameter, string language)
+        //    {
+        //        //if (targetType == typeof(string)) return $"/Assets/Images/{value}.svg";
+
+        //        return XamlBindingHelper.ConvertValue(typeof(ImageSource), $"/Assets/Images/{value}.svg");
+        //    }
+        //}
+
+
+        /// 
+        /// </summary>
+
+
+        //public ImageSource SomeImageTest
+        //{
+        //    get
+        //    {
+        //        var source = new Uri("Persona.png");
+        //        return source;
+        //    }
+        //}
 
         protected override async void OnAppearing()
         {
@@ -56,15 +130,23 @@ namespace AppMovilCursos.Views
 
         private async void btnVolver_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            //await Navigation.PopModalAsync();
+
         }
 
         private async void btnRegistrarEmpleado_Clicked(object sender, EventArgs e)
         {
             btnRegistrarEmpleado.IsEnabled = false;
             await Navigation.PushModalAsync(new RegistroEmpleados());
+            //mostrar();
             btnRegistrarEmpleado.IsEnabled = true;
 
+        }
+
+        public Stream BytesToStream(byte[] bytes)
+        {
+            Stream stream = new MemoryStream(bytes);
+            return stream;
         }
 
         private async void lsEmpleados_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -80,6 +162,23 @@ namespace AppMovilCursos.Views
             ((ListView)sender).SelectedItem = null;
             lsEmpleados.IsEnabled = true;
 
+
+            //Stream stream = new MemoryStream(user.imgContent);
+
+
+            //user.imgContent = txt.t;
+
+            //btnRegistrarEmpleado.Source = Image
+
+
+            //BytesToStream(user.imgContent);
+
+
+            //btnRegistrarEmpleado.Source = ImageSource.FromStream(() => BytesToStream(user.imgContent));
+
+            //var elem = e.SelectedItem as ElementoLista;
+
+            //...
         }
         public void EmpleadosDefault()
         {
@@ -300,6 +399,21 @@ namespace AppMovilCursos.Views
                 await DisplayAlert("AVISO", "NO EXISTE0", "OK");
             }
         }
+
+        //private void lsEmpleados_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    var selectedItem = e.SelectedItem as Label;
+        //    txt.t = selectedItem.ToString();
+        //    //var item = (Label)e.SelectedItem;
+        //}
+
+
+
+        public class txt
+        {
+            public static byte[] t;
+        }
+
 
     }
 }
