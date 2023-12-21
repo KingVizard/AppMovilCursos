@@ -16,6 +16,11 @@ namespace AppMovilCursos
         {
             InitializeComponent();
 
+
+            //var img = "Empleado.Png";
+
+
+
             MainPage = new NavigationPage(new Inicio());
 
 
@@ -25,7 +30,7 @@ namespace AppMovilCursos
 
         public async void ConsultaDatos()
         {
-            var user = await App.SQLiteDB.GetEmpleadoIdAsync(5);
+            var user = await App.SQLiteDB.GetEmpleadoIdAsync(8);
 
 
             MainPage = new NavigationPage(new EditarEmpleado(user));

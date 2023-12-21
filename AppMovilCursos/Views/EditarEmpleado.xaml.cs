@@ -1,4 +1,5 @@
 ﻿using AppMovilCursos.Models;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,8 @@ namespace AppMovilCursos.Views
     public partial class EditarEmpleado : ContentPage
     {
         
+
+
         PickerTipoEmp pickerTipos = new PickerTipoEmp();
 
         ValidarCambios Datos = new ValidarCambios();
@@ -25,6 +28,7 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
 
+            ImgShow.Img = null;
 
             txtNombre.Text = user.Nombre;
             txtDireccion.Text = user.Direccion;
@@ -37,14 +41,24 @@ namespace AppMovilCursos.Views
             if (user.imgContent == null)
             {
                 ImgEmpleado.Aspect = Aspect.AspectFit;
-                ImgEmpleado.Padding = 20;
+                //ImgEmpleado.Padding = 20;
                 ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
+
+                //string filePath = "SinImg.png";
+                //byte[] imageBytes = File.ReadAllBytes(filePath);
+
+                //FileImageSource imageSource = (FileImageSource)ImageSource.FromFile(filePath); 
+
+                //Stream stream = File.OpenRead(imageSource.File);
+
+                //ImgShow.ImgS = imageBytes;
             }
             else
             {
                 ImgByteDefault.ImgDefault = user.imgContent;
+                ImgShow.Img = user.imgContent;
                 Stream stream = new MemoryStream(user.imgContent);
-                ImgEmpleado.Padding = 0;
+                //ImgEmpleado.Padding = 0;
                 ImgEmpleado.Source = ImageSource.FromStream(() => stream);
             }
 
@@ -65,6 +79,11 @@ namespace AppMovilCursos.Views
             Datos.Curp = user.Curp.ToString();
             Datos.Telefono = user.Telefono.ToString();
             Datos.ImgContentByte = user.imgContent;
+
+
+            btnVolver.BackgroundColor = Color.FromRgba(0, 0, 255, 0.1);
+
+            //DisplayAlert("AViso", ImgEmpleado.Source.ToString(), "OK");
         }
 
 
@@ -170,15 +189,19 @@ namespace AppMovilCursos.Views
             if (ValidarDatosMod() == false)
             {
                 var answer = await DisplayAlert("AVISO", "¿Desea salir sin guardar?, se perderán los cambios realizados.", "Si", "No");
-                if(answer)
+                if (answer)
                 {
                     await Navigation.PopModalAsync();
                 }
-            } else
+            }
+            else
             {
                 await Navigation.PopModalAsync();
             }
             btnVolver.IsEnabled = true;
+
+            //MainContainer.IsVisible = false;
+
 
         }
 
@@ -220,6 +243,8 @@ namespace AppMovilCursos.Views
             if (ValorImg.ImgStream != Stream.Null)
             {
                 ImgByte.Img = GetImageBytes(ValorImg.ImgStream);
+                //ImgByteDefault.ImgDefault = ImgByte.Img;
+
                 ValorImg.ImgStream = Stream.Null;
             }
             else
@@ -335,8 +360,11 @@ namespace AppMovilCursos.Views
                 {
                     ImgEmpleado.Source = ImageSource.FromStream(() =>
                     {
-                        ImgEmpleado.Padding = 0;
+                        //ImgEmpleado.Padding = 0;
+                        ImgShow.Img = GetImageBytes(foto.GetStream());
                         ValorImg.ImgStream = foto.GetStream();
+                        //ImgByteDefault.ImgDefault = GetImageBytes(ValorImg.ImgStream);
+
                         return foto.GetStream();
                     });
                 }
@@ -364,9 +392,18 @@ namespace AppMovilCursos.Views
             return stream;
         }
 
+
+
         public class ImgByteDefault
         {
             public static Byte[] ImgDefault = null;
+        }
+
+        public class ImgShow
+        {
+            public static Byte[] Img = null;
+            public static Byte[] ImgS = null;
+
         }
 
         private void swToggle_Toggled(object sender, ToggledEventArgs e)
@@ -376,7 +413,9 @@ namespace AppMovilCursos.Views
                 btnEliminar.IsVisible = false;
                 btnEditar.IsVisible = true;
 
-                ImgEmpleado.IsEnabled= true;
+                //ImgEmpleado.IsEnabled= true;
+                //aaa
+                ImgEmpleadoUpdate.IsEnabled= true;
                 //AddImg.IsEnabled = true;
                 txtNombre.IsEnabled = true;
                 txtDireccion.IsEnabled = true;
@@ -390,7 +429,9 @@ namespace AppMovilCursos.Views
                 btnEliminar.IsVisible = true;
                 btnEditar.IsVisible = false;
 
-                ImgEmpleado.IsEnabled = false;
+                //ImgEmpleado.IsEnabled = false;
+                //aaa
+                ImgEmpleadoUpdate.IsEnabled = false;
                 //AddImg.IsEnabled = false;
                 txtNombre.IsEnabled = false;
                 txtDireccion.IsEnabled = false;
@@ -401,5 +442,25 @@ namespace AppMovilCursos.Views
             }
         }
 
+        private async void FullImage_Tapped(object sender, EventArgs e)
+        {
+            //var imgbytes = ImgByteDefault.ImgDefault;
+
+                var imgbytes = ImgShow.Img;
+                await PopupNavigation.Instance.PushAsync(new ImagePopupPage(imgbytes));
+            //if(ImgShow.Img != null)
+            //{
+            //}
+            //else
+            //{
+            //    var imgbyte = ImgShow.ImgS;
+            //    await PopupNavigation.Instance.PushAsync(new ImagePopupPage(imgbyte));
+
+            //}
+
+
+            //var imgSource = ImgEmpleado.Source;
+
+        }
     }
 }

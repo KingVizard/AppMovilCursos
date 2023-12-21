@@ -9,6 +9,38 @@
 
         <StackLayout Background="snow">
 
+            <StackLayout BackgroundColor="DarkViolet" Margin="0" Padding="10">
+
+                <AbsoluteLayout HeightRequest="220" BackgroundColor="Transparent" >
+
+                    <ImageButton x:Name="ImgEmpleado" Padding="100" Clicked="AddImg_Clicked" Aspect="AspectFill" HeightRequest="200" WidthRequest="500" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"/>
+
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" Padding="5" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" MinimumHeightRequest="20" VerticalOptions="Start" AbsoluteLayout.LayoutFlags="All" x:Name="BgContainer">
+                        <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="#75deff" WidthRequest="40" HeightRequest="40" Padding="4" />
+                    </StackLayout>
+                </AbsoluteLayout>
+
+                <Grid x:Name="GridContainer" IsVisible="false">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"  />
+                        <RowDefinition Height="160" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    
+
+                    <AbsoluteLayout HeightRequest="150" WidthRequest="200" HorizontalOptions="Center" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Label Text="Sin Imagen" x:Name="txtSinImagen" FontSize="18" IsVisible="False" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <ImageButton x:Name="AddImg" Clicked="AddImg_Clicked" Source="AddImage.png" WidthRequest="50" Padding="5" BackgroundColor="#eee" CornerRadius="50" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>
+                    </AbsoluteLayout>
+                </Grid>
+
+            </StackLayout>
+
+            <!-- 
             <StackLayout BackgroundColor="#75deff" Margin="0" Padding="10">
                 <Grid x:Name="GridContainer">
                     <Grid.RowDefinitions>
@@ -21,7 +53,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ImageButton Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="#75deff" WidthRequest="40" HeightRequest="40" Padding="4" />
-                    <Label Grid.Column="1" Grid.Row="0" Text="Registrar Empleado" TextColor="#fff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
+
 
                     <AbsoluteLayout HeightRequest="150" WidthRequest="200" HorizontalOptions="Center" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                         <ImageButton x:Name="ImgEmpleado" Clicked="AddImg_Clicked" Aspect="AspectFill"  HeightRequest="150" WidthRequest="150" BackgroundColor="#dedede" CornerRadius="100" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"/>
@@ -31,20 +63,21 @@
                 </Grid>
 
             </StackLayout>
+            -->
 
             <StackLayout Margin="20,10">
-                <Label Text="Nombre:" />
+                <Label Text="Nombre:" FontAttributes="Bold" />
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtNombre"/>
-                <Label Text="Dirección:" />
+                <Label Text="Dirección:" FontAttributes="Bold"/>
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtDireccion"/>
-                <Label Text="Teléfono:" />
+                <Label Text="Teléfono:" FontAttributes="Bold"/>
                 <controls:CustomEntry Keyboard="Telephone" x:Name="txtTelefono" MaxLength="10"/>
-                <Label Text="Edad:" />
+                <Label Text="Edad:" FontAttributes="Bold"/>
                 <controls:CustomEntry Keyboard="Numeric" x:Name="txtEdad" MaxLength="2"/>
-                <Label Text="Curp:" />
+                <Label Text="Curp:" FontAttributes="Bold"/>
                 <controls:CustomEntry Keyboard="Chat" x:Name="txtCurp" TextTransform="Uppercase" MaxLength="18" />
 
-                <Label Text="Tipo de Empleado:" />
+                <Label Text="Tipo de Empleado:" FontAttributes="Bold" />
                 <controls:CustomPk ItemsSource="{Binding TipoEmps}" ItemDisplayBinding="{Binding Tipo}" SelectedItem="{Binding SelectedTipo}" x:Name="UserPickerEmpleado"></controls:CustomPk>
 
                 <Button Text="Registrar" Margin="0,10,0,0" x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" BackgroundColor="DarkViolet"

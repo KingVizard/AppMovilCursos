@@ -106,11 +106,14 @@
                                                             <ColumnDefinition Width="*" />
                                                         </Grid.ColumnDefinitions>
 
-                                                        <ImageButton CornerRadius="100" Margin="5" Grid.Row="0" Grid.Column="0" Background="blue" Aspect="AspectFill" Source="{Binding imgContent, Converter={StaticResource MyConverter}}" />
+                                                        <ImageButton VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="100" Margin="5" Grid.Row="0" Grid.Column="0" Aspect="AspectFill" x:Name="imgPerfil" Clicked="imgPerfil_Clicked" Source="{Binding imgContent, Converter={StaticResource MyConverter}}" BackgroundColor="Transparent" BorderColor="#333" BorderWidth="1" />
+                                                        <!-- 
+                                                        <Image Margin="5" Grid.Row="0" Grid.Column="0" Background="blue" Aspect="AspectFill" Source="{Binding imgContent, Converter={StaticResource MyConverter}}" />
+                                                        -->
 
                                                         <StackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
                                                             <Label Text="{Binding Nombre}" VerticalTextAlignment="Center" FontAttributes="Bold" />
-                                                            <Label Text="{Binding Curp}" VerticalTextAlignment="End" />
+                                                            <Label Text="{Binding Curp}" VerticalTextAlignment="End" x:Name="lblTestTestTest" />
                                                         </StackLayout>
                                                         
                                                     </Grid>

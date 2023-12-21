@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovilCursos.Views.ImagePopupPage"
+            xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,20" Padding="0">
+            <Frame CornerRadius="20"  BackgroundColor="Transparent" WidthRequest="360" HeightRequest="360" Padding="0" Margin="0">
+                <AbsoluteLayout Margin="0" Padding="0">
+
+                    <Image x:Name="ImgEmpleadoA" Source="pruebas.png" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                    <Button Text="X" FontAttributes="Bold" FontSize="30" TextColor="#000" x:Name="BtnVolver" Clicked="BtnVolver_Clicked" Margin="0" Padding="0" CornerRadius="100" HeightRequest="45" WidthRequest="45"/>
+
+                </AbsoluteLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</popup:PopupPage>

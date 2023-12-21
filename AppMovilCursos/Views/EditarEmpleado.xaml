@@ -5,20 +5,44 @@
              xmlns:controls="clr-namespace:AppMovilCursos.Resource.Class"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Background="snow">
+        <StackLayout Background="snow" x:Name="MainContainer">
+            
             <StackLayout Background="#00638d" Margin="0" Padding="0,0,0,5" HeightRequest="220">
                 
                 
                 <AbsoluteLayout HeightRequest="270" BackgroundColor="Transparent">
+                    <!--  
                     <ImageButton Source="Persona.png" CornerRadius="100" Margin="20" IsEnabled="False" BackgroundColor="Transparent"  x:Name="ImgEmpleado" Clicked="AddImg_Clicked" HeightRequest="200" WidthRequest="200"  Aspect="AspectFill" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
+                    -->
+                    <!-- 
+                    <ImageButton IsEnabled="True" Margin="0" BackgroundColor="Transparent" x:Name="ImgEmpleado"  HeightRequest="200" WidthRequest="500"  Aspect="AspectFill" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="FullImage" Tapped="FullImage_Tapped" NumberOfTapsRequired="1">
+                                
+                            </TapGestureRecognizer>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    -->
                     
-                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" Padding="5" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" MinimumHeightRequest="20" VerticalOptions="Start" AbsoluteLayout.LayoutFlags="All">
+                    <Image IsEnabled="True" Margin="0" BackgroundColor="Transparent" x:Name="ImgEmpleado"  HeightRequest="200" WidthRequest="500"  Aspect="AspectFill" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="FullImage" Tapped="FullImage_Tapped" NumberOfTapsRequired="1" >
+
+                            </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" Padding="5" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" MinimumHeightRequest="20" VerticalOptions="Start" AbsoluteLayout.LayoutFlags="All" x:Name="BgContainer">
                         <ImageButton HorizontalOptions="Start" Source="IconBackW.png" x:Name="btnVolver" Clicked="btnVolver_Clicked"  CornerRadius="50" BackgroundColor="#00638d" WidthRequest="40" HeightRequest="40" Padding="4" />
-                        <Label Text="Editar Empleado" IsVisible="False" TextColor="#fff" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="16" FontAttributes="Bold"/>
                     </StackLayout>
-                    
-                    
-                    
+
+
+
+                    <StackLayout IsVisible="true" Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Start" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Transparent" Margin="5">
+                        <Button Text="Cambiar Foto" Style="{StaticResource DisableBtn}" IsEnabled="False" FontAttributes="Bold" x:Name="ImgEmpleadoUpdate" TextColor="#fff" HeightRequest="40" BackgroundColor="Transparent" BorderColor="#999" BorderWidth="2" Clicked="AddImg_Clicked" />
+                    </StackLayout>
+
+
                     <StackLayout IsVisible="true" Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Transparent">
                         <Label Text="Editar Empleado" VerticalTextAlignment="Center" IsVisible="true" FontAttributes="Bold" TextColor="#fff" />
                         <Switch x:Name="swToggle" Toggled="swToggle_Toggled" />

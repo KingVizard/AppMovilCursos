@@ -25,7 +25,7 @@ namespace AppMovilCursos.Views
         {
             InitializeComponent();
             UserPickerEmpleado.ItemsSource = pickerTipos.GetTipos();
-            ImgEmpleado.Padding = 20;
+            ImgEmpleado.Padding = 100;
             ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
 
             //Valores Para pruebas
@@ -34,15 +34,92 @@ namespace AppMovilCursos.Views
             //txtTelefono.Text = "8131723963";
             //txtEdad.Text = "18";
 
+            //string imagePath = ImageSource.FromFile("SinImg.png").ToString();
+
+            //DisplayAlert("AViso", imagePath, "OK");
+
+            btnVolver.BackgroundColor = Color.FromRgba(0, 0, 255, 0.1);
+
+            /////
+            
+        string filePath = "C:\\Users\\pablo\\source\\repos\\AppMovilCursos\\AppMovilCursos.Android\\Resources\\drawable\\IconBackW.png"; // Reemplaza con la ruta de tu archivo de imagen
+
+
+            // Convierte la imagen a un stream
+            GetStreamFromFile(filePath);
+
+        // Asigna el stream a la fuente de la imagen en tu aplicación Xamarin.Forms
+        //Image image = new Image();
+        //image.Source = ImageSource.FromStream(() => imageStream);
+            ///
+
 
         }
+        //
+
+
+// Método para obtener el stream desde el archivo
+public Stream GetStreamFromFile(string filePath)
+        {
+            // Verifica si el archivo existe
+            if (File.Exists(filePath))
+            {
+                // Lee el archivo como un arreglo de bytes
+                byte[] fileBytes = File.ReadAllBytes(filePath);
+
+                // Crea un MemoryStream a partir del arreglo de bytes
+                MemoryStream stream = new MemoryStream(fileBytes);
+
+                // Devuelve el MemoryStream
+                return stream;
+            }
+            else
+            {
+                // Manejo de error: el archivo no existe
+                DisplayAlert("Alerta", "No existe", "OK");
+
+                return null;
+            }
+        }
+
+        //
 
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
         {
-            if(ValorImg.ImgStream != Stream.Null)
-            {
-                ImgByte.Img = GetImageBytes(ValorImg.ImgStream);
-            }
+            ////if(ValorImg.ImgStream != Stream.Null)
+            ////{
+            ////    ImgByte.Img = GetImageBytes(ValorImg.ImgStream);
+            ////} 
+            //    string filePath = "edit.png";
+
+            //    ImageSource imageSource = ImageSource.FromFile(filePath);
+
+            //ImgEmpleado.Source = ImageSource.FromFile("edit.png");
+
+            ////if(File.Exists(imageSource.ToString()))
+            //if(File.Exists(filePath))
+            //    {
+
+            //await DisplayAlert("AViso", "si EXISTEEEE: "+imageSource, "OK");
+
+
+            //string imagePath = ImageSource.FromFile("SinImg.png").ToString();
+            //////using (var stream = File.Open(imagePath, FileMode.Open, FileAccess.Read));
+
+            //var a = (File.Open(ImgEmpleado.Source.ToString(), FileMode.Open, FileAccess.Read));
+
+            //var s = GetImageBytes(a);
+
+            ////byte[] imageBytes = File.ReadAllBytes();
+            //ImgByte.Img = s;
+
+
+            //}
+            //else
+            //{
+            //    await DisplayAlert("AViso", "NOOO EXISTE", "OK");
+
+            //}
 
             if (ValidarCamposVacios())
             {
@@ -61,25 +138,26 @@ namespace AppMovilCursos.Views
 
                     await App.SQLiteDB.SaveEmpleadoAsync(emple);
 
-                    txtNombre.Text = "";
-                    txtDireccion.Text = "";
-                    txtTelefono.Text = "";
-                    txtEdad.Text = "";
-                    txtCurp.Text = "";
-                    UserPickerEmpleado.SelectedIndex = -1;
-                    ImgEmpleado.Padding = 20;
-                    ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
+            txtNombre.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            txtEdad.Text = "";
+            txtCurp.Text = "";
+            UserPickerEmpleado.SelectedIndex = -1;
+            ImgEmpleado.Padding = 20;
+            ImgEmpleado.Source = ImageSource.FromFile("SinImg.png");
 
 
-                    await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
-                }
-
-            }
-            else
-            {
-                await DisplayAlert("AVISO", "Ingresar los datos requeridos", "Ok");
-            }
+            await DisplayAlert("AVISO", "Se guardo de manera exitosa", "Ok");
         }
+
+    }
+                    else
+                    {
+                        await DisplayAlert("AVISO", "Ingresar los datos requeridos", "Ok");
+}
+
+                }
 
         public bool ValidarCamposVacios()
         {
@@ -218,6 +296,31 @@ namespace AppMovilCursos.Views
             public static Byte[] Img = null;
         }
 
+        //public byte[] ConverirImgSourceBytes(string filePath)
+        //{
+        //    // Cargar la imagen como ImageSource desde el archivo
+        //    ImageSource imageSource = ImageSource.FromFile(filePath);
+
+        //    // Convertir ImageSource a bytes
+        //    byte[] imageBytes = ConvertirImageSourceABytes(imageSource);
+
+
+        //    return imageBytes;
+        //}
+
+        //public byte[] ConvertirImageSourceABytes(ImageSource imageSource)
+        //{
+        //    // Convertir ImageSource a Stream
+        //    StreamImageSource streamImageSource = (StreamImageSource)imageSource;
+        //    Stream stream = (Stream)streamImageSource.Stream.Invoke(new object[] { });
+
+        //    // Leer los bytes desde el Stream
+        //    using (MemoryStream memoryStream = new MemoryStream())
+        //    {
+        //        stream.CopyTo(memoryStream);
+        //        return memoryStream.ToArray();
+        //    }
+        //}
 
         private byte[] GetImageBytes(Stream stream)
         {

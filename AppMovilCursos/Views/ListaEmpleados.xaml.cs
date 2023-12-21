@@ -21,6 +21,7 @@
 //----------
 
 using AppMovilCursos.Models;
+using Rg.Plugins.Popup.Services;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -29,8 +30,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
+//using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
 using static AppMovilCursos.Views.Login;
 
@@ -62,6 +64,50 @@ namespace AppMovilCursos.Views
             //    mostrar();
             //});
 
+            //if(imgPerfil.Source)
+
+
+            //if (test.Source == ImageSource.FromFile("SinImg.png"))
+            //if (test.Source == null)
+            //    {
+            //    //test.Source = "SinImg.png";
+            //}
+
+
+            //ImageButton miImagen = (ImageButton)FindByName("imgPerfilJaja");
+
+            //Label testa = (Label)FindByName("lblTestTestTest");
+
+
+            //if (miImagen != null)
+            //{
+            //    testa.Text = "Jajaja";
+            //}
+
+            //ImageButton ab = new ImageButton();
+
+            //ab = ImageButton.PaddingProperty = 5;
+
+            //var a = ImageButton.PaddingProperty = 5;
+
+            //    // Realizar acciones con la imagen
+            //    if (miImagen != null)
+            //{
+            //    // Hacer algo con la imagen
+            //    //miImagen.Source = "Empleado.png";
+            //    miImagen.Margin = 50;
+            //    miImagen.BackgroundColor = Color.Red;
+            //}
+
+
+            //Color borderColor = Color.FromRgb(51, 51, 51);
+            //Color borderColorA = Color.FromRgb(100, 20, 10);
+
+            //var testimg = this.FindByName<ImageButton>("imgPerfil");
+
+            //testimg.BorderColor = Color.FromRgb(51, 51, 51);
+
+            //imgPerfil.Background = borderColor;
         }
 
         //public Stream BytesToStreamLL(byte[] bytes)
@@ -69,6 +115,8 @@ namespace AppMovilCursos.Views
         //    Stream stream = new MemoryStream(bytes);
         //    return stream;
         //}
+
+
 
         public async void mostrar() 
         {
@@ -78,9 +126,42 @@ namespace AppMovilCursos.Views
                 if (EmpleadosList != null)
                 {
                     lsEmpleados.ItemsSource = EmpleadosList;
-                    
+
+                    //    var res = App.SQLiteDB.GetEmpleadosAsync().Result.Where(i => i.imgContent == null);
+
+                    //ImageButton test = (ImageButton)FindByName("imgPerfil");
+
+                    //if (res == null)
+                    //{
+                    //    //await DisplayAlert("AVISO", "si es null", "OK");
+
+                    //var yesy = EmpleadosList.Where(i => i.imgContent == null);
+
+                    //if(yesy == null)
+                    //{
+
+                    //}
+                    //    //var yesy = Empleados <EmpleadosList>Where(i => i.imgContent == null).Task.Result();
+                    //    //App.SQLiteDB.QueryAsync<Empleados>("SELECT imgContent FROM Empleados WHERE imgContent=?", null).Result;
+                    //    test.Source = "SinImg.png";
+
+                    //}
+                    //else
+                    //{
+                    //    //await DisplayAlert("AVISO", "No es null", "OK");
+
+                    //}
+
+                    //return db.QueryAsync<Usuarios>("SELECT Email, Clave FROM Usuarios WHERE Email=? AND Clave=?", email, password).Result;
+
+                    //var a = EmpleadosList.AsQueryable("SELECT imgContent FROM Empleados WHERE imgContent=null");
+
+
+
+                    //return db.Table<Empleados>().Where(i => i.IdEmp == personId).FirstOrDefaultAsync();
+
                 }
-               
+
             } else
             {
                 
@@ -415,5 +496,21 @@ namespace AppMovilCursos.Views
         }
 
 
+        //public ICommand EnviarCommand { get; private set; }
+
+
+
+        //private void Enviar(string mensaje)
+        //{
+        //    // Aquí puedes utilizar el valor del mensaje que se pasó como parámetro
+        //    // por ejemplo, enviar el mensaje a través de una solicitud de red
+        //}
+
+
+        private async void imgPerfil_Clicked(object sender, EventArgs e)
+        {
+            //EnviarCommand = new Command<string>(Enviar);
+            //await PopupNavigation.Instance.PushAsync(new ImagePopupPage(imgbytes));
+        }
     }
 }

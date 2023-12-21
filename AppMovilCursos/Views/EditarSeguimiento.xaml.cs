@@ -29,6 +29,12 @@ namespace AppMovilCursos.Views
             //int match_Tipo = EmpleadosList.First(x => x.Nombre == seguimiento.NombreEmpleado).Id;
             //PkNombreEmp.SelectedIndex = match_Tipo - 1;
 
+            //
+            Color colortest = Color.FromRgba(255, 0, 0, 0.1);
+            BackgroundColor = colortest;
+            //
+
+            //BgContainer.background = colortest;
 
             ObtenerValoresPk();
 
